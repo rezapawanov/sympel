@@ -1,0 +1,46 @@
+[08-Aug-2019 11:30:59 Asia/Jakarta] PHP Fatal error:  Class 'unggahexcel' not found in /home/smky7972/public_html/asis/akademik/application/controllers/Pengguna.php on line 653
+[08-Aug-2019 11:31:32 Asia/Jakarta] PHP Fatal error:  Class 'unggahexcel' not found in /home/smky7972/public_html/asis/akademik/application/controllers/Pengguna.php on line 653
+[10-Sep-2019 09:38:16 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 120
+[10-Sep-2019 09:38:47 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[10-Sep-2019 09:38:49 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[10-Sep-2019 16:50:07 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[10-Sep-2019 21:56:54 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[10-Sep-2019 22:06:45 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 06:09:15 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 06:14:59 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 07:46:17 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 15:18:22 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 15:58:17 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 16:00:12 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 21:01:25 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 21:01:26 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[11-Sep-2019 21:38:55 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[12-Sep-2019 16:39:17 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[12-Sep-2019 16:39:18 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[12-Sep-2019 20:29:03 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[12-Sep-2019 20:29:09 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[12-Sep-2019 20:47:37 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[12-Sep-2019 20:47:47 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[13-Sep-2019 13:29:39 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[13-Sep-2019 18:30:48 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[14-Sep-2019 19:08:48 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[14-Sep-2019 19:09:11 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[14-Sep-2019 19:09:14 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[15-Sep-2019 14:59:42 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[15-Sep-2019 15:00:33 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[15-Sep-2019 15:00:34 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:45 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:47 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:54 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:55 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:55 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:55 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:55 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:55 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[17-Sep-2019 08:29:58 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/akademik/application/views/home/home_siswa.php on line 127
+[06-Apr-2020 18:44:42 Asia/Jakarta] PHP Fatal error:  Cannot redeclare class SpreadsheetReader in /home/smky7972/public_html/asis/akademik/asset/excell/SpreadsheetReader.php on line 8
+[12-Apr-2020 09:57:57 Asia/Jakarta] PHP Fatal error:  Cannot redeclare class SpreadsheetReader in /home/smky7972/public_html/asis/akademik/asset/excell/SpreadsheetReader.php on line 8
+[13-Apr-2020 16:28:51 Asia/Jakarta] PHP Fatal error:  Cannot redeclare class SpreadsheetReader in /home/smky7972/public_html/asis/akademik/asset/excell/SpreadsheetReader.php on line 8
+[14-Apr-2020 09:10:48 Asia/Jakarta] PHP Fatal error:  Class 'unggahexcel' not found in /home/smky7972/public_html/asis/akademik/application/controllers/Pengguna.php on line 653
+[14-Apr-2020 09:11:27 Asia/Jakarta] PHP Fatal error:  Class 'unggahexcel' not found in /home/smky7972/public_html/asis/akademik/application/controllers/Pengguna.php on line 653
+[15-Apr-2020 07:02:10 Asia/Jakarta] PHP Fatal error:  Class 'unggahexcel' not found in /home/smky7972/public_html/asis/akademik/application/controllers/Pengguna.php on line 653

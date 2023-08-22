@@ -1,0 +1,51 @@
+[07-Aug-2019 16:22:55 Asia/Jakarta] PHP Fatal error:  Call to undefined method Combo_model::combo_jabatan_admin() in /home/smky7972/public_html/asis/asispanel/application/controllers/User.php on line 62
+[07-Aug-2019 16:23:09 Asia/Jakarta] PHP Fatal error:  Call to undefined method Combo_model::combo_jabatan_admin() in /home/smky7972/public_html/asis/asispanel/application/controllers/User.php on line 62
+[07-Aug-2019 16:23:12 Asia/Jakarta] PHP Fatal error:  Call to undefined method Combo_model::combo_jabatan_admin() in /home/smky7972/public_html/asis/asispanel/application/controllers/User.php on line 62
+[07-Aug-2019 16:23:47 Asia/Jakarta] PHP Fatal error:  Call to undefined method Combo_model::combo_jabatan_admin() in /home/smky7972/public_html/asis/asispanel/application/controllers/User.php on line 62
+[07-Aug-2019 16:24:14 Asia/Jakarta] PHP Fatal error:  Call to undefined method Combo_model::combo_jabatan_admin() in /home/smky7972/public_html/asis/asispanel/application/controllers/User.php on line 62
+[28-Dec-2019 17:18:13 Asia/Jakarta] PHP Warning:  include(/home/smky7972/public_html/asis/asispanel/application//errors/html/error_php.php): failed to open stream: No such file or directory in /home/smky7972/public_html/asis/asispanel/system/core/Exceptions.php on line 269
+[28-Dec-2019 17:18:13 Asia/Jakarta] PHP Warning:  include(): Failed opening '/home/smky7972/public_html/asis/asispanel/application//errors/html/error_php.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/smky7972/public_html/asis/asispanel/system/core/Exceptions.php on line 269
+[28-Dec-2019 17:18:13 Asia/Jakarta] PHP Warning:  include(/home/smky7972/public_html/asis/asispanel/application//errors/html/error_php.php): failed to open stream: No such file or directory in /home/smky7972/public_html/asis/asispanel/system/core/Exceptions.php on line 269
+[28-Dec-2019 17:18:13 Asia/Jakarta] PHP Warning:  include(): Failed opening '/home/smky7972/public_html/asis/asispanel/application//errors/html/error_php.php' for inclusion (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/smky7972/public_html/asis/asispanel/system/core/Exceptions.php on line 269
+[28-Dec-2019 17:19:38 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[28-Dec-2019 17:19:49 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[28-Dec-2019 17:21:31 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[28-Dec-2019 17:23:58 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[28-Dec-2019 17:25:16 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[28-Dec-2019 17:25:21 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[28-Dec-2019 17:27:51 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[28-Dec-2019 17:29:07 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[10-Jan-2020 10:02:17 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:40 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:41 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:41 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:41 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:43 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:59 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:59 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:03:59 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:06:33 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:06:37 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:06:44 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:07:35 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:08:45 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:09:40 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:09:41 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:10:45 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 185
+[10-Jan-2020 10:13:16 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[10-Jan-2020 10:25:31 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[10-Jan-2020 10:27:46 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[13-Jan-2020 22:58:04 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[13-Jan-2020 22:58:08 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[13-Jan-2020 22:58:21 Asia/Jakarta] PHP Fatal error:  Call to a member function result_array() on null in /home/smky7972/public_html/asis/asispanel/application/views/home/home.php on line 188
+[12-Feb-2020 19:55:59 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 19:57:03 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 19:57:15 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:01:49 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:02:05 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:02:09 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:02:18 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:02:55 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:03:16 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:03:27 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17
+[12-Feb-2020 20:03:28 Asia/Jakarta] PHP Fatal error:  Cannot redeclare Master::__construct() in /home/smky7972/public_html/asis/asispanel/application/controllers/Master.php on line 17

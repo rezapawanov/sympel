@@ -1,0 +1,3 @@
+[05-Feb-2020 10:11:43 Asia/Jakarta] PHP Fatal error:  Call to a member function tamu() on null in /home/smky7972/public_html/asis/ppdb/application/controllers/Home.php on line 16
+[06-Feb-2020 23:15:20 Asia/Jakarta] PHP Fatal error:  Class 'Dompdf\Dompdf' not found in /home/smky7972/public_html/asis/ppdb/application/libraries/Pdf.php on line 15
+[27-Mar-2020 21:50:22 Asia/Jakarta] PHP Fatal error:  require_once(): Failed opening required 'application/third_party/spreadsheet-reader-master/SpreadsheetReader.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/smky7972/public_html/asis/ppdb/application/libraries/Unggahexcel.php on line 6

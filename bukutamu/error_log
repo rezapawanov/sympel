@@ -1,0 +1,3 @@
+[14-Jan-2020 06:50:22 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'tanggal_mulai' (T_STRING), expecting ',' or ';' in /home/smky7972/public_html/asis/bukutamu/application/views/portal.php on line 179
+[14-Jan-2020 06:50:44 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'tanggal_mulai' (T_STRING), expecting ',' or ';' in /home/smky7972/public_html/asis/bukutamu/application/views/portal.php on line 179
+[14-Jan-2020 06:54:53 Asia/Jakarta] PHP Parse error:  syntax error, unexpected 'tanggal_mulai' (T_STRING), expecting ',' or ';' in /home/smky7972/public_html/asis/bukutamu/application/views/portal.php on line 179
