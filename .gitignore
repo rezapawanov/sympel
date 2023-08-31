@@ -1,14 +1,14 @@
-akademik/application/config/database.php
-alumni/application/config/database.php
-application/config/database.php
-arsip/config/database.php
-bukutamu/config/database.php
-cbt/config/database.php
-e-learning/config/database.php
-kelulusan/config/database.php
-kesiswaan/config/database.php
-keuangan/config/database.php
-master/config/database.php
-perpustakaan/config/database.php
-ppdb/config/database.php
-sarpras/config/database.php
+git rm --cached akademik/application/config/database.php
+git rm --cached alumni/application/config/database.php
+git rm --cached application/config/database.php
+git rm --cached arsip/config/database.php
+git rm --cached bukutamu/config/database.php
+git rm --cached cbt/config/database.php
+git rm --cached e-learning/config/database.php
+git rm --cached kelulusan/config/database.php
+git rm --cached kesiswaan/config/database.php
+git rm --cached keuangan/config/database.php
+git rm --cached master/config/database.php
+git rm --cached perpustakaan/config/database.php
+git rm --cached ppdb/config/database.php
+git rm --cached sarpras/config/database.php
