@@ -1,5 +1,14 @@
 akademik/application/config/database.php
+alumni/application/config/database.php
 application/config/database.php
-keuangan/application/config/database.php
-master/application/config/database.php
-ppdb/application/config/database.php
+arsip/config/database.php
+bukutamu/config/database.php
+cbt/config/database.php
+e-learning/config/database.php
+kelulusan/config/database.php
+kesiswaan/config/database.php
+keuangan/config/database.php
+master/config/database.php
+perpustakaan/config/database.php
+ppdb/config/database.php
+sarpras/config/database.php
