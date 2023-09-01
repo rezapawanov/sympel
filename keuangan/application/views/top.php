@@ -50,15 +50,15 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/adminlte.min.css">
 
 
-  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css">
-  <link href="<?php echo base_url(); ?>asset/fullcalendar.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/bootstrap-datepicker.css">
+  <link href="<?php echo base_url(); ?>assets/dist/css/fullcalendar.css" rel="stylesheet">
 
   <!-- jQuery -->
   <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url(); ?>asset/typeahead.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist/js/typeahead.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="<?php echo base_url(); ?>asset/fullcalendar.js"></script>
-  <script src="<?php echo base_url(); ?>asset/dist/js/jquery.tabledit.js"></script>
+  <script src="<?php echo base_url(); ?>assets/dist/js/fullcalendar.js"></script>
+  <script src="<?php echo base_url(); ?>assets/dist/js/jquery.tabledit.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed ">
