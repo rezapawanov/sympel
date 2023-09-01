@@ -32,7 +32,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
   <!-- Font Awesome Pro -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.css">
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"> -->
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/select2/css/select2.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
@@ -58,6 +58,8 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist/js/typeahead.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="<?php echo base_url(); ?>assets/dist/js/fullcalendar.js"></script>
+
+  <!-- script src="<?php echo base_url(); ?>assets/dist/js/fullcalendar.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/dist/js/jquery.tabledit.js"></script>
 </head>
 
