@@ -74,7 +74,7 @@
                 'url':BASE_URL+"siswa/get_absensi"
             },
             'columns': [
-                { data: 'kelas' },
+                { data: 'id_kelas' },
                 { data: 'tahun_ajaran' },
                 { data: 'keterangan' },
                 { data: 'waktu_absen' },

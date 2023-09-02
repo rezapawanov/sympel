@@ -686,28 +686,24 @@ class siswa extends CI_Controller
 		$columnSortOrder = $post['order'][0]['dir']; // asc or desc
 		$searchValue =  $post['search']['value']; // Search value
 
-		var_dump($columnName);die;
-
 		## Total number of records without filtering
 		$totalRecords = $this->db->where('id_siswa', $id_siswa)->get('absen')->num_rows();
 
 		## Fetch records
-		$empQuery = "select * from employee WHERE 1 ".$searchQuery." order by ".$columnName." ".$columnSortOrder." limit ".$row.",".$rowperpage;
-		$empRecords = mysqli_query($con, $empQuery);
-		$data = array();
+		$empRecords = $this->db->query("select * from absen 
+			WHERE id_siswa ".$searchValue." order by ".$columnName." ".$columnSortOrder." limit ".$row.",".$rowperpage)->result_array();
+	
 
-		while ($row = mysqli_fetch_assoc($empRecords)) {
-		$data[] = array( 
-			"emp_name"=>$row['emp_name'],
-			"email"=>$row['email'],
-			"gender"=>$row['gender'],
-			"salary"=>$row['salary'],
-			"city"=>$row['city']
+		## Response
+		$response = array(
+			"draw" => intval($draw),
+			"iTotalRecords" => $totalRecords,
+			"iTotalDisplayRecords" => $totalRecords,
+			"aaData" => $empRecords
 		);
-		}
 
-		$data = $this->db->where('id_siswa', $id_siswa)->get('absen')->result_array();
+		// $data = $this->db->where('id_siswa', $id_siswa)->get('absen')->result_array();
 		header('Content-Type: application/json; charset=utf-8');
-		echo json_encode($data);
+		echo json_encode($response);
 	}
 }
