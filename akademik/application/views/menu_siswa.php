@@ -84,7 +84,13 @@ $bln= date ("M");
             </a>
           </li>
           <li class="nav-header">MENU NAVIGASI</li>
-
+        
+        <li class="nav-item">
+          <a href="<?php echo base_url(); ?>siswa/absensi" class="nav-link">
+            <i class="fa fa-calendar"></i>
+            <p>Absensi</p>
+          </a>
+        </li>
       
         <li class="nav-item">
                 <a href="<?php echo base_url(); ?>siswa/cek_pembayaran" class="nav-link">

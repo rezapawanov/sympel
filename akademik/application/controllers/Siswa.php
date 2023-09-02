@@ -663,4 +663,51 @@ class siswa extends CI_Controller
 			redirect(base_url());
 		}
 	}
+
+	public function absensi(){
+		$data['judul'] = 'Absensi Siswa';
+
+		$this->load->view('top', $data);
+		$this->load->view('menu_siswa');
+		$this->load->view('siswa/absensi');
+		$this->load->view('bottom');
+	}
+
+	public function get_absensi(){
+		$id_siswa = $this->session->userdata("id");
+		$post = $this->input->post();
+
+		$draw = $post['draw'];
+		$row = $post['start'];
+
+		$rowperpage = $post['length']; // Rows display per page
+		$columnIndex = $post['order'][0]['column']; // Column index
+		$columnName = $post['columns'][$columnIndex]['data']; // Column name
+		$columnSortOrder = $post['order'][0]['dir']; // asc or desc
+		$searchValue =  $post['search']['value']; // Search value
+
+		var_dump($columnName);die;
+
+		## Total number of records without filtering
+		$totalRecords = $this->db->where('id_siswa', $id_siswa)->get('absen')->num_rows();
+
+		## Fetch records
+		$empQuery = "select * from employee WHERE 1 ".$searchQuery." order by ".$columnName." ".$columnSortOrder." limit ".$row.",".$rowperpage;
+		$empRecords = mysqli_query($con, $empQuery);
+		$data = array();
+
+		while ($row = mysqli_fetch_assoc($empRecords)) {
+		$data[] = array( 
+			"emp_name"=>$row['emp_name'],
+			"email"=>$row['email'],
+			"gender"=>$row['gender'],
+			"salary"=>$row['salary'],
+			"city"=>$row['city']
+		);
+		}
+
+		$data = $this->db->where('id_siswa', $id_siswa)->get('absen')->result_array();
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($data);
+	}
 }

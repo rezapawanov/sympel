@@ -57,7 +57,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
   <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>assets/dist/js/typeahead.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-  <!-- script src="<?php echo base_url(); ?>assets/dist/js/fullcalendar.js"></script> -->
+  <script src="<?php echo base_url(); ?>assets/dist/js/fullcalendar.js"></script>
   <script src="<?php echo base_url(); ?>assets/dist/js/jquery.tabledit.js"></script>
 </head>
 

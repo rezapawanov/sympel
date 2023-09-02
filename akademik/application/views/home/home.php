@@ -252,48 +252,58 @@
     </form>
   </div>
 </div>
+
+<!-- canvas charts -->
+<div class="d-none" id="salesChart">
+
+</div>
+
+
 <script>
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'prevYear,nextYear',
-    },
-
-    events: "<?php echo base_url(); ?>home/get_calendar",
-
-    dayClick: function(date, jsEvent, view) {
-     
-      var tanggal = date.getDate();
-      var bulan = date.getMonth() + 1;
-      var tahun = date.getFullYear();
-      var fullDate = tahun + '-' + bulan + '-' + tanggal;
-
-      $('#addModal').modal('toggle');
-      $('#addModal').modal('show');
-
-      $("#inputDate").val(fullDate);
-      $("#labelDate").text(fullDate);
-      $("#inputYear").val(date.getFullYear());
-      $("#labelYear").text(date.getFullYear());
-    },
-
-    eventClick: function(calEvent, jsEvent, view) {
-      $("#delModal").modal('toggle');
-      $("#delModal").modal('show');
-      $("#idDel").val(calEvent.id);
-      $("#showYear").text(calEvent.year);
-
-      var tgl = calEvent.start.getDate();
-      var bln = calEvent.start.getMonth() + 1;
-      var thn = calEvent.start.getFullYear();
-
-      $("#showDate").text(tgl + '-' + bln + '-' + thn);
-      $("#showDesc").text(calEvent.title);
-    }
-
-
+  $(document).ready(function () {
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'prevYear,nextYear',
+      },
+  
+      events: "<?php echo base_url(); ?>home/get_calendar",
+  
+      dayClick: function(date, jsEvent, view) {
+       
+        var tanggal = date.getDate();
+        var bulan = date.getMonth() + 1;
+        var tahun = date.getFullYear();
+        var fullDate = tahun + '-' + bulan + '-' + tanggal;
+  
+        $('#addModal').modal('toggle');
+        $('#addModal').modal('show');
+  
+        $("#inputDate").val(fullDate);
+        $("#labelDate").text(fullDate);
+        $("#inputYear").val(date.getFullYear());
+        $("#labelYear").text(date.getFullYear());
+      },
+  
+      eventClick: function(calEvent, jsEvent, view) {
+        $("#delModal").modal('toggle');
+        $("#delModal").modal('show');
+        $("#idDel").val(calEvent.id);
+        $("#showYear").text(calEvent.year);
+  
+        var tgl = calEvent.start.getDate();
+        var bln = calEvent.start.getMonth() + 1;
+        var thn = calEvent.start.getFullYear();
+  
+        $("#showDate").text(tgl + '-' + bln + '-' + thn);
+        $("#showDesc").text(calEvent.title);
+      }
+  
+  
+    });
   });
+
 </script>
 
 <script>
