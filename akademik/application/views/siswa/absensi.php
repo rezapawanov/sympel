@@ -28,7 +28,7 @@
                             <h3 class="card-title"><i class="fas fa-ballot"></i> Detail <?php echo $judul; ?></h3>
                         </div>
 
-                        <div class="tab-content p-3">
+                        <div class="tab-content p-3" style="overflow-x: auto;">
                             <table class="table table-bordered" id="empTable">
                                 <thead>
                                     <tr>
