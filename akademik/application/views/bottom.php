@@ -28,7 +28,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 <script src="<?php echo base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
 <!-- OPTIONAL SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
+
 
 <script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
@@ -75,7 +75,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 </script>
 <script>
 $(document).ready(function(){
-  $(".tgl").inputmask("99-99-9999");  
+  $(".tgl").inputmask("99-99-9999");
   $(".tahun_ajaran").inputmask("9999/9999");  
   $(".jam").inputmask("99:99");  
   $('.select2').select2();

@@ -12,7 +12,15 @@ $(function () {
   //-----------------------
 
   // Get context with jQuery - using jQuery's .get() method.
-  var salesChartCanvas = $('#salesChart').get(0).getContext('2d')
+  var salesChartCustom = $('#salesChart').get(0);
+
+  if (salesChartCustom != undefined ) {
+    salesChartCustom = salesChartCustom.getContext('2d');
+  } else {
+    return
+  }
+
+  var salesChartCanvas = salesChartCustom;
 
   var salesChartData = {
     labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

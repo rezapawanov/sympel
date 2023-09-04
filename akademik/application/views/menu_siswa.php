@@ -164,15 +164,21 @@ $bln= date ("M");
 
   <script>
     $(document).ready(function(){
-      if($('input[name=username]').val().trim()=='') $('input[name=username]').focus();
-      else $('input[name=password]').focus();
 
-      $("#show_password").change(function(event) {
-        if($(this).is(':checked')){
-          $("input[name=password]").prop('type', "text");
-        }else{
-          $("input[name=password]").prop('type', "password");
-        }
-      });
+      let username = $('input[name=username]').val();
+
+      if(username != undefined){
+        if($('input[name=username]').val().trim()=='') $('input[name=username]').focus();
+        else $('input[name=password]').focus();
+  
+        $("#show_password").change(function(event) {
+          if($(this).is(':checked')){
+            $("input[name=password]").prop('type', "text");
+          }else{
+            $("input[name=password]").prop('type', "password");
+          }
+        });
+      }
+
     });
   </script>
