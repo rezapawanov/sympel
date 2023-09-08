@@ -55,6 +55,7 @@
 
 <script>
     var BASE_URL = '<?=base_url()?>';
+    var id_siswa = '<?=$id_siswa?>';
     // $.ajax({
     //     type: "POST",
     //     url: BASE_URL+"siswa/get_absensi",
@@ -71,13 +72,28 @@
             'serverSide': true,
             'serverMethod': 'post',
             'ajax': {
-                'url':BASE_URL+"siswa/get_absensi"
+                'url':BASE_URL+"siswa/get_absensi",
+                data: {
+                    id_siswa: id_siswa
+                }
             },
             'columns': [
-                { data: 'id_kelas' },
-                { data: 'tahun_ajaran' },
-                { data: 'keterangan' },
-                { data: 'waktu_absen' },
+                { 
+                    data: 'nama_kelas' 
+                },
+                { 
+                    data: 'tahun_ajaran' 
+                },
+                { 
+                    data: 'keterangan' 
+                },
+                { 
+                    data: 'waktu_absen',
+                    class: 'text-center',
+                    render(data, type, row, meta){
+                        return moment(data).format('DD MMM YYYY, HH:mm');
+                    }
+                },
             ]
         });
     });

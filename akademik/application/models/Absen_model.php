@@ -11,4 +11,19 @@ class Absen_model extends CI_Model {
 		WHERE tahun_ajaran = '$tahun_ajaran' ORDER BY tanggal_absen DESC");
 		return $q;
     }
+
+	public function absen_siswa($start, $limit, $filter){
+		$this->db->select('a.*, k.nama_kelas');
+		$this->db->from('absen a');
+		$this->db->join('mst_kelas k', 'k.id_kelas = a.id_kelas');
+		$this->db->limit($limit, $start);
+
+		if(isset($filter['id_siswa']))
+			$this->db->where('a.id_siswa', $filter['id_siswa']);
+
+		if(isset($filter['keterangan']))
+			$this->db->where('a.keterangan', $filter['keterangan']);
+
+		return $this->db->get()->result_array();
+	}
 }

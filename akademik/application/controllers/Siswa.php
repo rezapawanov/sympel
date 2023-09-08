@@ -12,6 +12,7 @@ class siswa extends CI_Controller
 			redirect(base_url());
 		} else {
 			$this->load->Model('Siswa_model');
+			$this->load->Model('Absen_model');
 			$this->load->Model('Combo_model');
 		}
 	}
@@ -666,41 +667,51 @@ class siswa extends CI_Controller
 
 	public function absensi(){
 		$data['judul'] = 'Absensi Siswa';
+		$data['id_siswa'] = $this->session->userdata('id');
 
 		$this->load->view('top', $data);
 		$this->load->view('menu_siswa');
-		$this->load->view('siswa/absensi');
+		$this->load->view('siswa/absensi', $data);
 		$this->load->view('bottom');
 	}
 
 	public function get_absensi(){
-		$id_siswa = $this->session->userdata("id");
+		// $id_siswa = $this->session->userdata("id");
 		$post = $this->input->post();
 
-		$draw = $post['draw'];
-		$row = $post['start'];
+		// $draw = $post['draw'];
+		// $row = $post['start'];
 
-		$rowperpage = $post['length']; // Rows display per page
-		$columnIndex = $post['order'][0]['column']; // Column index
-		$columnName = $post['columns'][$columnIndex]['data']; // Column name
-		$columnSortOrder = $post['order'][0]['dir']; // asc or desc
-		$searchValue =  $post['search']['value']; // Search value
+		$filter['id_siswa'] = $post['id_siswa'];
 
-		## Total number of records without filtering
-		$totalRecords = $this->db->where('id_siswa', $id_siswa)->get('absen')->num_rows();
+		// $rowperpage = $post['length']; // Rows display per page
+		// $columnIndex = $post['order'][0]['column']; // Column index
+		// $columnName = $post['columns'][$columnIndex]['data']; // Column name
+		// $columnSortOrder = $post['order'][0]['dir']; // asc or desc
+		// $searchValue =  $post['search']['value']; // Search value
+
+		// ## Total number of records without filtering
+		// $totalRecords = $this->db->where('id_siswa', $id_siswa)->get('absen')->num_rows();
 
 		## Fetch records
-		$empRecords = $this->db->query("select * from absen 
-			WHERE id_siswa ".$searchValue." order by ".$columnName." ".$columnSortOrder." limit ".$row.",".$rowperpage)->result_array();
+		// $empRecords = $this->db->query("select * from absen 
+		// 	WHERE id_siswa ".$searchValue." order by ".$columnName." ".$columnSortOrder." limit ".$row.",".$rowperpage)->result_array();
 	
 
 		## Response
-		$response = array(
-			"draw" => intval($draw),
-			"iTotalRecords" => $totalRecords,
-			"iTotalDisplayRecords" => $totalRecords,
-			"aaData" => $empRecords
-		);
+		$data = $this->Absen_model->absen_siswa($post['start'], $post['length'], $filter);
+
+		$response['data'] = $data;
+		$response['draw'] = intval($post['draw']);
+		$response['recordsTotal'] = count($data);
+		$response['recordsFiltered'] = count($data);
+
+		// $response = array(
+		// 	"draw" => intval($draw),
+		// 	"iTotalRecords" => $totalRecords,
+		// 	"iTotalDisplayRecords" => $totalRecords,
+		// 	"aaData" => $empRecords
+		// );
 
 		// $data = $this->db->where('id_siswa', $id_siswa)->get('absen')->result_array();
 		header('Content-Type: application/json; charset=utf-8');
