@@ -18,11 +18,17 @@ class Absen_model extends CI_Model {
 		$this->db->join('mst_kelas k', 'k.id_kelas = a.id_kelas');
 		$this->db->limit($limit, $start);
 
-		if(isset($filter['id_siswa']))
+		if(isset($filter['id_siswa']) && !empty($filter['id_siswa']))
 			$this->db->where('a.id_siswa', $filter['id_siswa']);
 
-		if(isset($filter['keterangan']))
+		if(isset($filter['keterangan']) && !empty($filter['keterangan']))
 			$this->db->where('a.keterangan', $filter['keterangan']);
+		
+		if(isset($filter['start']) && !empty($filter['start']))
+			$this->db->where('DATE(waktu_absen) >=', $filter['start']);
+
+		if(isset($filter['end']) && !empty($filter['end']))
+			$this->db->where('DATE(waktu_absen) <=', $filter['end']);
 
 		return $this->db->get()->result_array();
 	}

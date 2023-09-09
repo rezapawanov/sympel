@@ -683,6 +683,9 @@ class siswa extends CI_Controller
 		// $row = $post['start'];
 
 		$filter['id_siswa'] = $post['id_siswa'];
+		$filter['start']	= $post['columns'][0]['search']['value'];
+		$filter['end']		= $post['columns'][1]['search']['value'];
+		$filter['keterangan'] = $post['columns'][2]['search']['value'];
 
 		// $rowperpage = $post['length']; // Rows display per page
 		// $columnIndex = $post['order'][0]['column']; // Column index

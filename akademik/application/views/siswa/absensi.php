@@ -1,3 +1,5 @@
+<style>#empTable_filter{display: none;}</style>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -29,6 +31,41 @@
                         </div>
 
                         <div class="tab-content p-3" style="overflow-x: auto;">
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-4 col-form-label">Tanggal Awal</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control form-control-sm" type="date" name="start" placeholder="Masukan Tanggal Awal">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-4 col-form-label">Tanggal Akhir</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control form-control-sm" type="date" name="end" placeholder="Masukan Tanggal Awal">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group row">
+                                        <label for="" class="col-sm-4 col-form-label">Keterangan</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control form-control-sm" name="keterangan">
+                                                <option value="">ALL</option>
+                                                <option value="MASUK">MASUK</option>
+                                                <option value="IZIN">IZIN</option>
+                                                <option value="SAKIT">SAKIT</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button class="btn btn-sm btn-primary" id="cari">Cari</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <table class="table table-bordered" id="empTable">
                                 <thead>
                                     <tr>
@@ -56,18 +93,9 @@
 <script>
     var BASE_URL = '<?=base_url()?>';
     var id_siswa = '<?=$id_siswa?>';
-    // $.ajax({
-    //     type: "POST",
-    //     url: BASE_URL+"siswa/get_absensi",
-    //     data: {},
-    //     dataType: "JSON",
-    //     success: function (response) {
-            
-    //     }
-    // });
 
     $(document).ready(function(){
-        $('#empTable').DataTable({
+        var table = $('#empTable').DataTable({
             'processing': true,
             'serverSide': true,
             'serverMethod': 'post',
@@ -95,6 +123,16 @@
                     }
                 },
             ]
+        });
+
+        $('#cari').on('click', function(){
+            start = $('input[name="start"]').val();
+            end = $('input[name="end"]').val();
+            keterangan = $('select[name="keterangan"]').val();
+
+            table.column(0).search(start).draw();
+            table.column(1).search(end).draw();
+            table.column(2).search(keterangan).draw();
         });
     });
 </script>
