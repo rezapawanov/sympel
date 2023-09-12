@@ -122,15 +122,38 @@ class siswa extends CI_Controller
         }
     }
 
-    public function siswa_terima($id_ppdb)
+    public function siswa_terima($id_ppdb = '')
     {
-        $in['status'] = '1';
-        $where['id_ppdb']     = $id_ppdb;
-        $this->db->update("ppdb_siswa", $in, $where);
-        echo '<script>
-        alert("Update Status Calon Siswa Berhasil")
-        document.location.href="' . base_url() . 'siswa/siswa_detail/'.$id_ppdb.'"
-        </script>';
+        $post = $this->input->post();
+        if(isset($post['nominal_harus_dibayar'])){
+            $data = [
+                'id_ppdb' => $post['id_ppdb'],
+                'nominal_harus_bayar' => $post['nominal_harus_dibayar'],
+                'bayar' => $post['bayar'],
+            ];
+
+            $insert = $this->db->insert('ppdb_pembayaran', $data);
+
+            if($insert){
+                $in['status'] = '1';
+                $this->db->update("ppdb_siswa", $in, ['id_ppdb'=>$post['id_ppdb']]);
+
+                $res = ['success'=>true, 'message'=>'Data berhasil di simpan'];
+            }else{
+                $res = ['success'=>false, 'message'=>'Data gagal di simpan'];
+            }
+
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($res);
+        }
+
+        // $in['status'] = '1';
+        // $where['id_ppdb']     = $id_ppdb;
+        // $this->db->update("ppdb_siswa", $in, $where);
+        // echo '<script>
+        // alert("Update Status Calon Siswa Berhasil")
+        // document.location.href="' . base_url() . 'siswa/siswa_detail/'.$id_ppdb.'"
+        // </script>';
     }
     
     public function hapus_siswa($id)

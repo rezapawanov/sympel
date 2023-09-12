@@ -302,13 +302,30 @@
                                                 ?>
                                           </td>
                                       </tr>
+                                      <tr >
+                                            <td style="font-weight: bold;">Nominal Harus Dibayar</td>
+                                            <td>:</td>
+                                            <td><input type="number" class="form-control" name="nominal_harus_dibayar"></td>
+                                      </tr>
+                                      <tr >
+                                            <td style="font-weight: bold;">Terbayar</td>
+                                            <td>:</td>
+                                            <td><input type="number" class="form-control" name="bayar"></td>
+                                      </tr>
+                                      <tr >
+                                            <td style="font-weight: bold;">Sisa Pembayaran</td>
+                                            <td>:</td>
+                                            <td><input type="number" class="form-control" name="sisa_pembayaran" readonly></td>
+                                      </tr>
                                   <?php if ($status == '0') { ?>
                                       <tfoot>
                                           <tr>
                                               <td>
                                                 <div class="btn-group btn-group-sm float-right">
-                                                  <a class="btn btn-danger" href="<?php echo base_url() . 'siswa/siswa_terima/' . $id_ppdb; ?>"><i class="fa fa-thumbs-down"> </i> Gagal Melakukan Pembayaran</a>
-                                                  <a class="btn btn-success" href="<?php echo base_url() . 'siswa/siswa_terima/' . $id_ppdb; ?>"><i class="fa fa-thumbs-up"> </i> Konfirmasi Pembayaran</a>
+                                                  <!-- <a class="btn btn-danger" href="<?php // echo base_url() . 'siswa/siswa_terima/' . $id_ppdb; ?>"><i class="fa fa-thumbs-down"> </i> Gagal Melakukan Pembayaran</a>
+                                                  <a class="btn btn-success" href="<?php // echo base_url() . 'siswa/siswa_terima/' . $id_ppdb; ?>"><i class="fa fa-thumbs-up"> </i> Konfirmasi Pembayaran</a> -->
+                                                  <a class="btn btn-danger" onclick="simpanPembayaran()"><i class="fa fa-thumbs-down"> </i> Gagal Melakukan Pembayaran</a>
+                                                  <a class="btn btn-success" onclick="simpanPembayaran()"><i class="fa fa-thumbs-up"> </i> Konfirmasi Pembayaran</a>
                                               </div>
                                               </td>
                                           </tr>
@@ -337,3 +354,25 @@
   
   </div>
 
+
+<script>
+    function simpanPembayaran(){
+        let id_ppdb = <?=$id_ppdb?>
+
+        $.ajax({
+            type: "POST",
+            url: "<?=base_url('siswa/siswa_terima')?>",
+            data: {
+                id_ppdb: id_ppdb,
+                nominal_harus_dibayar: $('input[name="nominal_harus_dibayar"]').val(),
+                bayar: $('input[name="bayar"]').val(),
+            },
+            dataType: "JSON",
+            success: function (response) {
+                if(response.success == true){
+                    window.location.href = '<?=base_url('siswa/siswa_detail/')?>'+id_ppdb;
+                }
+            }
+        });
+    }
+</script>
