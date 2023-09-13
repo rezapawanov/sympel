@@ -305,17 +305,17 @@
                                       <tr >
                                             <td style="font-weight: bold;">Nominal Harus Dibayar</td>
                                             <td>:</td>
-                                            <td><input type="number" class="form-control" name="nominal_harus_dibayar"></td>
+                                            <td><input type="text" class="form-control" name="nominal_harus_dibayar" value="<?=(isset($nominal_harus_bayar)) ? str_replace(',','.', number_format($nominal_harus_bayar)) : 0 ?>"></td>
                                       </tr>
                                       <tr >
                                             <td style="font-weight: bold;">Terbayar</td>
                                             <td>:</td>
-                                            <td><input type="number" class="form-control" name="bayar"></td>
+                                            <td><input type="text" class="form-control" name="bayar" value="<?=(isset($total_bayar)) ? str_replace(',','.', number_format($total_bayar)) : 0 ?>"></td>
                                       </tr>
                                       <tr >
                                             <td style="font-weight: bold;">Sisa Pembayaran</td>
                                             <td>:</td>
-                                            <td><input type="number" class="form-control" name="sisa_pembayaran" readonly></td>
+                                            <td><input type="text" class="form-control" name="sisa_pembayaran" readonly value="<?=(isset($sisa)) ? str_replace(',','.', number_format($sisa)) : 0 ?>"></td>
                                       </tr>
                                   <?php if ($status == '0') { ?>
                                       <tfoot>
@@ -374,5 +374,5 @@
                 }
             }
         });
-    }
+    } 
 </script>

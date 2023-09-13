@@ -90,6 +90,22 @@ class siswa extends CI_Controller
         $d['pekerjaan_wali'] = $get->pekerjaan_wali;
         $d['penghasilan_wali'] = $get->penghasilan_wali;
         $d['status'] = $get->status;
+
+        $pembayaran = $this->db->where('id_ppdb', $id_ppdb)->get('ppdb_pembayaran')->result_array();
+
+        $total_bayar = 0;
+        if($pembayaran){
+            foreach($pembayaran as $val){
+                $total_bayar += $val['bayar'];
+            }
+            $d['nominal_harus_bayar'] = $pembayaran[0]['nominal_harus_bayar'];
+        }else{
+            $d['nominal_harus_bayar'] = 0;
+        }
+        
+        $d['total_bayar'] = $total_bayar;
+        $d['sisa'] = $d['nominal_harus_bayar'] - $total_bayar;
+
         $this->load->view('top', $d);
         $this->load->view('menu');
         $this->load->view('siswa/siswa_detail');
