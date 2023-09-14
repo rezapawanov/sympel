@@ -154,6 +154,37 @@ class siswa extends CI_Controller
                 $in['status'] = '1';
                 $this->db->update("ppdb_siswa", $in, ['id_ppdb'=>$post['id_ppdb']]);
 
+                $ppdb_siswa = $this->db->where('id_ppdb', $post['id_ppdb'])->get('ppdb_siswa')->row_array();
+
+                $data_ppdb = [
+                    'nama_siswa'    => $ppdb_siswa['nama_siswa'],
+                    'jenis_kelamin' => $ppdb_siswa['jenis_kelamin'],
+                    'tempat_lahir'  => $ppdb_siswa['tempat_lahir'],
+                    'tanggal_lahir' => $ppdb_siswa['tanggal_lahir'],
+                    'agama'         => $ppdb_siswa['agama'],
+                    'alamat_jalan'  => $ppdb_siswa['alamat'],
+                    'kelurahan'     => $ppdb_siswa['kelurahan'],
+                    'kode_pos'      => $ppdb_siswa['kode_pos'],
+                    'telepon'       => $ppdb_siswa['no_hp'],
+                    'hp'            => $ppdb_siswa['no_hp'],
+                    'email'         => $ppdb_siswa['email'],
+                    'foto'          => $ppdb_siswa['foto'],
+                    'nama_ayah'     => $ppdb_siswa['nama_ayah'],
+                    'pendidikan_ayah'   => $ppdb_siswa['pendidikan_ayah'],
+                    'pekerjaan_ayah'    => $ppdb_siswa['pekerjaan_ayah'],
+                    'nama_ibu'          => $ppdb_siswa['nama_ibu'],
+                    'pendidikan_ibu'    => $ppdb_siswa['pendidikan_ibu'],
+                    'pekerjaan_ibu'     => $ppdb_siswa['pekerjaan_ibu'],
+                    'nama_wali'         => $ppdb_siswa['nama_wali'],
+                    'pendidikan_wali'   => $ppdb_siswa['pendidikan_wali'],
+                    'pekerjaan_wali'    => $ppdb_siswa['pekerjaan_wali'],
+                    'nama_sekolah'      => $ppdb_siswa['asal_sekolah'],
+                    'alamat_sekolah'    => $ppdb_siswa['alamat_sekolah_asal'],
+                    'aktif_siswa'       => '1',
+                ];
+
+                $this->db->insert('mst_siswa', $data_ppdb);
+
                 $res = ['success'=>true, 'message'=>'Data berhasil di simpan'];
             }else{
                 $res = ['success'=>false, 'message'=>'Data gagal di simpan'];
