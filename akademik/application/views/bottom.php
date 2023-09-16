@@ -75,16 +75,16 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 </script>
 <script>
 $(document).ready(function(){
-  $(".tgl").inputmask("99-99-9999");
-  $(".tahun_ajaran").inputmask("9999/9999");  
-  $(".jam").inputmask("99:99");  
-  $('.select2').select2();
-  $('.rupiah').inputmask('decimal', {allowMinus:false, autoGroup: true, groupSeparator: '.', rightAlign: false, autoUnmask: true, removeMaskOnSubmit: true});
-  $(".tglcalendar").datepicker({
-    todayHighlight: true,
-    autoclose: true,
-    format: "dd-mm-yyyy"
-  });  
+  // $(".tgl").inputmask("99-99-9999");
+  // $(".tahun_ajaran").inputmask("9999/9999");  
+  // $(".jam").inputmask("99:99");  
+  // $('.select2').select2();
+  // $('.rupiah').inputmask('decimal', {allowMinus:false, autoGroup: true, groupSeparator: '.', rightAlign: false, autoUnmask: true, removeMaskOnSubmit: true});
+  // $(".tglcalendar").datepicker({
+  //   todayHighlight: true,
+  //   autoclose: true,
+  //   format: "dd-mm-yyyy"
+  // });  
 });
 </script>
 

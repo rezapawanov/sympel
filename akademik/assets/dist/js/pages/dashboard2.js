@@ -12,6 +12,7 @@ $(function () {
   //-----------------------
 
   // Get context with jQuery - using jQuery's .get() method.
+  return
   var salesChartCustom = $('#salesChart').get(0);
 
   if (salesChartCustom != undefined ) {
