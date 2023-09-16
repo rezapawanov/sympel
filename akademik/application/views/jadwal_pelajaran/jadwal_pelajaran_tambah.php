@@ -51,23 +51,53 @@
                         <div class="card-body col-sm-12">
                   <div class="row">
                     <div class="form-group col-md-3 mr-2">
-                                    <div class="form-group">
-                                        <label>Mata Pelajaran</label>
-                                        <select class="form-control" name="id_mapel"  required>
-                                            <?php echo $combo_mapel; ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            <div class="form-group col-md-3 mr-2">
+                      <div class="form-group">
+                          <label>Mata Pelajaran</label>
+                          <select class="form-control" name="id_mapel"  required>
+                              <?php echo $combo_mapel; ?>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-3 mr-2">
+                      <div class="form-group">
+                          <label>Guru</label>
+                          <select class="form-control select2" name="id_guru"  required>
+                              <?php echo $combo_guru; ?>
+                          </select>
+                      </div>
+                    </div>
+                  </div>
 
-                                    <div class="form-group">
-                                        <label>Guru</label>
-                                        <select class="form-control select2" name="id_guru"  required>
-                                            <?php echo $combo_guru; ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                  <div class="row">
+                    <div class="form-group col-md-3 mr-2">
+                      <div class="form-group">
+                          <label>Hari</label>
+                          <select class="form-control select2" name="hari"  required>
+                              <option value="senin">Senin</option>
+                              <option value="selasa">Selasa</option>
+                              <option value="rabu">Rabu</option>
+                              <option value="kamis">Kamis</option>
+                              <option value="jumat">Jum'at</option>
+                              <option value="sabtu">Sabtu</option>
+                              <option value="minggu">Minggu</option>
+                          </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-3 mr-2">
+                      <div class="form-group">
+                          <label>Jam Mulai</label>
+                          <input type="time" class="form-control" name="start_time">
+                      </div>
+                    </div>
+
+                    <div class="form-group col-md-3 mr-2">
+                      <div class="form-group">
+                          <label>Jam Selesai</label>
+                          <input type="time" class="form-control" name="end_time">
+                      </div>
+                    </div>
+                  </div>
                             <div class="row">
                             <div class="form-group col-md-3 mr-2">
 
