@@ -73,13 +73,7 @@
                       <div class="form-group">
                           <label>Hari</label>
                           <select class="form-control select2" name="hari"  required>
-                              <option value="senin">Senin</option>
-                              <option value="selasa">Selasa</option>
-                              <option value="rabu">Rabu</option>
-                              <option value="kamis">Kamis</option>
-                              <option value="jumat">Jum'at</option>
-                              <option value="sabtu">Sabtu</option>
-                              <option value="minggu">Minggu</option>
+                            <?php echo $combo_hari; ?>
                           </select>
                       </div>
                     </div>
@@ -87,14 +81,14 @@
                     <div class="form-group col-md-3 mr-2">
                       <div class="form-group">
                           <label>Jam Mulai</label>
-                          <input type="time" class="form-control" name="start_time">
+                          <input type="time" class="form-control" name="start_time" value="<?=isset($start_time) ? $start_time : '' ?>">
                       </div>
                     </div>
 
                     <div class="form-group col-md-3 mr-2">
                       <div class="form-group">
                           <label>Jam Selesai</label>
-                          <input type="time" class="form-control" name="end_time">
+                          <input type="time" class="form-control" name="end_time" value="<?=isset($end_time) ? $end_time : '' ?>">
                       </div>
                     </div>
                   </div>

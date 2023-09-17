@@ -50,6 +50,7 @@ class jadwal_pelajaran extends CI_Controller {
 		$d['combo_mapel'] = $this->Combo_model->combo_mapel();
 		$d['combo_guru'] = $this->Combo_model->combo_guru();
 		$d['combo_tahun_ajaran'] = $this->Combo_model->combo_tahun_ajaran();
+		$d['combo_hari'] = $this->Combo_model->combo_hari_jadwal_pel();
 
 		$d['semester'] = "";
 		$d['id_jadwal_pelajaran'] = "";
@@ -74,7 +75,11 @@ class jadwal_pelajaran extends CI_Controller {
 			$d['combo_mapel'] = $this->Combo_model->combo_mapel($data->id_mapel);
 			$d['combo_guru'] = $this->Combo_model->combo_guru($data->id_guru);
 			$d['combo_tahun_ajaran'] = $this->Combo_model->combo_tahun_ajaran($data->id_tahun_ajaran);
+			$d['combo_hari'] = $this->Combo_model->combo_hari_jadwal_pel($data->hari);
 			$d['id_jadwal_pelajaran'] = $data->id_jadwal_pelajaran;
+			$d['start_time'] = $data->start_time;
+			$d['end_time'] = $data->end_time;
+
 			$this->load->view('top',$d);
 			$this->load->view('menu');
 			$this->load->view('jadwal_pelajaran/jadwal_pelajaran_tambah');
@@ -93,9 +98,12 @@ class jadwal_pelajaran extends CI_Controller {
 			$in['id_mapel'] = $this->input->post("id_mapel");
 			$in['id_guru'] = $this->input->post("id_guru");
 			$in['id_tahun_ajaran'] = $this->input->post("id_tahun_ajaran");
+			$in['hari'] = $this->input->post('hari');
+			$in['start_time'] = $this->input->post('start_time');
+			$in['end_time'] = $this->input->post('end_time');
 
 			if($tipe == "add") {
-				$cek = $this->db->query("SELECT id_jadwal_pelajaran FROM jadwal_pelajaran WHERE id_guru = '$in[id_guru]' AND id_kelas = '$in[id_kelas]' AND id_tahun_ajaran = '$in[id_tahun_ajaran]'");
+				$cek = $this->db->query("SELECT id_jadwal_pelajaran FROM jadwal_pelajaran WHERE id_guru = '$in[id_guru]' AND id_kelas = '$in[id_kelas]' AND id_tahun_ajaran = '$in[id_tahun_ajaran]' and hari = '$in[hari]' and start_time = '$in[start_time]' and end_time = '$in[end_time]' ");
 				if($cek->num_rows() > 0) { 
 					$this->session->set_flashdata("error","Gagal Input. Jadwal Sudah Di Input");
 					redirect("jadwal_pelajaran/jadwal_pelajaran_tambah/");
@@ -106,7 +114,7 @@ class jadwal_pelajaran extends CI_Controller {
 				}
 			} elseif($tipe = 'edit') {
 				$where['id_jadwal_pelajaran'] 	= $this->input->post('id_jadwal_pelajaran');
-				$cek = $this->db->query("SELECT id_jadwal_pelajaran FROM jadwal_pelajaran WHERE id_guru = '$in[id_guru]' AND id_kelas = '$in[id_kelas]' AND id_tahun_ajaran = '$in[id_tahun_ajaran]' AND id_jadwal_pelajaran != '$where[id_jadwal_pelajaran]'");
+				$cek = $this->db->query("SELECT id_jadwal_pelajaran FROM jadwal_pelajaran WHERE id_guru = '$in[id_guru]' AND id_kelas = '$in[id_kelas]' AND id_tahun_ajaran = '$in[id_tahun_ajaran]' and hari = '$in[hari]' and start_time = '$in[start_time]' and end_time = '$in[end_time]' AND id_jadwal_pelajaran != '$where[id_jadwal_pelajaran]'");
 				if($cek->num_rows() > 0) { 
 					$this->session->set_flashdata("error","Gagal Input.  Jadwal Sudah Di Input");
 					redirect("jadwal_pelajaran/jadwal_pelajaran_edit/".$this->input->post("id_jadwal_pelajaran"));

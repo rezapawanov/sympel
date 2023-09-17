@@ -52,6 +52,9 @@
                         <th>Kelas</th>
                         <th>Tahun Ajaran</th>
                         <th>Semester</th>
+                        <th>Hari</th>
+                        <th>Jam Mulai</th>
+                        <th>Jam Akhir</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -67,6 +70,9 @@
                         <td><?php echo $data['nama_kelas']; ?></td>
                         <td><?php echo $data['tahun_ajaran']; ?></td>
                         <td><?php echo $data['semester']; ?></td>
+                        <td><?php echo $data['hari']; ?></td>
+                        <td><?php echo $data['start_time']; ?></td>
+                        <td><?php echo $data['end_time']; ?></td>
                         <td style="text-align:center;">
                         <a class="btn btn-danger btn-xs" href="<?php echo base_url().'jadwal_pelajaran/jadwal_pelajaran_edit/'.$data['id_jadwal_pelajaran']; ?>"><i class="fa fa-edit"> </i> Ubah</a>
                       </td>

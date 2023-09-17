@@ -116,6 +116,20 @@ class Combo_model extends CI_Model {
 		return $hasil;
 	}
 
+	public function combo_hari_jadwal_pel($hari="") {
+		$hasil = "";
+		$q = ['senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'];
+		$hasil .= '<option selected="selected" value>PILIH</option>';
+		foreach($q as $h) {
+			if($h == $hari) {
+				$hasil .= '<option value="'.$h.'" selected="selected">'.$h.'</option>';
+			} else {
+				$hasil .= '<option value="'.$h.'">'.$h.'</option>';
+			}
+		}
+		return $hasil;
+	}
+
 	public function combo_pelanggaran($id="") {
 		$hasil = "";
 		$q = $this->db->query("SELECT id_poin_pelanggaran,nama_poin_pelanggaran,poin FROM mst_poin_pelanggaran ORDER BY id_poin_pelanggaran ASC");
