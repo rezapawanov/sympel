@@ -74,7 +74,9 @@
                         <td><?php echo $data['start_time']; ?></td>
                         <td><?php echo $data['end_time']; ?></td>
                         <td style="text-align:center;">
-                        <a class="btn btn-danger btn-xs" href="<?php echo base_url().'jadwal_pelajaran/jadwal_pelajaran_edit/'.$data['id_jadwal_pelajaran']; ?>"><i class="fa fa-edit"> </i> Ubah</a>
+                        <?php if($this->session->userdata('hak_akses') == 'admin') :?>
+                          <a class="btn btn-danger btn-xs" href="<?php echo base_url().'jadwal_pelajaran/jadwal_pelajaran_edit/'.$data['id_jadwal_pelajaran']; ?>"><i class="fa fa-edit"> </i> Ubah</a>
+                        <?php endif ?>
                       </td>
                     </tr>
 				    <?php $no++; } ?>

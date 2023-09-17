@@ -6,11 +6,12 @@ class jadwal_pelajaran extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		if($this->session->userdata('hak_akses') != "admin") { 
-			redirect(base_url());
-		} else {
+		$hak_akses = $this->session->userdata('hak_akses');
+		if($hak_akses == "admin" || $hak_akses == "siswa") { 
 			$this->load->Model('jadwal_pelajaran_model');
 			$this->load->Model('Combo_model');
+		} else {
+			redirect(base_url());
 		}
 	}
 
@@ -27,6 +28,7 @@ class jadwal_pelajaran extends CI_Controller {
 
 
 	public function jadwal_pelajaran($tahun_ajaran="") {
+		$hak_akses = $this->session->userdata('hak_akses');
 		$d['judul'] = "Data Jadwal Pelajaran";
 		if(!empty($tahun_ajaran)) {
 			$tahun_ajaran = str_replace("-","/",$tahun_ajaran);
@@ -36,7 +38,12 @@ class jadwal_pelajaran extends CI_Controller {
 		}
 		$d['combo_tahun_ajaran'] = $this->Combo_model->combo_tahun_ajaran($tahun_ajaran);
 		$this->load->view('top',$d);
-		$this->load->view('menu');
+
+		if($hak_akses == 'siswa'){
+			$this->load->view('menu_siswa');
+		}else{
+			$this->load->view('menu');
+		}
 		$this->load->view('jadwal_pelajaran/jadwal_pelajaran');
 		$this->load->view('bottom');	
 	}

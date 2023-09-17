@@ -1,6 +1,7 @@
 <?php
 $id = $this->session->userdata("id");
-$data_siswa = $this->db->query("SELECT foto FROM mst_siswa WHERE id_siswa = '$id'")->row();
+$data_siswa = $this->db->query("SELECT foto, id_tahun_ajaran FROM mst_siswa WHERE id_siswa = '$id'")->row();
+$tahun_ajaran = $data_siswa->id_tahun_ajaran;
 if(!empty($data_siswa->foto)) {
   $foto = base_url().'upload/siswa/'.$data_siswa->foto;
 } else {
@@ -89,6 +90,13 @@ $bln= date ("M");
           <a href="<?php echo base_url(); ?>siswa/absensi" class="nav-link">
             <i class="fa fa-calendar"></i>
             <p>Absensi</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="<?php echo base_url(); ?>jadwal_pelajaran/jadwal_pelajaran/<?=$tahun_ajaran?>" class="nav-link">
+            <i class="fa fa-calendar"></i>
+            <p>Jadwal Pelajaran</p>
           </a>
         </li>
       
