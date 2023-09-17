@@ -7,7 +7,7 @@ class jadwal_pelajaran extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$hak_akses = $this->session->userdata('hak_akses');
-		if($hak_akses == "admin" || $hak_akses == "siswa") { 
+		if($hak_akses == "admin" || $hak_akses == "siswa" || $hak_akses == "guru") { 
 			$this->load->Model('jadwal_pelajaran_model');
 			$this->load->Model('Combo_model');
 		} else {
@@ -41,6 +41,8 @@ class jadwal_pelajaran extends CI_Controller {
 
 		if($hak_akses == 'siswa'){
 			$this->load->view('menu_siswa');
+		}elseif($hak_akses == 'guru'){
+			$this->load->view('menu_guru');
 		}else{
 			$this->load->view('menu');
 		}

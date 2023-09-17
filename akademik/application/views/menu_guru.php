@@ -1,4 +1,5 @@
 <?php
+$tahun_ajaran = $this->db->where('aktif_tahun_ajaran', 1)->get('mst_tahun_ajaran')->row()->id_tahun_ajaran;
 $id_guru = $this->session->userdata("id");
 $cek = $this->db->query("SELECT nama_kelas FROM mst_walikelas INNER JOIN mst_kelas ON mst_walikelas.id_kelas = mst_kelas.id_kelas WHERE id_guru = $id_guru");
 if($cek->num_rows() > 0) {
@@ -85,32 +86,37 @@ $bln= date ("M");
             </a>
           </li>
           <li class="nav-header">MENU NAVIGASI</li>
+        
+        <li class="nav-item">
+          <a href="<?php echo base_url(); ?>jadwal_pelajaran/jadwal_pelajaran/<?=$tahun_ajaran?>" class="nav-link">
+            <i class="fa fa-calendar"></i>
+            <p>Jadwal Pelajaran</p>
+          </a>
+        </li>
+
         <li class="nav-item has-treeview  <?php if($this->uri->segment(1) == 'nilai') echo 'active'; ?> treeview <?php if($this->uri->segment(1) == 'nilai') echo 'menu-open'; ?>">
-        <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book-open text-info"></i>
-              <p>
-                Input Nilai Siswa
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-book-open text-info"></i>
+            <p>Input Nilai Siswa <i class="fas fa-angle-left right"></i></p>
+          </a>
 
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>nilai/nilai_harian" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon text-info"></i>
-                  <p>Nilai Harian</p>
-                </a>
-              </li>
-            </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?php echo base_url(); ?>nilai/nilai_harian" class="nav-link">
+                <i class="fas fa-angle-right nav-icon text-info"></i>
+                <p>Nilai Harian</p>
+              </a>
+            </li>
+          </ul>
 
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>nilai/nilai_uts" class="nav-link">
-                  <i class="fas fa-angle-right nav-icon text-info"></i>
-                  <p>Nilai UTS</p>
-                </a>
-              </li>
-            </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?php echo base_url(); ?>nilai/nilai_uts" class="nav-link">
+                <i class="fas fa-angle-right nav-icon text-info"></i>
+                <p>Nilai UTS</p>
+              </a>
+            </li>
+          </ul>
             <?php if($cek->num_rows() > 0) { ?>
               <ul class="nav nav-treeview">
               <li class="nav-item">
