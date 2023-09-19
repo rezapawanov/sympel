@@ -9,7 +9,7 @@ class Pembayaran_model extends CI_Model {
 	}
 
 	public function pembayaran_siswa_bulanan($tahun_ajaran,$id_siswa) {
-		$q = $this->db->query("SELECT * FROM vw_bayar_siswa WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bulanan' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran");
+		$q = $this->db->query("SELECT id_jenis_pembayaran, id_siswa, nama_pos_keuangan, tahun_ajaran FROM vw_bayar_siswa WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bulanan' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran, id_siswa, nama_pos_keuangan, tahun_ajaran");
 		return $q;
 	}
 
@@ -20,12 +20,12 @@ class Pembayaran_model extends CI_Model {
 
 
 	public function jenis_pembayaran_bulanan($tahun_ajaran,$id_siswa) {
-		$q = $this->db->query("SELECT * FROM vw_bayar_siswa WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bulanan' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran");
+		$q = $this->db->query("SELECT id_jenis_pembayaran, nama_pos_keuangan, tahun_ajaran FROM vw_bayar_siswa WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bulanan' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran, nama_pos_keuangan, tahun_ajaran");
 		return $q;
 	}
 
 	public function jenis_pembayaran_bebas($tahun_ajaran,$id_siswa) {
-		$q = $this->db->query("SELECT * FROM vw_bayar_siswa_bebas WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bebas' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran");
+		$q = $this->db->query("SELECT id_jenis_pembayaran, nama_pos_keuangan, tahun_ajaran, id_pembayaran_bebas FROM vw_bayar_siswa_bebas WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bebas' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran, nama_pos_keuangan, tahun_ajaran, id_pembayaran_bebas");
 		return $q;
 	}
 
