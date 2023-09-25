@@ -61,6 +61,8 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 
   <!-- script src="<?php echo base_url(); ?>assets/dist/js/fullcalendar.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/dist/js/jquery.tabledit.js"></script>
+
+  <script>var BASE_URL = '<?=base_url()?>';</script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed ">
