@@ -146,6 +146,7 @@ class siswa extends CI_Controller
                 'id_ppdb' => $post['id_ppdb'],
                 'nominal_harus_bayar' => $post['nominal_harus_dibayar'],
                 'bayar' => $post['bayar'],
+                'created_at' => date('Y-m-d H:i:s', time()),
             ];
 
             $insert = $this->db->insert('ppdb_pembayaran', $data);
@@ -181,6 +182,7 @@ class siswa extends CI_Controller
                     'nama_sekolah'      => $ppdb_siswa['asal_sekolah'],
                     'alamat_sekolah'    => $ppdb_siswa['alamat_sekolah_asal'],
                     'aktif_siswa'       => '1',
+                    'id_ppdb'           => $ppdb_siswa['id_ppdb']
                 ];
 
                 $this->db->insert('mst_siswa', $data_ppdb);
