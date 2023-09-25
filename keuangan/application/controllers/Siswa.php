@@ -263,4 +263,10 @@ class siswa extends CI_Controller {
 			redirect(base_url());
 		}
 	}
+
+	public function getAll(){
+		$data = $this->db->where('aktif_siswa', '1')->get('mst_siswa')->result_array(); 
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($data);
+	}
 }
