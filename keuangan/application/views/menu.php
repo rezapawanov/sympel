@@ -488,6 +488,16 @@
                 </li>
               </ul>
             </li>
+
+            <li class="nav-item has-treeview">
+              <a href="<?php echo base_url(); ?>pembayaran/pembayaran_uang_pangkal" class="nav-link">
+                <i class="nav-icon fas fa-cash-register text-success"></i>
+                <p>
+                  Pembayaran Uang Pangkal
+                </p>
+              </a>
+            </li>
+
             <li class="nav-item has-treeview">
               <a href="<?php echo base_url(); ?>pembayaran/pembayaran_siswa" class="nav-link">
                 <i class="nav-icon fas fa-cash-register text-success"></i>
