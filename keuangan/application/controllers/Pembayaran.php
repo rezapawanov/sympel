@@ -344,4 +344,59 @@ class pembayaran extends CI_Controller {
 
 		$this->load->view("cetak/bukti_bayar_bebas",$d);
 	}
+
+	public function pembayaran_uang_pangkal(){
+		$d = [];
+		$d['judul'] = 'Pembayaran uang pangkal';
+
+		$post = $this->input->post();
+		if(isset($post['type']) && $post['type'] == 'simpan'){
+			$dataInsert = [
+				'id_ppdb' 				=> $post['id_ppdb'],
+				'nominal_harus_bayar' 	=> str_replace(',', '', $post['nominal_harus_bayar']),
+				'bayar' 		=> $post['nominal_bayar'],
+				'created_at'			=> date('Y-m-d H:i:s')
+			];
+			$this->db->insert('ppdb_pembayaran', $dataInsert);
+			$insert = $this->db->insert_id();
+			if($insert){
+				$res = ['success'=>true, 'message'=>'Data berhasil di simpan!', 'id_pembayaran'=>$insert];
+			}else{
+				$res = ['success'=>false, 'message'=>'Data gagal di simpan!'];
+			}
+			
+			header('Content-Type: application/json; charset=utf-8');
+			echo json_encode($res);
+			exit;
+		}
+		
+		$this->load->view('top',$d);
+		$this->load->view('menu');
+		$this->load->view('pembayaran_siswa/pembayaran_uang_pangkal');
+		$this->load->view('bottom');
+	}
+
+	public function get_ppdb_pembayaran(){
+		$get = $this->input->get();
+		$siswa = $this->db->where('id_siswa', $get['id'])->get('mst_siswa')->row_array();
+		$ppdb_pembayaran = $this->db->where('id_ppdb', $siswa['id_ppdb'])->get('ppdb_pembayaran')->result_array();
+		$ppdb = $this->db->where('id_ppdb', $siswa['id_ppdb'])->get('ppdb_siswa')->row_array();
+
+		$data['siswa'] = $siswa;
+		$data['ppdb_pembayaran'] = $ppdb_pembayaran;
+		$data['ppdb'] = $ppdb;
+
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($data);
+	}
+
+	public function cetak_bukti_pembayaran_uang_pangkal($id_pembayaran = ''){
+		$get = $this->input->get();
+		$data['data'] = $this->db->where('id', $get['id_pembayaran'])->get('ppdb_pembayaran')->row_array();
+
+		$total_terbayar = $this->db->select('sum(bayar) as total_terbayar')->where('id_ppdb', $data['data']['id_ppdb'])->get('ppdb_pembayaran')->row_array()['total_terbayar'];
+		$data['data']['total_terbayar'] = ($total_terbayar) ? $total_terbayar : 0;
+
+		$this->load->view('pembayaran_siswa/cetak_bukti_pembayaran_uang_pangkal', $data);
+	}
 }
