@@ -37,7 +37,9 @@
                                 </div>
                         </form>
                     <div class="col-xs-8 text-right">
+                        <?php if($hak_akses !== 'siswa'):?>
                         <a class="btn btn-success" href="<?php echo base_url(); ?>jadwal_pelajaran/jadwal_pelajaran_tambah"><i class="fa fa-plus"> </i> Tambah Data</a>
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
