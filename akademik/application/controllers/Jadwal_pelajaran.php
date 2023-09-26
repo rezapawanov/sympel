@@ -31,12 +31,21 @@ class jadwal_pelajaran extends CI_Controller {
 		$hak_akses = $this->session->userdata('hak_akses');
 		$d['judul'] = "Data Jadwal Pelajaran";
 		if(!empty($tahun_ajaran)) {
-			$tahun_ajaran = str_replace("-","/",$tahun_ajaran);
-			$d['jadwal_pelajaran'] = $this->jadwal_pelajaran_model->jadwal_pelajaran($tahun_ajaran);
+			if($hak_akses != 'siswa'){
+				$tahun_ajaran = str_replace("-","/",$tahun_ajaran);
+				$d['jadwal_pelajaran'] = $this->jadwal_pelajaran_model->jadwal_pelajaran($tahun_ajaran);
+			}else{
+				$siswa = $this->db->where('nis', $this->session->userdata('username'))->get('mst_siswa')->row_array();
+				$d['jadwal_pelajaran'] =  $this->jadwal_pelajaran_model->jadwal_pelajaran(null, $siswa['id_kelas']);
+				// var_dump($d['jadwal_pelajaran'])->result_array();die;
+			}
+			
 		} else {
 			$d['jadwal_pelajaran'] = "";
 		}
 		$d['combo_tahun_ajaran'] = $this->Combo_model->combo_tahun_ajaran($tahun_ajaran);
+		$d['hak_akses'] = $hak_akses;
+
 		$this->load->view('top',$d);
 
 		if($hak_akses == 'siswa'){
