@@ -3,17 +3,20 @@
 class jadwal_pelajaran_model extends CI_Model {
 
 
-	public function jadwal_pelajaran($tahun_ajaran) {
-		$q = $this->db->query("SELECT * FROM jadwal_pelajaran 
-		INNER JOIN mst_mapel ON jadwal_pelajaran.id_mapel = mst_mapel.id_mapel 
-		INNER JOIN mst_guru ON jadwal_pelajaran.id_guru = mst_guru.id_guru 
-		INNER JOIN mst_kelas ON jadwal_pelajaran.id_kelas = mst_kelas.id_kelas 
-		INNER JOIN mst_tahun_ajaran ON jadwal_pelajaran.id_tahun_ajaran = mst_tahun_ajaran.id_tahun_ajaran 
+	public function jadwal_pelajaran($tahun_ajaran = null, $id_kelas = null) {
+		$q = $this->db->select('*');
+		$q = $this->db->from('jadwal_pelajaran');  
+		$q = $this->db->join('mst_mapel', 'jadwal_pelajaran.id_mapel = mst_mapel.id_mapel', 'left');
+		$q = $this->db->join('mst_guru', 'jadwal_pelajaran.id_guru = mst_guru.id_guru', 'left');
+		$q = $this->db->join('mst_kelas', 'jadwal_pelajaran.id_kelas = mst_kelas.id_kelas', 'left');
+		$q = $this->db->join('mst_tahun_ajaran', 'jadwal_pelajaran.id_tahun_ajaran = mst_tahun_ajaran.id_tahun_ajaran', 'left');
 
-		
-		
-		 ORDER BY id_jadwal_pelajaran DESC");
-		return $q;
+		if($id_kelas != null){
+			$q = $this->db->where('jadwal_pelajaran.id_kelas', $id_kelas);
+		}
+
+		$q = $this->db->order_by('id_jadwal_pelajaran', 'DESC');
+		return $q->get();
 	}
 
 	
