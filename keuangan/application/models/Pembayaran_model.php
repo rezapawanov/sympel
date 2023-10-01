@@ -79,4 +79,12 @@ class Pembayaran_model extends CI_Model {
 		return $q;
 	}
 	
+	public function get_jenis_pembayaran(){
+		$this->db->select('mst_jenis_pembayaran.*, mst_pos_keuangan.nama_pos_keuangan');
+		$this->db->from('mst_jenis_pembayaran');
+		$this->db->where('aktif_jenis_pembayaran', '1');
+		$this->db->join('mst_pos_keuangan', 'mst_pos_keuangan.id_pos_keuangan=mst_jenis_pembayaran.id_pos_keuangan');
+		$q = $this->db->get()->result_array();
+		return $q;
+	}
 }
