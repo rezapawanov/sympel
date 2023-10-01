@@ -358,6 +358,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <button class="btn btn-primary mb-2" id="tambah-pembayaran-bulanan">+ Pembayaran Bulanan</button>
                 <table class="table table-bordered table-hover table-striped" style="width:100%">
                   <thead>
                     <tr>
@@ -403,7 +404,7 @@
             <!-- /.card -->
           </div>
           <!-- LT5 -->
-          <div class="col-md-12">
+          <div class="col-md-12 d-none">
             <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title">Tagihan Lainnya</h3>
