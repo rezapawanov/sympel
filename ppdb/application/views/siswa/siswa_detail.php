@@ -9,7 +9,7 @@
           <div class="col-sm-12">
             <div class="card">
               <center><h1 class="m-0 text-dark mt-2" style="text-shadow: 2px 2px 4px #17a2b8;">
-              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/master/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded " style="width:50px;height:50px;">
+              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded " style="width:50px;height:50px;">
                <br>DATA CALON PESERTA DIDIK BARU<br><?php echo $nama_sekolah ?></h1> 
               <?php echo $alamat_sekolah ?></center>
               <hr>

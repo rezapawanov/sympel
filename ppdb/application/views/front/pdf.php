@@ -63,7 +63,7 @@ p {
 </style>
 <body>
 <div style="display:inline-block;vertical-align:middle;">
-<!-- <img style="vertical-align:middle;width:70px;margin:0 auto;" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/master/upload/'.$sekolah->logo; ?>"> -->
+<!-- <img style="vertical-align:middle;width:70px;margin:0 auto;" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>"> -->
 <img style="vertical-align:middle;width:70px;margin:0 auto;" src="../master/upload/<?php echo $sekolah->logo; ?>">
 
 </div>

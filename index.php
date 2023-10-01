@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>ASIS</title>
+  <title>SYMPEL</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,7 +44,7 @@
 
       <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span>ASIS</span>
+        <span>SYMPEL</span>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -153,7 +153,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>ASIS</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>SYMPEL</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->

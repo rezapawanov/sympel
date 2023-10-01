@@ -10,7 +10,7 @@
           <div class="col-sm-12 mt-2">
             <div class="card">
               <center><h1 class="m-0 text-dark mt-2" style="text-shadow: 2px 2px 4px #17a2b8;">
-              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/asispanel/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded " style="width:50px;height:50px;">
+              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/asispanel/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded " style="width:50px;height:50px;">
               <br><?php echo $namasekolah ?></h1>
               <?php echo $alamatsekolah; ?><br>
               <?php echo $website; ?></center>

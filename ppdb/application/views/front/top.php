@@ -12,7 +12,7 @@ $pengaturan = $this->db->query("SELECT * FROM ppdb_pengaturan WHERE id = 1")->ro
 
   <title>PPDB - <?php echo $sekolah->nama_sekolah; ?></title>
 
-  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
@@ -83,7 +83,7 @@ $pengaturan = $this->db->query("SELECT * FROM ppdb_pengaturan WHERE id = 1")->ro
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-info">
       <div class="container">
         <a href="<?php echo base_url(); ?>portal/prosedur" class="navbar-brand">
-          <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/master/upload/'.$sekolah->logo; ?>" class="brand-image img-circle elevation-3">
+          <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>" class="brand-image img-circle elevation-3">
           <b class="text-white">PPDB <font size="1" style="text-shadow: 2px 2px 4px #827e7e"><?php echo $sekolah->nama_sekolah; ?></font></b>
         </a>
 

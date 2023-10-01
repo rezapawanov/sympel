@@ -66,7 +66,7 @@
             $logo = "noimage.jpg";
         }
         ?>
-        <img style="float:left;width:80px;height:80px;" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/asispanel/upload/'.$sekolah->logo; ?>">
+        <img style="float:left;width:80px;height:80px;" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/asispanel/upload/'.$sekolah->logo; ?>">
         <h3 style="margin:0;"><?php echo $nama_sekolah; ?></h3>
         <p style="margin:0;"><?php echo $alamat; ?> </p>
         <p style="margin:0;">Telp. <?php echo $no_telepon;  ?></p>

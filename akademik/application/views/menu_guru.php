@@ -42,7 +42,7 @@ $bln= date ("M");
     <!-- Brand Logo -->
     
     <a href="<?php echo base_url(); ?>" class="brand-link ">
-      <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded elevation-3" style="opacity: .8">
+      <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light" style="text-shadow: 2px 2px 4px #827e7e;"><b>AKADEMIK</b></span>
     </a>
     <!-- Sidebar -->
@@ -54,11 +54,11 @@ $bln= date ("M");
           $get_foto = $this->db->query("SELECT foto FROM mst_guru WHERE id_guru = '$id'")->row();
           ?>
         <div class="image">
-          <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/akademik/upload/guru/' . $get_foto->foto; ?>" class="img-rounded elevation-2" style="width:60px;height:60px;" alt="User Image">
+          <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/akademik/upload/guru/' . $get_foto->foto; ?>" class="img-rounded elevation-2" style="width:60px;height:60px;" alt="User Image">
         </div>
          <?php } else { ?>
           <div class="image animated fadeInLeft">
-          <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/upload/user.jpg'; ?>" class="img-rounded elevation-2" style="width:60px;height:70px;" alt="User Image">
+          <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/upload/user.jpg'; ?>" class="img-rounded elevation-2" style="width:60px;height:70px;" alt="User Image">
         </div>
         <?php } ?>
         <div class="info">

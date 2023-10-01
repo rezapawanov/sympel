@@ -41,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>SYMPEL | System Informasi Pelajar</title>
 
-  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url();  ?>assets/plugins/fontawesome-free/css/all.min.css">
@@ -100,7 +100,7 @@ video {
               <div class="col-sm-12 mt-2">
                 <div class="card card-info card-outline ">
                   <center>
-                    <img class="profile-user-img img-fluid img-circle elevation-2 mt-2" style="width: 60px; height: 60px;" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/master/upload/'.$sekolah->logo; ?>"
+                    <img class="profile-user-img img-fluid img-circle elevation-2 mt-2" style="width: 60px; height: 60px;" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>"
                        alt="User profile picture "> 
                     <h2 class="m-0 text-dark" style="text-shadow: 2px 2px 4px #17a2b8;"><?php echo $nama_sekolah; ?></h2>
                     <p><?php echo $alamat; ?></p>
@@ -143,7 +143,7 @@ video {
                             <div class="carousel-inner">
                               <div class="carousel-item active">
                                 <video id="vid" controls autoplay loop >
-                                  <source src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/bukutamu/video/video.mp4' ?>" type="video/mp4">
+                                  <source src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/bukutamu/video/video.mp4' ?>" type="video/mp4">
                                 </video>
                               </div>
                             </div>
