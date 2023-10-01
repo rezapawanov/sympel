@@ -87,7 +87,7 @@
 
   <header class="section-header">
 	<h2>PORTAL</h2>
-	<p>DAFTAR LAYANAN PORTAL ASIS</p>
+	<p>DAFTAR LAYANAN PORTAL SYMPEL</p>
   </header>
 
   <div class="row gy-4">

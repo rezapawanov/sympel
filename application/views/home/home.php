@@ -7,7 +7,7 @@
           <div class="col-sm-12 mt-1">
             <div class="card card-info card-outline">
               <center>
-                <h1 class="m-0 text-dark" style="text-shadow: 2px 2px 4px #17a2b8;"><i class="fal fa-desktop-alt mt-2"></i> <br>DAFTAR APLIKASI SISTEM SEKOLAH (ASIS)</h1>
+                <h1 class="m-0 text-dark" style="text-shadow: 2px 2px 4px #17a2b8;"><i class="fal fa-desktop-alt mt-2"></i> <br>DAFTAR SYSTEM INFORMASI PELAJAR (SYMPEL)</h1>
               </center>
               <hr>
               <div class="row ml-2 mr-2">

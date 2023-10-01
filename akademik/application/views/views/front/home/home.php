@@ -251,8 +251,8 @@ else{$bln=$bln;}
   <!-- Main Footer -->
   <footer class="main-footer text-center" >
         <?php echo "Copyright © " ."2015 -". (int)date('Y');?> 
-        <a href="http://asis.my.id" target="_blank">
-          <b>ASIS
+        <a href="http://pijarsolusi.id" target="_blank">
+          <b>SYMPEL
           </b>
         </a>.All rights reserved. Version. 1.5
       </footer>
