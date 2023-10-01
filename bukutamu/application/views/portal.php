@@ -39,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>ASIS | Aplikasi Sistem Sekolah</title>
+    <title>SYMPEL | System Informasi Pelajar</title>
 
   <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asis/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
 

@@ -36,7 +36,7 @@ else{$bln=$bln;}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>ASIS | Aplikasi Sistem Sekolah </title>
+  <title>SYMPEL | System Informasi Pelajar </title>
 
   <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
 

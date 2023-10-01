@@ -63,7 +63,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Aplikasi Sistem Sekolah</h1>
+          <h1 data-aos="fade-up">System Informasi Pelajar</h1>
           <h2 data-aos="fade-up" data-aos-delay="400">Satu Aplikasi Satu Untuk Semua</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
