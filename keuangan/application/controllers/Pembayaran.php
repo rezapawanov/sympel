@@ -200,6 +200,39 @@ class pembayaran extends CI_Controller {
 		}
 	}
 
+	public function pembayaran_bulanan($nis = ''){
+		$d = [];
+		$d['judul'] = 'Pembayaran Bulanan';
+
+		$post = $this->input->post();
+		if(isset($post['type']) && $post['type'] == 'simpan'){
+			$dataInsert = [
+				'id_ppdb' 				=> $post['id_ppdb'],
+				'nominal_harus_bayar' 	=> str_replace(',', '', $post['nominal_harus_bayar']),
+				'bayar' 		=> $post['nominal_bayar'],
+				'created_at'			=> date('Y-m-d H:i:s')
+			];
+			$this->db->insert('ppdb_pembayaran', $dataInsert);
+			$insert = $this->db->insert_id();
+			if($insert){
+				$res = ['success'=>true, 'message'=>'Data berhasil di simpan!', 'id_pembayaran'=>$insert];
+			}else{
+				$res = ['success'=>false, 'message'=>'Data gagal di simpan!'];
+			}
+			
+			header('Content-Type: application/json; charset=utf-8');
+			echo json_encode($res);
+			exit;
+		}
+
+		$d['siswa'] = $this->db->where('nis', $nis)->get('mst_siswa')->row_array();
+		
+		$this->load->view('top',$d);
+		$this->load->view('menu');
+		$this->load->view('pembayaran_siswa/pembayaran_bulanan');
+		$this->load->view('bottom');
+	}
+
 	public function pembayaran_bulanan_save() {
 		$id_pembayaran_bulanan = $this->input->post("id_pembayaran_bulanan");
 		$id_siswa = $this->input->post("id_siswa");
@@ -398,5 +431,15 @@ class pembayaran extends CI_Controller {
 		$data['data']['total_terbayar'] = ($total_terbayar) ? $total_terbayar : 0;
 
 		$this->load->view('pembayaran_siswa/cetak_bukti_pembayaran_uang_pangkal', $data);
+	}
+
+	public function getJenisPembayaran(){
+		$get = $this->input->get();
+		$q = $this->db->where('aktif_jenis_pembayaran', '1');
+		$q = $this->db->join('mst_pos_keuangan', 'mst_pos_keuangan.id_pos_keuangan=mst_jenis_pembayaran.id_pos_keuangan');
+		$q = $this->db->get('mst_jenis_pembayaran')->result_array();
+		$data['jenis_pembayaran'] = $q;
+		header('Content-Type: application/json; charset=utf-8');
+		echo json_encode($data);
 	}
 }
