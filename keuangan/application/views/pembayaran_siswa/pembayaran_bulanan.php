@@ -63,30 +63,42 @@
                 </div>
 
                 <div class="row border rounded p-3 mt-3">
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label for="uang_pangkal">Uang Pangkal</label>
-                            <p name="uang_pangkal" id="uang_pangkal" class="form-control bg-secondary"></p>
-                            <input type="hidden" id="id_ppdb">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="tagihan">Tagihan</label>
+                                <input class="form-control" id="tagihan" name="tagihan" type="number" readonly>
+                            </div>
                         </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="bulan">Bulan</label>
+                                <select name="bulan" id="bulan" class="form-control form-control-lg"></select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="diskon">Diskon</label>
+                                <input class="form-control" id="diskon" name="diskon" type="number">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="jumlah_bayar">Jumlah Bayar</label>
+                                <input class="form-control" id="jumlah_bayar" name="jumlah_bayar" type="number" readonly    >
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label for="terbayar">Terbayar</label>
-                            <p name="terbayar" id="terbayar" class="form-control bg-secondary"></p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="form-group">
-                            <label for="sisa">Sisa</label>
-                            <p name="sisa" id="sisa" class="form-control bg-secondary"></p>
-                        </div>
+
+                    <div class="row">
+                        <button type="button" class="btn btn-primary ml-3">
+                            Simpan
+                        </button>
                     </div>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#exampleModal">
-                        + Pembayaran
-                    </button>
                 </div>
+                
 
                 <!-- CONTENT HISTORY PEMBAYARAN UANG PANGKAL -->
                 <div class="row border rounded p-3 mt-3">
@@ -108,31 +120,7 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Tambah Pembayaran Uang Pangkal</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Nominal Bayar</label>
-                <input type="number" class="form-control" id="nominal_bayar">
-                <input type="hidden" class="form-control" id="id_pembayaran">
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" id="simpan" class="btn btn-primary">Simpan</button>
-            <button type="button" id="cetak" class="btn btn-primary d-none">Cetak Bukti</button>
-        </div>
-        </div>
-    </div>
-</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
@@ -140,8 +128,14 @@
 
 <script>
     $(document).ready(function() {
-        $('select[name="nis"]').select2();
+        $('select[name="bulan"]').select2();
         $('select[name="jenis_pembayaran"]').select2();
+
+        let month = ['januari','februari','maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'nopember', 'desember'];
+        $('#bulan').append(`<option value="">Pilih Bulan</option>`);
+        $.each(month, function (i, val) { 
+             $('#bulan').append(`<option value="${i+1}">${val}</option>`);
+        });
 
         // GET ALL JENIS PEMBAYARAN
         $.ajax({
@@ -150,59 +144,31 @@
             data: {},
             dataType: "JSON",
             success: function (response) {
-                $.each(response.jenis_pembayaran, function (i, val) { 
+                $('select[name="jenis_pembayaran"]').append(`<option value="">Pilih Pembayaran</option>`);
+                $.each(response.jenis_pembayaran, function (i, val) {
                     $('select[name="jenis_pembayaran"]').append(`<option value="${val.id_jenis_pembayaran}">${val.nama_pos_keuangan} - ${val.tipe_pembayaran} - ${val.tahun_ajaran}</option>`);
                 });
             }
         });
 
-        // NIS ON CHAGE
-        $('#nis').on('change', function(e){
-            let idSiswa = e.target.value;
+        // jenis_pembayaran ON CHAGE
+        $('#jenis_pembayaran').on('change', function(e){
+            let jenisPembayaran = e.target.value;
             $.ajax({
                 type: "GET",
-                url: BASE_URL+"pembayaran/get_ppdb_pembayaran",
-                data: {id: idSiswa},
+                url: BASE_URL+"pembayaran/getJenisPembayaran",
+                data: {id: jenisPembayaran},
                 dataType: "JSON",
                 success: function (response) {
-                    // kosongkan field terlebih dahulu
-                    $('#uang_pangkal').html('');
-                    $('#table-body-content').html('');
-                    $('#terbayar').html('');
-                    $('#sisa').html('');
-                    $('#id_ppdb').val('');
+                   
+                    $('#tagihan').val(parseInt(response.tagihan));
+                    $('#diskon').val(0);
+                    $('#jumlah_bayar').val(parseInt(response.tagihan));
                     
-                    
-                    // isi dengan data baru
-                    $('#id_ppdb').val(response.siswa.id_ppdb);
-                    
-                    let nominalHarusBayar = response.ppdb_pembayaran[0].nominal_harus_bayar;
-                    $('#uang_pangkal').html(addCommas(nominalHarusBayar));
-
-                    let terbayar = 0;
-                    let no = 1;
-                    $.each(response.ppdb_pembayaran, function (i, val) { 
-                        terbayar += Number(val.bayar);
-
-                        $('#table-body-content').append(`<tr>
-                            <td>${no}</td>
-                            <td>${val.created_at}</td>
-                            <td>${addCommas(val.bayar)}</td>
-                        </tr>`);
-                        no++;
-                    });
-                    $('#terbayar').html(addCommas(terbayar));
-                    $('#sisa').html(addCommas(nominalHarusBayar-terbayar));
                 }
             });
         });
     });
-
-
-
-    function addCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
 
     $('#simpan').on('click', function(e){
         $.ajax({
