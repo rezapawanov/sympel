@@ -435,6 +435,17 @@ class pembayaran extends CI_Controller {
 
 	public function getJenisPembayaran(){
 		$get = $this->input->get();
+
+		if(isset($get['id'])){
+			$q = $this->db->where('id_jenis_pembayaran', $get['id']);
+			$q = $this->db->where('aktif_jenis_pembayaran', '1');
+			$q = $this->db->join('mst_pos_keuangan', 'mst_pos_keuangan.id_pos_keuangan=mst_jenis_pembayaran.id_pos_keuangan');
+			$q = $this->db->get('mst_jenis_pembayaran')->row_array();
+
+			header('Content-Type: application/json; charset=utf-8');
+			echo json_encode($q); die;
+		}
+
 		$q = $this->db->where('aktif_jenis_pembayaran', '1');
 		$q = $this->db->join('mst_pos_keuangan', 'mst_pos_keuangan.id_pos_keuangan=mst_jenis_pembayaran.id_pos_keuangan');
 		$q = $this->db->get('mst_jenis_pembayaran')->result_array();
