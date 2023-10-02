@@ -358,7 +358,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <button class="btn btn-primary mb-2" id="tambah-pembayaran-bulanan">+ Pembayaran Bulanan</button>
+                <a href="<?=base_url('pembayaran/pembayaran_bulanan')?>" class="btn btn-primary mb-2" id="tambah-pembayaran-bulanan">+ Pembayaran Bulanan</a>
                 <table class="table table-bordered table-hover table-striped" style="width:100%">
                   <thead>
                     <tr>
