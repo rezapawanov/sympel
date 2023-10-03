@@ -1,6 +1,9 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<!-- data tables -->
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"> -->
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 <div class="content-wrapper">
@@ -51,6 +54,8 @@
                         <div class="form-group">
                             <label for="nis">No Induk Siswa</label>
                             <input type="text" id="nis" name="nis" class="form-control" value="<?=$siswa['nis']?>" readonly>
+                            <input type="hidden" id="id_siswa" name="id_siswa" value="<?=$siswa['id_siswa']?>">
+                            <input type="hidden" id="id_kelas" name="id_kelas" value="<?=$siswa['id_kelas']?>">
                         </div>
                     </div>
 
@@ -62,7 +67,7 @@
                     </div>
                 </div>
 
-                <div class="row border rounded p-3 mt-3">
+                <div class="border rounded p-3 mt-3">
                     <div class="row">
                         <div class="col-4">
                             <div class="form-group">
@@ -85,32 +90,33 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="jumlah_bayar">Jumlah Bayar</label>
-                                <input class="form-control" id="jumlah_bayar" name="jumlah_bayar" type="number" readonly    >
+                                <input class="form-control" id="jumlah_bayar" name="jumlah_bayar" type="number" readonly>
                             </div>
                         </div>
 
                     </div>
-
-                    <div class="row">
-                        <button type="button" class="btn btn-primary ml-3">
-                            Simpan
-                        </button>
-                    </div>
+                        
                     <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" id="simpan">
+                        Simpan
+                    </button>
                 </div>
                 
 
-                <!-- CONTENT HISTORY PEMBAYARAN UANG PANGKAL -->
-                <div class="row border rounded p-3 mt-3">
-                    <table class="table">
-                        <thead>
+                <!-- CONTENT HISTORY PEMBAYARAN UANG SPP -->
+                <div class="border rounded p-3 mt-3">
+                    <table class="table table-bordered" id="myTable">
+                        <thead class="bg-primary">
                             <tr>
                                 <th>No</th>
+                                <th>Bulan</th>
+                                <th>Tagihan</th>
+                                <th>Bayar</th>
                                 <th>Tanggal</th>
-                                <th>Nominal Pembayaran</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody id="table-body-content">
+                        <tbody id="table-content">
                             
                         </tbody>
                     </table>
@@ -126,15 +132,19 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
 <script>
     $(document).ready(function() {
+        var table = new DataTable('#myTable');
+
         $('select[name="bulan"]').select2();
         $('select[name="jenis_pembayaran"]').select2();
 
         let month = ['januari','februari','maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'nopember', 'desember'];
         $('#bulan').append(`<option value="">Pilih Bulan</option>`);
         $.each(month, function (i, val) { 
-             $('#bulan').append(`<option value="${i+1}">${val}</option>`);
+             $('#bulan').append(`<option value="${val}">${val}</option>`);
         });
 
         // GET ALL JENIS PEMBAYARAN
@@ -157,28 +167,51 @@
             $.ajax({
                 type: "GET",
                 url: BASE_URL+"pembayaran/getJenisPembayaran",
-                data: {id: jenisPembayaran},
+                data: {
+                    id: jenisPembayaran,
+                    id_siswa: $('#id_siswa').val()
+                },
                 dataType: "JSON",
                 success: function (response) {
                    
-                    $('#tagihan').val(parseInt(response.tagihan));
+                    $('#tagihan').val(parseInt(response.jenis_pembayaran.tagihan));
                     $('#diskon').val(0);
-                    $('#jumlah_bayar').val(parseInt(response.tagihan));
-                    
+                    $('#jumlah_bayar').val(parseInt(response.jenis_pembayaran.tagihan));
+
+                    $('#table-content').html('');
+                    $.each(response.pembayaran_bulanan, function (i, val) { 
+                        $('#table-content').append(`<tr>
+                            <td>${val.nama_pos_keuangan}</td>
+                            <td>${val.bulan}</td>
+                            <td>${val.tagihan}</td>
+                            <td>${val.bayar}</td>
+                            <td>${val.tanggal}</td>
+                            <td></td>
+                        </tr>`);
+                    });
                 }
             });
         });
     });
 
+    $('#diskon').on('keyup', function(){
+        let diskon = $('#diskon').val();
+        let tagihan = $('#tagihan').val();
+        $('#jumlah_bayar').val(tagihan-diskon);
+    });
+
     $('#simpan').on('click', function(e){
         $.ajax({
             type: "POST",
-            url: BASE_URL+"pembayaran/pembayaran_uang_pangkal",
+            url: BASE_URL+"pembayaran/pembayaran_bulanan",
             data: {
                 type: 'simpan',
-                nominal_bayar: $('#nominal_bayar').val(),
-                id_ppdb: $('#id_ppdb').val(),
-                nominal_harus_bayar: $('#uang_pangkal').html()
+                jumlah_bayar: $('#jumlah_bayar').val(),
+                tagihan: $('#tagihan').html(),
+                id_siswa: $('#id_siswa').val(),
+                id_kelas: $('#id_kelas').val(),
+                id_jenis_pembayaran: $('#jenis_pembayaran').val(),
+                bulan: $('#bulan').val()
             },
             dataType: "JSON",
             success: function (response) {
@@ -205,8 +238,8 @@
         });
     });
 
-    $('#cetak').on('click', function(e){
-        window.location.href = BASE_URL+'pembayaran/cetak_bukti_pembayaran_uang_pangkal?id_pembayaran='+$('#id_pembayaran').val();
-    });
+    // $('#cetak').on('click', function(e){
+    //     window.location.href = BASE_URL+'pembayaran/cetak_bukti_pembayaran_uang_pangkal?id_pembayaran='+$('#id_pembayaran').val();
+    // });
 
 </script>
