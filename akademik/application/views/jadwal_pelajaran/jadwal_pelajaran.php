@@ -1,3 +1,14 @@
+<style>
+  .nav-item button.nav-link.active{
+    background-color: #4287f5;
+    color: white;
+    font-weight: 600;
+  }
+  tr.text-info{
+    border-top: 5px solid white;
+  }
+</style>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -86,8 +97,57 @@
                     <?php } else { echo '<tr><td colspan="9">Silahkan Pilih Tahun Ajaran & Semester Terlebih Dahulu</td></tr>'; } ?> 
                 </tbody>
               </table>
+
+
+
+
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="senin-tab" data-toggle="tab" data-target="#senin" type="button" role="tab" aria-controls="senin" aria-selected="true">senin</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="selasa-tab" data-toggle="tab" data-target="#selasa" type="button" role="tab" aria-controls="selasa" aria-selected="false">selasa</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="rabu-tab" data-toggle="tab" data-target="#rabu" type="button" role="tab" aria-controls="rabu" aria-selected="false">rabu</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="kamis-tab" data-toggle="tab" data-target="#kamis" type="button" role="tab" aria-controls="kamis" aria-selected="false">kamis</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="jumat-tab" data-toggle="tab" data-target="#jumat" type="button" role="tab" aria-controls="jumat" aria-selected="false">jumat</button>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="senin" role="tabpanel" aria-labelledby="senin-tab">
+                  <table id="seninTable" class="table table-hover table-striped mt-3">
+                    <thead>
+                      <tr class="text-info">
+                          <th>No</th>
+                          <th>Mapel</th>
+                          <th>Guru</th>
+                          <th>Kelas</th>
+                          <th>Tahun Ajaran</th>
+                          <th>Semester</th>
+                          <th>Hari</th>
+                          <th>Jam Mulai</th>
+                          <th>Jam Akhir</th>
+                          <th></th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+                <div class="tab-pane fade" id="selasa" role="tabpanel" aria-labelledby="selasa-tab">...</div>
+                <div class="tab-pane fade" id="rabu" role="tabpanel" aria-labelledby="rabu-tab">...</div>
+                <div class="tab-pane fade" id="kamis" role="tabpanel" aria-labelledby="kamis-tab">...</div>
+                <div class="tab-pane fade" id="jumat" role="tabpanel" aria-labelledby="jumat-tab">...</div>
+              </div>
+
             </div>
             <!-- /.box-body -->
+
+      
+
           </div>
           <!-- /.box -->
         </div>
