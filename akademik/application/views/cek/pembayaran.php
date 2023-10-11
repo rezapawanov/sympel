@@ -22,7 +22,7 @@
       <div class="container-fluid">
         <div class="row">
           <!-- /.row -->
-          <div class="animated fadeInLeft col-md-8">
+          <div class="animated fadeInLeft col-12">
             <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title"><i class="fas fa-ballot"></i> Detail <?php echo $judul; ?></h3>
@@ -33,7 +33,7 @@
                     <div class="box-header with-border text-right">
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="box-body p-3">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab_4" data-toggle="tab" aria-expanded="true">Informasi Data Siswa</a></li>
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-12">
+            <div class="col-xs-12 p-3">
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h4 class="box-title">Tagihan Bulanan</h4>
@@ -131,22 +131,13 @@
                                     $q_total = $this->db->query("SELECT SUM(tagihan) as hitung_tagihan, SUM(bayar) as hitung_bayar FROM pembayaran_bulanan WHERE id_jenis_pembayaran = '$data[id_jenis_pembayaran]' AND id_siswa = '$data[id_siswa]'")->row();
                                     ?>
                                     <tr>
-                                        <td><?php echo $no; ?></td>
-                                        <td><?php echo $data['nama_pos_keuangan'] . ' ' . $data['tahun_ajaran']; ?></td>
-                                        <td>Rp. <?php echo number_format($q_total->hitung_tagihan); ?></td>
-                                        <td>Rp. <?php echo number_format($q_total->hitung_bayar); ?></td>
+                                        <td><?= $no; ?></td>
+                                        <td><?= $data['nama_pos_keuangan'] . ' ' . $data['tahun_ajaran']; ?></td>
+                                        <td>Rp. <?= number_format($q_total->hitung_tagihan); ?></td>
+                                        <td>Rp. <?= number_format($q_total->hitung_bayar); ?></td>
+                                        <td><?= ($q_total->hitung_tagihan == $q_total->hitung_bayar) ? 'Lunas' : 'Belum Lunas';?></td>
                                         <td>
-                                            <?php
-                                            if ($q_total->hitung_tagihan == $q_total->hitung_bayar) {
-                                                echo 'Lunas';
-                                            } else {
-                                                echo 'Belum Lunas';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php echo '
-                        <a class="btn btn-success btn-xs history-bulanan" href="" data-toggle="modal" data-target="#modalView2"  data-id_jenis_pembayaran="' . $data['id_jenis_pembayaran'] . '" data-id_siswa="' . $id_siswa . '" data-id_kelas="' . $id_kelas . '"><i class="fa fa-list-alt"> </i> Lihat Detail</a> '; ?>
+                                            <?php echo '<a class="btn btn-success btn-xs history-bulanan" href="" data-toggle="modal" data-target="#modalView2"  data-id_jenis_pembayaran="' . $data['id_jenis_pembayaran'] . '" data-id_siswa="' . $id_siswa . '" data-id_kelas="' . $id_kelas . '"><i class="fa fa-list-alt"> </i> Lihat Detail</a> '; ?>
                                         </td>
                                     </tr>
                                     <?php $no++;
@@ -157,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="col-xs-12">
+            <div class="col-xs-12 p-3">
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h4 class="box-title">Tagihan Lainnya</h4>

@@ -176,13 +176,12 @@ class siswa extends CI_Controller
 	{
 		$d['judul'] = "Data Pembayaran";
 		$id = $this->session->userdata("id");
-		$get_tahunajaran = $this->db->query("SELECT * FROM mst_tahun_ajaran WHERE aktif_tahun_ajaran = '1'")->row();
-		$tahun_ajaran = $get_tahunajaran->tahun_ajaran;
-		$cek = $this->db->query("SELECT nis,nama_siswa,nama_kelas,id_siswa,foto,mst_siswa.id_kelas FROM mst_siswa 
-								INNER JOIN mst_kelas ON mst_siswa.id_kelas = mst_kelas.id_kelas 
-								WHERE id_siswa = '$id'");
 
-		$data = $cek->row();
+		$get_tahunajaran = $this->db->where('aktif_tahun_ajaran', '1')->get('mst_tahun_ajaran')->row();
+		$tahun_ajaran = $get_tahunajaran->tahun_ajaran;
+
+		$data = $this->Siswa_model->cek_siswa($id);
+		
 		$d['tahun_ajaran'] = $tahun_ajaran;
 		$d['nis'] = $data->nis;
 		$d['id_kelas'] = $data->id_kelas;

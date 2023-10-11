@@ -2,6 +2,13 @@
 
 class Siswa_model extends CI_Model {
 
+	public function cek_siswa($id){
+		$this->db->select('nis,nama_siswa,nama_kelas,id_siswa,foto,mst_siswa.id_kelas'); 
+		$this->db->from('mst_siswa'); 
+		$this->db->join('mst_kelas', 'mst_siswa.id_kelas = mst_kelas.id_kelas'); 
+		$this->db->where('id_siswa', $id); 
+		return $this->db->get()->row();
+	}
 
 	public function siswa($id_kelas) {
 		$q = $this->db->query("SELECT * FROM mst_siswa  
@@ -48,8 +55,14 @@ class Siswa_model extends CI_Model {
 	}
 
 	public function pembayaran_siswa_bulanan($tahun_ajaran,$id_siswa) {
-		$q = $this->db->query("SELECT * FROM vw_bayar_siswa WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bulanan' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran");
-		return $q;
+		$this->db->select('id_jenis_pembayaran, id_siswa, nama_pos_keuangan, tahun_ajaran');
+		$this->db->where('tahun_ajaran', $tahun_ajaran);
+		$this->db->where('tipe_pembayaran', 'Bulanan');
+		$this->db->where('id_siswa', $id_siswa);
+		$this->db->group_by('id_jenis_pembayaran, id_siswa, nama_pos_keuangan, tahun_ajaran');
+		// $q = $this->db->query("SELECT * FROM vw_bayar_siswa WHERE tahun_ajaran = '$tahun_ajaran' AND tipe_pembayaran = 'Bulanan' AND id_siswa = '$id_siswa' GROUP BY id_jenis_pembayaran");
+		// return $q;
+		return $this->db->get('vw_bayar_siswa');
 	}
 
 	public function pembayaran_bulanan_terakhir($tahun_ajaran,$id_siswa) {
