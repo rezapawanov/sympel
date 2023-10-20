@@ -11,10 +11,10 @@ class Siswa_model extends CI_Model {
 	}
 
 	public function siswa($id_kelas) {
-		$q = $this->db->query("SELECT * FROM mst_siswa  
-		INNER JOIN mst_kelas ON mst_siswa.id_kelas = mst_kelas.id_kelas 
-		 ORDER BY nama_siswa ASC");
-		return $q;
+		$this->db->where('ms.id_kelas', $id_kelas);
+		$this->db->join('mst_kelas mk', 'ms.id_kelas = mk.id_kelas', 'left');
+		$this->db->order_by('nama_siswa', 'ASC');
+		return $this->db->get('mst_siswa ms');
 	}
 
 	public function siswa_pindah_kelas($id_kelas,$angkatan) {
