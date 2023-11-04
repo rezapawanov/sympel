@@ -186,6 +186,12 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="form-group col-md-3 mr-2">
+                                                <div class="form-group">
+                                                    <label>No Kartu RFID</label>
+                                                    <input type="text" class="form-control" name="rfid" value="<?php echo $rfid; ?>" >
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 

@@ -31,6 +31,19 @@ class Master extends CI_Controller
 		$this->load->view('jabatan/jabatan');
 		$this->load->view('bottom');
 	}
+	
+	public function tambah() {
+        // Get the 'get' parameter from the URL
+        $get_param = $this->input->get('get');
+
+        if ($get_param) {
+            // Do something with the 'get' parameter, e.g., display it
+            echo 'GET parameter: ' . $get_param;
+        } else {
+            // Handle the case where 'get' parameter is not present
+            echo 'GET parameter not found.';
+        }
+    }
 
 	public function pemeliharaan()
 	{
