@@ -11,6 +11,11 @@ class Absen_model extends CI_Model {
 		WHERE tahun_ajaran = '$tahun_ajaran' ORDER BY tanggal_absen DESC");
 		return $q;
     }
+    
+    public function cekkartu() {
+		$q = $this->db->query("SELECT * FROM tambah ORDER BY time DESC");
+		return $q;
+    }
 
 	public function absen_siswa($start, $limit, $filter){
 		$this->db->select('a.*, k.nama_kelas');

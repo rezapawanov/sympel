@@ -432,6 +432,7 @@ class siswa extends CI_Controller
 			$d['status_sekolah'] = $data->status_sekolah;
 			$d['alamat_sekolah'] = $data->alamat_sekolah;
 			$d['tahun_lulus'] = $data->tahun_lulus;
+			$d['rfid'] = $data->rfid;
 
 			$this->load->view('top', $d);
 			$this->load->view('menu');
@@ -503,7 +504,7 @@ class siswa extends CI_Controller
 		$in['status_sekolah'] = $this->input->post("status_sekolah");
 		$in['alamat_sekolah'] = $this->input->post("alamat_sekolah");
 		$in['tahun_lulus'] = $this->input->post("tahun_lulus");
-
+        $in['rfid'] = $this->input->post("rfid");
 
 		$config['upload_path'] = './upload/siswa';
 		$config['allowed_types'] = 'jpg|png';
