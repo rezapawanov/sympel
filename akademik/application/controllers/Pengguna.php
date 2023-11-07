@@ -59,6 +59,7 @@ class Pengguna extends CI_Controller {
 			$d['id_jabatan'] = $data->id_jabatan;
 			$d['id_guru'] = $data->id_guru;
 			$d['aktif_guru'] = $data->aktif_guru;
+			$d['rfid'] = $data->rfid;
 			$this->load->view('top',$d);
 			$this->load->view('menu');
 			$this->load->view('guru/guru_detail');
@@ -89,6 +90,7 @@ class Pengguna extends CI_Controller {
 		$d['foto'] = "";
 		$d['id_guru'] = "";
 		$d['aktif_guru'] = "";
+		$d['rfid'] = "";
 		$this->load->view('top',$d);
 		$this->load->view('menu');
 		$this->load->view('guru/guru_tambah');
@@ -128,6 +130,7 @@ class Pengguna extends CI_Controller {
 			$d['combo_jabatan'] = $this->Combo_model->combo_jabatan_guru($data->id_jabatan);
 			$d['id_guru'] = $data->id_guru;
 			$d['aktif_guru'] = $data->aktif_guru;
+			$d['rfid'] = $data->rfid;
 			$this->load->view('top',$d);
 			$this->load->view('menu');
 			$this->load->view('guru/guru_tambah');
@@ -159,6 +162,7 @@ class Pengguna extends CI_Controller {
 			$in['kewarganegaraan'] = $this->input->post("kewarganegaraan");
 			$in['id_jabatan'] = $this->input->post("id_jabatan");
 			$in['password'] = md5($this->input->post("nip"));
+			$in['rfid'] = $this->input->post("rfid");
 
 
 			$config['upload_path'] = './upload/guru';

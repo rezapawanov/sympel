@@ -36,6 +36,7 @@
                   <th>No</th>
                   <th>NIPTK</th>
                   <th>NIK</th>
+                  <th>Nomor Kartu</th>
                   <th>Nama Guru</th>
                   <th>No Handphone</th>
                   <th>Jabatan</th>
@@ -51,6 +52,7 @@
                       <td><?php echo $no; ?></td>
                       <td><?php echo $data['nip']; ?></td>
                       <td><?php echo $data['nik']; ?></td>
+                      <td><?php echo $data['rfid']; ?></td>
                       <td><?php echo $data['nama_guru']; ?></td>
                       <td><?php echo $data['hp']; ?></td>
                       <td><?php echo $data['id_jabatan']; ?></td>
