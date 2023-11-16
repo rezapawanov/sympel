@@ -23,6 +23,16 @@ class absen extends CI_Controller {
 		$this->load->view('absen/absen');
 		$this->load->view('bottom');
 	}
+
+	public function guru() {
+		$d['judul'] = "Data Absen Guru";
+		$get_tahunajaran = $this->db->query("SELECT tahun_ajaran,tahun_ajaran FROM mst_tahun_ajaran WHERE aktif_tahun_ajaran = 1")->row();
+		$d['absen'] = $this->Absen_model->absen_guru($get_tahunajaran->tahun_ajaran);
+		$this->load->view('top', $d);
+		$this->load->view('menu');
+		$this->load->view('absen/absen');
+		$this->load->view('bottom');
+	}
 	
 	public function cek_data_kartu() {
 		$d['judul'] = "Cek Data Kartu";

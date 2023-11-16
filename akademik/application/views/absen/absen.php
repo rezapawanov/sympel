@@ -35,7 +35,7 @@
                     <tr class="text-info">
                       <th>No</th>
                       <th>Tanggal</th>
-                        <th>Nama Siswa</th>
+                        <th>Nama Guru</th>
                         <th>Kelas</th>
                         <th>Keterangan</th>
                         <th>Alasan</th>
@@ -57,7 +57,7 @@
                                     <tr>
                                         <td><?php echo $no; ?></td>
                                         <td><?php echo date("d-m-Y",strtotime($data['tanggal_absen'])); ?></td>
-                                        <td><?php echo $data['nama_siswa']; ?></td>
+                                        <td><?php echo $data['nama_guru']; ?></td>
                                         <td><?php echo $data['nama_kelas']; ?></td>
                                         <td><?php echo $data['keterangan']; ?></td>
                                         <td><?php echo $data['alasan']; ?></td>

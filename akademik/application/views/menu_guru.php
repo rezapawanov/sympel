@@ -93,6 +93,13 @@ $bln= date ("M");
             <p>Jadwal Pelajaran</p>
           </a>
         </li>
+        
+        <li class="nav-item">
+          <a href="<?php echo base_url(); ?>Absen/guru" class="nav-link">
+            <i class="fa fa-calendar"></i>
+            <p>Absensi</p>
+          </a>
+        </li>
 
         <li class="nav-item has-treeview  <?php if($this->uri->segment(1) == 'nilai') echo 'active'; ?> treeview <?php if($this->uri->segment(1) == 'nilai') echo 'menu-open'; ?>">
           <a href="#" class="nav-link">

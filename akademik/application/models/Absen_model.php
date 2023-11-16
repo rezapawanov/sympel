@@ -11,6 +11,14 @@ class Absen_model extends CI_Model {
 		WHERE tahun_ajaran = '$tahun_ajaran' ORDER BY tanggal_absen DESC");
 		return $q;
     }
+
+	public function absen_guru($tahun_ajaran) {
+		$this->db->where('tahun_ajaran', $tahun_ajaran);
+		$this->db->where('absen.id_guru', $this->session->userdata('id'));
+		$this->db->join('mst_kelas', 'mst_kelas.id_kelas = absen.id_kelas');
+		$this->db->join('mst_guru', 'mst_guru.id_guru = absen.id_guru');
+		return $this->db->get('absen');
+    }
     
     public function cekkartu() {
 		$q = $this->db->query("SELECT * FROM tambah ORDER BY time DESC");
