@@ -16,10 +16,10 @@ class Absen_model extends CI_Model {
 		$this->db->where('mst_tahun_ajaran.tahun_ajaran', $tahun_ajaran);
 		$this->db->where('absen_guru.id_guru', $this->session->userdata('id'));
 		$this->db->join('mst_guru', 'mst_guru.id_guru = absen_guru.id_guru', 'left');
-		$this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.id_jadwal_pelajaran = absen_guru.id_jadwal_pelajaran', 'left');
-		$this->db->join('mst_tahun_ajaran', 'mst_tahun_ajaran.id_tahun_ajaran = jadwal_pelajaran.id_tahun_ajaran', 'left');
-		$this->db->join('mst_kelas', 'mst_kelas.id_kelas = jadwal_pelajaran.id_kelas', 'left');
-		$this->db->join('mst_mapel', 'mst_mapel.id_mapel = jadwal_pelajaran.id_mapel', 'left');
+	//	$this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.id_jadwal_pelajaran = absen_guru.id_jadwal_pelajaran', 'left');
+	//	$this->db->join('mst_tahun_ajaran', 'mst_tahun_ajaran.id_tahun_ajaran = jadwal_pelajaran.id_tahun_ajaran', 'left');
+	//	$this->db->join('mst_kelas', 'mst_kelas.id_kelas = jadwal_pelajaran.id_kelas', 'left');
+	//	$this->db->join('mst_mapel', 'mst_mapel.id_mapel = jadwal_pelajaran.id_mapel', 'left');
 		return $this->db->get('absen_guru');
     }
     
