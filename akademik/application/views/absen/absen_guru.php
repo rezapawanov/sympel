@@ -34,12 +34,11 @@
                   <thead>
                     <tr class="text-info">
                       <th>No</th>
-                      <th>Tanggal</th>
+                      <th>Mapel</th>
                       <th>Nama Guru</th>
-                      <th>Kelas</th>
-                      <th>Keterangan</th>
-                      <th>Alasan</th>
-                      <th>Di Input Oleh</th>
+                      <th>Jam Masuk</th>
+                      <th>Tanggal Absen</th>
+                      <th>Jam Absen</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -47,21 +46,14 @@
                     <?php
                     $no = 1;
                     foreach ($absen->result_array() as $data) {
-                      if (!empty($data['id_guru'])) {
-                        $get = $this->db->query("SELECT nama_guru FROM mst_guru WHERE id_guru = '$data[id_guru]'")->row();
-                        $diinput = $get->nama_guru;
-                      } else {
-                        $diinput = 'Administrator';
-                      }
                     ?>
                       <tr>
                         <td><?php echo $no; ?></td>
-                        <td><?php echo date("d-m-Y", strtotime($data['tanggal_absen'])); ?></td>
+                        <td><?php echo $data['nama_mapel']; ?></td>
                         <td><?php echo $data['nama_guru']; ?></td>
-                        <td><?php echo $data['nama_kelas']; ?></td>
-                        <td><?php echo $data['keterangan']; ?></td>
-                        <td><?php echo $data['alasan']; ?></td>
-                        <td><?php echo $diinput; ?></td>
+                        <td><?php echo $data['start_time']; ?></td>
+                        <td><?php echo $data['tanggal_absen']; ?></td>
+                        <td><?php echo $data['jam_absen']; ?></td>
                         <td style="text-align:center;width:100px;">
                           <?php if ($this->session->userdata("hak_akses") == 'admin') { ?>
                             <a class="btn btn-danger btn-xs" href="<?php echo base_url() . 'absen/absen_hapus/' . $data['id_absen']; ?>" onclick="return confirm('Yakin ingin hapus data ?');"><i class="fa fa-trash"> </i> </a>

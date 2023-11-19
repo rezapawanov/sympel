@@ -30,7 +30,7 @@ class absen extends CI_Controller {
 		$d['absen'] = $this->Absen_model->absen_guru($get_tahunajaran->tahun_ajaran);
 		$this->load->view('top', $d);
 		$this->load->view('menu');
-		$this->load->view('absen/absen');
+		$this->load->view('absen/absen_guru');
 		$this->load->view('bottom');
 	}
 	
@@ -148,6 +148,16 @@ class absen extends CI_Controller {
 		$this->db->delete("pelanggaran_siswa",$where);
 		$this->session->set_flashdata("success", "Hapus Absen Berhasil");
 		redirect("absen");
+	}
+
+	public function generate_absen_guru(){
+		$absen = $this->db->where('id_guru', $this->session->userdata('id'))
+					->get('absen')->result_array();
+		foreach ($absen as $key => $val) {
+			$cek_absen_guru = $this->db->where('tanggal', $val['tanggal_absen'])
+								->where('jam_absen')->get('absen_guru')
+								->row_array();
+		}
 	}
 
 	
