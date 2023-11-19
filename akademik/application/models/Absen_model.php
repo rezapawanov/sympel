@@ -48,4 +48,11 @@ class Absen_model extends CI_Model {
 
 		return $this->db->get()->result_array();
 	}
+
+	public function cek_absen_guru($data){
+		return $this->db->where('tanggal_absen', $data['tanggal_absen'])
+			->where('jam_absen >=', date('H:i:s', strtotime($data['waktu_absen'])))
+			->where('jam_absen <=', date('H:i:s', strtotime($data['waktu_absen'])))
+			->get('absen_guru')->row_array();
+	}
 }
