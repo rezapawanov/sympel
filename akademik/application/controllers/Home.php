@@ -13,7 +13,7 @@ class Home extends CI_Controller
 			$get_tahun = $this->db->query("SELECT id_tahun_ajaran,tahun_ajaran FROM mst_tahun_ajaran WHERE aktif_tahun_ajaran = 1")->row();
 
 			$this->load->view('top');
-			if ($this->session->userdata('hak_akses') == "guru") {
+			if ($this->session->userdata('hak_akses') == "guru_lama") {
 			$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
 
 			$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();

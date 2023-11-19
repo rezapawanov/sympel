@@ -1,4 +1,5 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 
 class Login_model extends CI_Model
 {
@@ -13,11 +14,11 @@ class Login_model extends CI_Model
 
 		$q_guru = $this->db->query("SELECT * FROM mst_guru INNER JOIN mst_jabatan ON mst_guru.id_jabatan = mst_jabatan.id_jabatan WHERE nip = '$username' AND password = '$password' AND mst_guru.id_jabatan = 2");
 
-
 		$q_siswa = $this->db->query("SELECT * FROM mst_siswa WHERE nis = '$username' AND password = '$password'");
 
+		$q_keuangan = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND (hak_akses = 'kasir' OR hak_akses = 'bendahara')");
 
-		$q_keuangan = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND (hak_akses = 'das' OR hak_akses = 'kasir' OR hak_akses = 'bendahara')");
+		$q_kepsek = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_jabatan.id_jabatan = 12");
 
 		$q_perpus = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_user.id_jabatan = '20'");
 
@@ -43,7 +44,7 @@ class Login_model extends CI_Model
 				$session['tipe'] = 'gurupiket';
 				$this->session->set_userdata($session);
 			}
-			redirect("../gurupiket");
+			redirect("home");
 		} else if ($q_guru->num_rows() > 0) {
 			foreach ($q_guru->result() as $data) {
 				$session['username'] = $data->nip;
@@ -53,7 +54,7 @@ class Login_model extends CI_Model
 				$session['tipe'] = 'gurupiket';
 				$this->session->set_userdata($session);
 			}
-			redirect("../gurupiket");
+			redirect("home");
 		} else if ($q_keuangan->num_rows() > 0) {
 			foreach ($q_keuangan->result() as $data) {
 				$session['username'] = $data->username;
@@ -75,7 +76,7 @@ class Login_model extends CI_Model
 				$this->session->set_userdata($session);
 			}
 			redirect("../akademik");
-		}else if ($q_perpus->num_rows() > 0) {
+		} else if ($q_perpus->num_rows() > 0) {
 			foreach ($q_perpus->result() as $data) {
 				$session['username'] = $data->username;
 				$session['id'] = $data->id_user;
@@ -86,7 +87,18 @@ class Login_model extends CI_Model
 				$this->session->set_userdata($session);
 			}
 			redirect("../perpustakaan");
-		}  else {
+		} else if ($q_kepsek->num_rows() > 0) {
+			foreach ($q_kepsek->result() as $data) {
+				$session['username'] = $data->username;
+				$session['id'] = $data->id_user;
+				$session['nama'] = $data->nama;
+				$session['hak_akses'] = $data->hak_akses;
+				$session['nama_jabatan'] = $data->nama_jabatan;
+				$session['tipe'] = 'kepsek';
+				$this->session->set_userdata($session);
+			}
+			redirect("home");
+		} else {
 			$this->session->set_flashdata("error", "Gagal Login. Username dan Password Salah");
 			redirect(base_url());
 		}

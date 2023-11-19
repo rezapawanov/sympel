@@ -8,7 +8,7 @@ class Master extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('tipe') != "root") {
+		if ($this->session->userdata('tipe') != "root" and $this->session->userdata('tipe') != "kepsek") {
 			redirect("../" . $this->session->userdata('tipe'));
 		} else {
 			$this->load->Model('Master_model');

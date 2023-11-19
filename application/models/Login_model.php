@@ -61,7 +61,7 @@ class Login_model extends CI_Model
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
 			$this->db->insert("log_login",$log);
-			redirect("../kesiswaan");
+			redirect("home");
 		} else if ($q_guru->num_rows() > 0) {
 			foreach ($q_guru->result() as $data) {
 				$session['username'] = $data->nip;

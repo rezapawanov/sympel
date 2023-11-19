@@ -8,7 +8,7 @@ class siswa extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "siswa" && $this->session->userdata('hak_akses') != "adminakademik") {
+		if ($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "siswa" && $this->session->userdata('hak_akses') != "adminakademik" && $this->session->userdata('tipe') != "kepsek" && $this->session->userdata('hak_akses') != "guru") {
 			redirect(base_url());
 		} else {
 			$this->load->Model('Siswa_model');

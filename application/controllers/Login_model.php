@@ -43,7 +43,7 @@ class Login_model extends CI_Model
 				$session['tipe'] = 'gurupiket';
 				$this->session->set_userdata($session);
 			}
-			redirect("../gurupiket");
+			redirect("home");
 		} else if ($q_guru->num_rows() > 0) {
 			foreach ($q_guru->result() as $data) {
 				$session['username'] = $data->nip;
@@ -53,7 +53,7 @@ class Login_model extends CI_Model
 				$session['tipe'] = 'gurupiket';
 				$this->session->set_userdata($session);
 			}
-			redirect("../gurupiket");
+			redirect("home");
 		} else if ($q_keuangan->num_rows() > 0) {
 			foreach ($q_keuangan->result() as $data) {
 				$session['username'] = $data->username;

@@ -38,7 +38,7 @@ $bln= date ("M");
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <?php if($this->session->userdata("hak_akses") == 'guru' || $this->session->userdata("hak_akses") == 'gurubk') { 
+        <?php if($this->session->userdata("hak_akses") == 'gurubk') { 
           $id = $this->session->userdata("id");
           $get_foto = $this->db->query("SELECT foto FROM mst_guru WHERE id_guru = '$id'")->row();
           ?>
@@ -73,9 +73,9 @@ $bln= date ("M");
                 DAHSBOARD
               </p>
             </a>
-          </li>
+          </li> 
           <li class="nav-header">MENU NAVIGASI</li>
-          <?php if ($this->session->userdata("hak_akses") == 'admin') { ?>
+          <?php if ($this->session->userdata("hak_akses") == 'admin' or $this->session->userdata("tipe") == 'kepsek' or $this->session->userdata("hak_akses") == 'guru') { ?>
             <li class="nav-item has-treeview  <?php if ($this->uri->segment(1) == 'pengguna') echo 'active'; ?> treeview <?php if ($this->uri->segment(1) == 'pengguna') echo 'menu-open'; ?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book-open text-info"></i>

@@ -6,13 +6,13 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('tipe') != "root") {
+		if ($this->session->userdata('tipe') != "root" && $this->session->userdata('tipe') != "kepsek" && $this->session->userdata('tipe') != "gurupiket") {
 			redirect("../" . $this->session->userdata('tipe'));
 		} 
 	}
 
 	public function index() {
-		if ($this->session->userdata('tipe') != "root") {
+		if ($this->session->userdata('tipe') != "root" && $this->session->userdata('tipe') != "kepsek" && $this->session->userdata('tipe') != "gurupiket") {
 			redirect("../" . $this->session->userdata('tipe'));
 		} else {
 			$d['judul'] = "Dashboard";

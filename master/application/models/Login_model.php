@@ -1,4 +1,5 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 
 class Login_model extends CI_Model
 {
@@ -9,15 +10,15 @@ class Login_model extends CI_Model
 		$password = $in['password'];
 		$q_admin = $this->db->query("SELECT * FROM mst_admin WHERE username = '$username' AND password = '$password'");
 
+		$q_kepsek = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_user.id_jabatan = 12");
+
 		$q_bk = $this->db->query("SELECT * FROM mst_guru INNER JOIN mst_jabatan ON mst_guru.id_jabatan = mst_jabatan.id_jabatan WHERE nip = '$username' AND password = '$password' AND mst_guru.id_jabatan = 3");
 
 		$q_guru = $this->db->query("SELECT * FROM mst_guru INNER JOIN mst_jabatan ON mst_guru.id_jabatan = mst_jabatan.id_jabatan WHERE nip = '$username' AND password = '$password' AND mst_guru.id_jabatan = 2");
 
-
 		$q_siswa = $this->db->query("SELECT * FROM mst_siswa WHERE nis = '$username' AND password = '$password'");
 
-
-		$q_keuangan = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND (hak_akses = 'dasview' OR hak_akses = 'das' OR hak_akses = 'kasir' OR hak_akses = 'bendahara')");
+		$q_keuangan = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND (hak_akses = 'kasir' OR hak_akses = 'bendahara')");
 
 		$q_perpus = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_user.id_jabatan = '20'");
 
@@ -46,7 +47,7 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("home");
 		} else if ($q_bk->num_rows() > 0) {
 			foreach ($q_bk->result() as $data) {
@@ -60,8 +61,8 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
-			redirect("../kesiswaan");
+			$this->db->insert("log_login", $log);
+			redirect("home");
 		} else if ($q_guru->num_rows() > 0) {
 			foreach ($q_guru->result() as $data) {
 				$session['username'] = $data->nip;
@@ -74,8 +75,8 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
-			redirect("../akademik");
+			$this->db->insert("log_login", $log);
+			redirect("home");
 		} else if ($q_keuangan->num_rows() > 0) {
 			foreach ($q_keuangan->result() as $data) {
 				$session['username'] = $data->username;
@@ -89,7 +90,7 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../keuangan");
 		} else if ($q_siswa->num_rows() > 0) {
 			foreach ($q_siswa->result() as $data) {
@@ -103,7 +104,7 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../akademik");
 		} else if ($q_perpus->num_rows() > 0) {
 			foreach ($q_perpus->result() as $data) {
@@ -118,7 +119,7 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../perpustakaan");
 		} else if ($q_alumni->num_rows() > 0) {
 			foreach ($q_alumni->result() as $data) {
@@ -144,7 +145,7 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../bukutamu");
 		} else if ($q_ppdb->num_rows() > 0) {
 			foreach ($q_ppdb->result() as $data) {
@@ -159,7 +160,7 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../ppdb");
 		} else if ($q_kelulusan->num_rows() > 0) {
 			foreach ($q_kelulusan->result() as $data) {
@@ -174,7 +175,7 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../kelulusan");
 		} else if ($q_akademik->num_rows() > 0) {
 			foreach ($q_akademik->result() as $data) {
@@ -189,9 +190,9 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../akademik");
-		
+
 		} else if ($q_kantin->num_rows() > 0) {
 			foreach ($q_kantin->result() as $data) {
 				$session['username'] = $data->username;
@@ -207,9 +208,23 @@ class Login_model extends CI_Model
 			$log['username'] = $session['nama'];
 			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
 			$log['hak_akses'] = $session['hak_akses'];
-			$this->db->insert("log_login",$log);
+			$this->db->insert("log_login", $log);
 			redirect("../keuangan");
 
+		} else if ($q_kepsek->num_rows() > 0) {
+			foreach ($q_kepsek->result() as $data) {
+				$session['username'] = $data->nip;
+				$session['id'] = $data->id_guru;
+				$session['nama'] = $data->nama_guru;
+				$session['hak_akses'] = $data->hak_akses;
+				$session['tipe'] = 'kepsek';
+				$this->session->set_userdata($session);
+			}
+			$log['username'] = $session['nama'];
+			$log['ipaddress'] = $_SERVER['REMOTE_ADDR'];
+			$log['hak_akses'] = $session['hak_akses'];
+			$this->db->insert("log_login", $log);
+			redirect("home");
 		} else {
 			$this->session->set_flashdata("error", "Gagal Login. Username dan Password Salah");
 			redirect(base_url());
