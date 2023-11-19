@@ -46,13 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $query = "INSERT INTO rfid (tag, ket) VALUES ('$tag', '$ket')";
             mysqli_query($koneksi, $query);
 
-            $query = "SELECT id_guru, id_kelas FROM mst_guru WHERE rfid = '$tag'";
+            $query = "SELECT id_guru FROM mst_guru WHERE rfid = '$tag'";
             $result = mysqli_query($koneksi, $query);
 
             if ($result) {
                 $row = mysqli_fetch_assoc($result);
                 $id_guru = $row['id_guru'];
-                $id_kelas = $row['id_kelas'];
+                $id_kelas = 1;
                 $id_jadwal_pelajaran = 1;
                 $currentDate = date("Y-m-d");
 
