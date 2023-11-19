@@ -217,7 +217,15 @@ $bln= date ("M");
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="<?php echo base_url(); ?>absen/cek_data_kartu" class="nav-link">
+            <a href="<?php echo base_url(); ?>absen/guru" class="nav-link">
+                <i class="nav-icon fas fa-box text-info"></i>
+                <p>
+                  Absen Guru
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="<?php echo base_url(); ?>absen/cek_data_kartu" class="nav-link">
               <i class="nav-icon fas fa-box text-info"></i>
               <p>
                 Cek Data Kartu
