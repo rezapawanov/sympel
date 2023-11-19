@@ -151,12 +151,37 @@ class absen extends CI_Controller {
 	}
 
 	public function generate_absen_guru(){
-		$absen = $this->db->where('id_guru', $this->session->userdata('id'))
+		$id_guru = $this->session->userdata('id');
+		
+		// GET DATA ABSEN
+		$absen = $this->db->where('id_guru', $id_guru)
 					->get('absen')->result_array();
 		foreach ($absen as $key => $val) {
-			$cek_absen_guru = $this->db->where('tanggal', $val['tanggal_absen'])
-								->where('jam_absen')->get('absen_guru')
-								->row_array();
+			$cek_absen_guru = $this->Absen_model->cek_absen_guru($val);
+			var_dump($cek_absen_guru);die;
+			// JIKA DATA ABSEN TIDAK ADA MAKA INSERT DATA ABSEN GURU
+			if(!$cek_absen_guru){
+				$hari = '';
+				switch(date('D', strtotime($val['tanggal_absen']))){
+					case 'Mon': $hari = 'senin'; break;
+					case 'Tue': $hari = 'selasa'; break;
+					case 'Wed': $hari = 'rabu'; break;
+					case 'Thu': $hari = 'kamis'; break;
+					case 'Fri': $hari = 'jumat'; break;
+					case 'Sat': $hari = 'sabtu'; break;
+					default: $hari = 'minggu';
+				}
+				$cek_jadwal_pelajaran = $this->db->where('id_guru', $id_guru)
+											->where('hari', $hari)
+											->where('start_time >=', $val['waktu_absen'])
+											->where('end_time <=', $val['waktu_absen'])
+											->get('jadwal_pelajaran')->row_array();
+
+				$data = [
+					'id_guru' => $id_guru,
+					''
+				];
+			}
 		}
 	}
 
