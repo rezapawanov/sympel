@@ -14,7 +14,7 @@ class Absen_model extends CI_Model {
 
 	public function absen_guru($tahun_ajaran) {
 		$this->db->where('absen_guru.tahun_ajaran', $tahun_ajaran);
-		$this->db->where('absen_guru.id_guru', $this->session->userdata('id'));
+	//	$this->db->where('absen_guru.id_guru', $this->session->userdata('id'));
 		$this->db->join('mst_guru', 'mst_guru.id_guru = absen_guru.id_guru', 'left');
 	//	$this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.id_jadwal_pelajaran = absen_guru.id_jadwal_pelajaran', 'left');
 	//	$this->db->join('mst_tahun_ajaran', 'mst_tahun_ajaran.id_tahun_ajaran = jadwal_pelajaran.id_tahun_ajaran', 'left');
