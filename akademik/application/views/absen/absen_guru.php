@@ -36,8 +36,6 @@
                       <th>No</th>
                       <th>Mapel</th>
                       <th>Nama Guru</th>
-                      <th>Jam Masuk</th>
-                      <th>Tanggal Absen</th>
                       <th>Jam Absen</th>
                       <th>Aksi</th>
                     </tr>
@@ -49,11 +47,9 @@
                     ?>
                       <tr>
                         <td><?php echo $no; ?></td>
-                        <td><?php echo $data['nama_mapel']; ?></td>
+                        <td>-</td>
                         <td><?php echo $data['nama_guru']; ?></td>
-                        <td><?php echo $data['start_time']; ?></td>
-                        <td><?php echo $data['tanggal_absen']; ?></td>
-                        <td><?php echo $data['jam_absen']; ?></td>
+                        <td><?php echo date("d-m-Y H:i:s", strtotime($data['waktu_absen'])); ?></td>
                         <td style="text-align:center;width:100px;">
                           <?php if ($this->session->userdata("hak_akses") == 'admin') { ?>
                             <a class="btn btn-danger btn-xs" href="<?php echo base_url() . 'absen/absen_hapus/' . $data['id_absen']; ?>" onclick="return confirm('Yakin ingin hapus data ?');"><i class="fa fa-trash"> </i> </a>
