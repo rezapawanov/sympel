@@ -75,7 +75,6 @@
                     <div id="cetak" class="card-body">
 
                         <center>
-                            <h3 style="margin:0;">SMK FARMASI CENDIKIA HUSADA</h3>
                             <h3 style="margin:0;">LAPORAN REALISASI ANGGARAN BENDAHARA</h3>
                         </center>
                         <br>

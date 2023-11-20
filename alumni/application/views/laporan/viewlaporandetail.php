@@ -89,7 +89,7 @@
               </div>
               <div class="tab-pane fade show active" id="tab_2" role="tabpanel" aria-labelledby="custom-content-above-home-tab">
                 <div class="form-group row">
-                    <label  class="col-sm-12 col-form-label">Apakah Anda pernah bekerja setelah lulus dari SMK Farmasi Cendikia Farma Husada <span style="color:red;">*</span></label>
+                    <label  class="col-sm-12 col-form-label">Apakah Anda pernah bekerja setelah lulus dari SMK <span style="color:red;">*</span></label>
                     <div class="col-sm-12">
                        <select class="form-control" name="pernah_bekerja" disabled>
                                                         <option value>Pilih</option>
@@ -141,8 +141,8 @@
                     <div class="col-sm-12">
                       <div class="form-group clearfix">
                       <div class="icheck-danger d-inline">
-                        <input type="checkbox" name="info_kerja_1" <?php if ($info_kerja_1 == 'SMK Farmasi Cendikia Farma Husada') echo 'checked'; ?> value="SMK Farmasi Cendikia Farma Husada" disabled>
-                        <label for="checkboxSuccess1">SMK Farmasi Cendikia Farma Husada
+                        <input type="checkbox" name="info_kerja_1" <?php if ($info_kerja_1 == 'SMK') echo 'checked'; ?> value="SMK" disabled>
+                        <label for="checkboxSuccess1">SMK
                         </label>
                       </div><br>
                       <div class="icheck-success d-inline">
@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label  class="col-sm-12 col-form-label">Berapa jumlah gaji yang Anda terima sebagai lulusan SMK Farmasi Cendikia Farma Husada?</label>
+                    <label  class="col-sm-12 col-form-label">Berapa jumlah gaji yang Anda terima sebagai lulusan SMK?</label>
                     <div class="col-sm-12">
                       <select class="form-control" name="jumlah_gaji" disabled>
                                                         <option value>Pilih</option>
@@ -326,8 +326,8 @@
                     <div class="col-sm-12">
                       <div class="form-group clearfix">
                       <div class="icheck-danger d-inline">
-                        <input type="checkbox" name="info_kerja_1" <?php if ($info_kerja_1 == 'SMK Farmasi Cendikia Farma Husada') echo 'checked'; ?> value="SMK Farmasi Cendikia Farma Husada" disabled>
-                        <label for="checkboxSuccess1">SMK Farmasi Cendikia Farma Husada
+                        <input type="checkbox" name="info_kerja_1" <?php if ($info_kerja_1 == 'SMK') echo 'checked'; ?> value="SMK" disabled>
+                        <label for="checkboxSuccess1">SMK
                         </label>
                       </div><br>
                       <div class="icheck-success d-inline">

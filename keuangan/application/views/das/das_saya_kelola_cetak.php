@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>asset/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <center>
-    <h3 style="margin:0;">SMK FARMASICENDIKIA HUSADA</h3>
     <h3 style="margin:0;">LAPORAN REALISASI ANGGARAN</h3>
 </center>
 <table class="table">

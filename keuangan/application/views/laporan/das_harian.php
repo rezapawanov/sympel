@@ -70,7 +70,6 @@
                     <div id="cetak" class="card-body">
 
                         <center>
-                            <h3 style="margin:0;">SMK FARMASICENDIKIA HUSADA</h3>
                             <h3 style="margin:0;">LAPORAN REALISASI ANGGARAN</h3>
                         </center>
                         <br>

@@ -15,12 +15,12 @@ header("Content-Disposition: attachment; filename=$judul");
             <th>Tahun Masuk</th>
             <th>Tahun Lulus</th>
             <th>Aktivitas</th>
-            <th>Apakah Anda pernah bekerja setelah lulus dari SMK Farmasi Cendikia Farma Husada</th>
+            <th>Apakah Anda pernah bekerja setelah lulus dari SMK</th>
             <th>Setelah lulus, berapa lama waktu yang Anda butuhkan untuk mendapatkan pekerjaan</th>
             <th>Bidang pekerjaan apa yang Anda tekuni saat ini</th>
             <th>Bagaimana tingkat kemudahan Anda dalam mendapatkan pekerjaan</th>
             <th>Darimana Anda mendapatkan informasi lowongan pekerjaaan</th>
-            <th>Berapa jumlah gaji yang Anda terima sebagai lulusan SMK Farmasi Cendikia Farma Husada</th>
+            <th>Berapa jumlah gaji yang Anda terima sebagai lulusan SMK/th>
             <th>Dimana tempat Anda pernah bekerja atau tempat Anda bekerja saat ini</th>
             <th>Alamat Perusahaan</th>
             <th>Kabupaten / Kota Perusahaan</th>
@@ -40,14 +40,14 @@ header("Content-Disposition: attachment; filename=$judul");
             <th>Jenis Usaha</th>
             <th>Mulai Usaha</th>
             <th>Status Wirausaha</th>
-            <th>Bagaimana kesesuaian Pengetahuan dan Keterampilan yang Anda peroleh dari SMK Farmasi Cendikia Farma Husada dengan tuntutan pekerjaan Anda</th>
-            <th>Bidang Kompetensi apa yang sudah diberikan oleh SMK Farmasi Cendikia Farma Husada dalam menunjang kinerja Anda dalam bekerja</th>
+            <th>Bagaimana kesesuaian Pengetahuan dan Keterampilan yang Anda peroleh dari SMK dengan tuntutan pekerjaan Anda</th>
+            <th>Bidang Kompetensi apa yang sudah diberikan oleh SMK dalam menunjang kinerja Anda dalam bekerja</th>
             <th>Dalam Kompetensi Bidang Kefarmasian, Materi apa saja yang sangat menunjang kinerja Anda di dunia kerja</th>
             <th>Dalam Kompetensi Bidang Pengetahuan Umum, Materi apa saja yang sangat menunjang kinerja Anda di dunia kerja</th>
-            <th>Menurut Anda, Materi atau bidang kompetensi apa yang harus ditingkatkan SMK Farmasi Cendikia Farma Husada agar lulusannya lebih siap di dunia kerja</th>
-            <th>Apakah SMK Farmasi Cendikia Farma Husada memberikan Informasi lowongan pekerjaan yang mudah diakses</th>
-            <th>Apa saran Anda terhadap SMK Farmasi Cendikia Farma Husada agar menjadi lebih baik</th>
-            <th>Sebutkan 3 kata Kesan Anda untuk SMK Farmasi Cendikia Farma Husada</th>
+            <th>Menurut Anda, Materi atau bidang kompetensi apa yang harus ditingkatkan SMK agar lulusannya lebih siap di dunia kerja</th>
+            <th>Apakah SMK memberikan Informasi lowongan pekerjaan yang mudah diakses</th>
+            <th>Apa saran Anda terhadap SMK agar menjadi lebih baik</th>
+            <th>Sebutkan 3 kata Kesan Anda untuk SMK</th>
         </tr>
     </thead>
     <tbody>
