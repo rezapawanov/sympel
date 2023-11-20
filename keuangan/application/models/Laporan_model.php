@@ -131,7 +131,7 @@ class Laporan_model extends CI_Model {
 			$param4 = "AND mst_siswa.angkatan = '$angkatan'";
 		}
 
-		$q = $this->db->query("SELECT nama_pos_keuangan,tahun_ajaran,tanggal,nis,nama_siswa,nama_kelas,tagihan,bayar FROM pembayaran_bebas_dt  
+		$q = $this->db->query("SELECT nama_pos_keuangan,tahun_ajaran,tanggal,nis,nama_siswa,nama_kelas,pembayaran_bebas.tagihan,bayar FROM pembayaran_bebas_dt  
 								INNER JOIN pembayaran_bebas ON pembayaran_bebas_dt.id_pembayaran_bebas = pembayaran_bebas.id_pembayaran_bebas 
 								INNER JOIN mst_jenis_pembayaran ON pembayaran_bebas.id_jenis_pembayaran = mst_jenis_pembayaran.id_jenis_pembayaran 
 								INNER JOIN mst_pos_keuangan ON mst_jenis_pembayaran.id_pos_keuangan = mst_pos_keuangan.id_pos_keuangan 
