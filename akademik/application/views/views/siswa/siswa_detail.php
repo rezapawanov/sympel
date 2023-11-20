@@ -8,7 +8,7 @@
           <div class="col-sm-12 mt-2">
             <div class="card">
               <center><h1 class="m-0 text-dark mt-3" style="text-shadow: 2px 2px 4px #17a2b8;">
-              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/upload/logo.png'; ?>" alt="Logo" class="brand-image img-rounded " style="width:50px;height:50px;">
+              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/upload/logo.png'; ?>" alt="Logo" class="brand-image img-rounded " style="width:50px;height:50px;">
                <br><?php echo $nama_sekolah ?></h1>
               <?php echo $alamat_sekolah; ?><br>
               <?php echo $website; ?></center>

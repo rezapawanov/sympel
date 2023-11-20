@@ -14,7 +14,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
             	<div class="card-header">
             	<center>
                   <img class="profile-user-img img-fluid img-circle elevation-2" style="width: 60px; height: 60px;"
-                       src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/asispanel/upload/'.$sekolah->logo; ?>"
+                       src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asispanel/upload/'.$sekolah->logo; ?>"
                        alt="User profile picture ">
                 
                 <h4 class="m-0 text-white" style="text-shadow: 2px 2px 4px white; ">Form Login Alumni</h4></center>

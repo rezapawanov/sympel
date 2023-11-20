@@ -44,7 +44,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>ASIS | Aplikasi Sistem Sekolah
       </title>
-      <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
+      <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
       <!-- Font Awesome Icons -->
       <link rel="stylesheet" href="<?php echo base_url();  ?>assets/plugins/fontawesome-free/css/all.min.css">
       <!-- overlayScrollbars -->
@@ -107,7 +107,7 @@
                 <br>
                 <br>
                 <div class="widget-user-image">
-                  <img class="profile-user-img  elevation-2" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>" alt="User Image">
+                  <img class="profile-user-img  elevation-2" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" alt="User Image">
                 </div>
                 <br>
                 <br>

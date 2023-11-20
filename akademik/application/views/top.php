@@ -17,7 +17,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 
   <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
 
-  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/sympel/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
