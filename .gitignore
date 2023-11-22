@@ -13,3 +13,4 @@ ppdb/application/config/database.php
 sarpras/application/config/database.php
 application/config/database.php
 datadb/*
+data_absensi/koneksi.php
