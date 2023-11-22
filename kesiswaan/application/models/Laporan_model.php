@@ -108,7 +108,7 @@ public function bimbingan_siswa($tgl_awal,$tgl_akhir,$tahun_ajaran,$id_kelas,$id
 					INNER JOIN mst_kelas ON absen.id_kelas = mst_kelas.id_kelas
 		
 		
-		WHERE tanggal_absen >= '$tgl_awal' AND tanggal_absen <= '$tgl_akhir' $param $param2 $param3 $param4 ORDER BY id_absen DESC");
+		WHERE tanggal_absen >= '$tgl_awal' AND tanggal_absen <= '$tgl_akhir' $param $param2 $param3 $param4 ORDER BY mst_kelas.id_absen DESC");
 		return $q;
 	}
 	
