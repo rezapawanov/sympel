@@ -92,7 +92,7 @@ public function bimbingan_siswa($tgl_awal,$tgl_akhir,$tahun_ajaran,$id_kelas,$id
 		}
 
 		if($id_kelas != "" && $id_kelas != "all") {
-			$param3 = "AND id_kelas = '$id_kelas'";
+			$param3 = "AND mst_kelas.id_kelas = '$id_kelas'";
 		} else {
 			$param3 =  '';
 		}
