@@ -9,11 +9,11 @@ class Home extends CI_Controller {
 			$d['judul'] = "Dashboard";
 			$get_tahun = $this->db->query("SELECT id_tahun_ajaran,tahun_ajaran FROM mst_tahun_ajaran WHERE aktif_tahun_ajaran = 1")->row();
 
-			$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+			$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
-			$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+			$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
-			$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+			$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
 			$hitung_pelanggaran = $this->db->query("SELECT COUNT(*) as hitung FROM pelanggaran_siswa WHERE tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
