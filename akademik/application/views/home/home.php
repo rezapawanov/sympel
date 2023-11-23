@@ -113,7 +113,7 @@
                             <span class="info-box-icon bg-teal elevation-1"><i class="fad fa-people-carry"></i></span>
                             <div class="info-box-content">
                               <span class="info-box-text text-teal" ><b>PEMINJAMAN</b></span>
-                              <span class="info-box-number " style="text-shadow: 2px 2px 4px #827e7e"><?php echo $hitung_izin; ?></span>
+                              <span class="info-box-number " style="text-shadow: 2px 2px 4px #827e7e"><?php echo $hitung_pelanggaran; ?></span>
                             </div>
                           </div></a>
                         </div>
