@@ -14,11 +14,11 @@ class Home extends CI_Controller
 
 			$this->load->view('top');
 			if ($this->session->userdata('hak_akses') == "guru_lama") {
-			$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+			$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
-			$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+			$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
-			$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+			$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
 				$hitung_pelanggaran = $this->db->query("SELECT COUNT(*) as hitung FROM pelanggaran_siswa WHERE tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
@@ -36,11 +36,11 @@ class Home extends CI_Controller
 				$this->load->view('home/home',$d);
 			} else if ($this->session->userdata('hak_akses') == "siswa") {
 
-				$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+				$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
-				$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+				$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 	
-				$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+				$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 	
 				$hitung_pelanggaran = $this->db->query("SELECT COALESCE(SUM(poin_minus),0) as hitung FROM pelanggaran_siswa WHERE tahun_ajaran = '$get_tahun->tahun_ajaran' AND id_siswa = '$id'")->row();
 
@@ -52,11 +52,11 @@ class Home extends CI_Controller
 				$this->load->view('menu_siswa');
 				$this->load->view('home/home_siswa',$d);
 			} else {
-				$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+				$hitung_izin = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'IZIN' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
-				$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+				$hitung_sakit = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'SAKIT' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 	
-				$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->id_tahun_ajaran'")->row();
+				$hitung_alpa = $this->db->query("SELECT COUNT(*) as hitung FROM absen WHERE keterangan = 'ALPA' AND tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 	
 				$hitung_pelanggaran = $this->db->query("SELECT COUNT(*) as hitung FROM pelanggaran_siswa WHERE tahun_ajaran = '$get_tahun->tahun_ajaran'")->row();
 
