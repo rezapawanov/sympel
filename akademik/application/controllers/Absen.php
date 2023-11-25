@@ -42,6 +42,17 @@ class absen extends CI_Controller {
 		$this->load->view('absen/cek_kartu');
 		$this->load->view('bottom');
 	}
+
+	public function cek_data_kartu_reset()
+	{
+		$d['judul'] = "Cek Data Kartu";
+		$d['absen'] = $this->Absen_model->cekkartu();
+		$this->Absen_model->delete_data_cek_kartu();
+		$this->load->view('top', $d);
+		$this->load->view('menu');
+		$this->load->view('absen/cek_kartu');
+		$this->load->view('bottom');
+	}
 	
 	public function ajax_siswa() {
 		$query = $_POST['query'];

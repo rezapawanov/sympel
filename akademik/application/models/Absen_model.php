@@ -28,6 +28,12 @@ class Absen_model extends CI_Model {
 		return $q;
     }
 
+	public function delete_data_cek_kartu()
+	{
+		$q = $this->db->query("Truncate from tambah;");
+		return $q;
+	}
+
 	public function absen_siswa($start, $limit, $filter){
 		$this->db->select('a.*, k.nama_kelas');
 		$this->db->from('absen a');
