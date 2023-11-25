@@ -79,7 +79,7 @@ public function bimbingan_siswa($tgl_awal,$tgl_akhir,$tahun_ajaran,$id_kelas,$id
 
 	public function absen($tgl_awal,$tgl_akhir,$tahun_ajaran,$id_kelas,$id_siswa,$keterangan) {
 		if($id_siswa != "" && $id_siswa != "all") {
-			$param = "AND id_siswa = '$id_siswa'";
+			$param = "AND mst_siswa.id_siswa = '$id_siswa'";
 		} else {
 			$param =  '';
 		}
