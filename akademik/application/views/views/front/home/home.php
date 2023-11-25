@@ -37,7 +37,7 @@ else{$bln=$bln;}
 
   <title>SYMPEL | System Informasi Pelajar </title>
 
-  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asispanel/upload/'.$sekolah->logo; ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
 
   <link rel="stylesheet" href="<?php echo base_url();  ?>assets/plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
@@ -98,7 +98,7 @@ else{$bln=$bln;}
                 <h6 class="widget-user-desc"><b><?php echo $nama_sekolah; ?></b></h6>
               </div>
               <div class="widget-user-image">
-                <img class="img-rounded elevation-2" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asispanel/upload/'.$sekolah->logo; ?>" alt="User Avatar">
+                <img class="img-rounded elevation-2" src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" alt="User Avatar">
               </div>
               <div class="card-footer">
                 <div class="row">

@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>ALUMNI | <?php echo $nama_sekolah; ?></title>
-    <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asispanel/upload/'.$sekolah->logo; ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
@@ -36,7 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="container col-md-12">
       
         <span class="brand-text font-weight-light text-white"><b><img class="profile-user-img img-fluid img-circle elevation-2" style="width: 30px; height: 30px;"
-                       src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asispanel/upload/'.$sekolah->logo; ?>"
+                       src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>"
                        alt="User profile picture "><b> <?php echo ucfirst($nama_sekolah); ?></b></span>   
 
       <!-- Right navbar links -->

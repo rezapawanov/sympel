@@ -84,7 +84,7 @@
                   <div class="card-header border-transparent">
                     <center>
                         <h4 class="m-0 text-dark mt-3" style="text-shadow: 2px 2px 4px #17a2b8;">
-              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/asispanel/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded " style="width:60px;height:60px;">
+              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" alt="Logo" class="brand-image img-rounded " style="width:60px;height:60px;">
                <br><?php echo $nama_sekolah ?></h4>
                       <h4 style="margin:0;">Laporan Pengunjung Perpus </h4>
                       <p style="margin:0;">Periode : <?php echo $tgl_awal . ' s/d ' . $tgl_akhir; ?></p>

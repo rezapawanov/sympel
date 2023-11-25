@@ -11,7 +11,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title><?php echo $sekolah->nama_sekolah; ?> </title>
-  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/upload/'.$sekolah->logo; ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" type="image/x-icon">
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!--===============================================================================================-->
@@ -165,7 +165,7 @@ $bln= date ("M");
         
           <div class=" p-x-md m-t-lg"><br>
             <div class="text-center p-x-sm">
-              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/upload/'.$sekolah->logo; ?>" height='100px' class="apps "> <br><br>
+              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" height='100px' class="apps "> <br><br>
               <b><h3>LOGIN <?php echo $sekolah->nama_sekolah; ?>  </h3></b>
             </div> 
 
