@@ -165,7 +165,7 @@ $bln= date ("M");
         
           <div class=" p-x-md m-t-lg"><br>
             <div class="text-center p-x-sm">
-              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/upload/'.$sekolah->logo; ?>" height='100px' class="apps "> <br><br>
+              <img src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/master/upload/'.$sekolah->logo; ?>" height='100px' class="apps "> <br><br>
               <b><h3>LOGIN <?php echo $sekolah->nama_sekolah; ?>  </h3></b>
             </div> 
 
