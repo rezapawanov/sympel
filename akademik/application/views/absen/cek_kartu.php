@@ -27,8 +27,7 @@
             <div class="card card-info card-outline">
               <div class="card-header">
                <div class="card-header">
-                <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>absen/cek_data_kartu_reset"><i class="fa fa-plus"> </i> Hapus Data</a>
-              </div>
+                <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>absen/cek_data_kartu_reset"><i class="fa fa-trash"> </i> Hapus Data</a>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-2">

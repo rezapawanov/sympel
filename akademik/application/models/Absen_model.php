@@ -30,7 +30,7 @@ class Absen_model extends CI_Model {
 
 	public function delete_data_cek_kartu()
 	{
-		$q = $this->db->query("Truncate from tambah;");
+		$q = $this->db->query("truncate tambah;");
 		return $q;
 	}
 
