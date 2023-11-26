@@ -125,18 +125,18 @@ $bln= date ("M");
   else if ($Dd=="Sat"){$hari="Sabtu, ";}
   else{$hari=$Dd;}
                 
-                if($bln=='Jan'){$bln = "Januari ";}
-                elseif($bln=='Feb'){$bln = "Februari ";}
-                elseif($bln=='Mar'){$bln = "Maret ";}
-                elseif($bln=='Apr'){$bln = "April";}
-                elseif($bln=='May'){$bln = "Mei ";}
-                elseif($bln=='Jun'){$bln = "Juni ";}
-                elseif($bln=='Jul'){$bln = "Juli ";}
-                elseif($bln=='Aug'){$bln = "Agustus ";}
-                elseif($bln=='Sep'){$bln = "September ";}
-                elseif($bln=='Oct'){$bln = "Oktober ";}
-                elseif($bln=='Nov'){$bln = "November";}
-                elseif($bln=='Dec'){$bln = "Desember ";}
+                if($bln=='Jan'){$bln = "Jan ";}
+                elseif($bln=='Feb'){$bln = "Feb ";}
+                elseif($bln=='Mar'){$bln = "Mar ";}
+                elseif($bln=='Apr'){$bln = "Apr";}
+                elseif($bln=='May'){$bln = "May ";}
+                elseif($bln=='Jun'){$bln = "Jun ";}
+                elseif($bln=='Jul'){$bln = "Jul ";}
+                elseif($bln=='Aug'){$bln = "Aug ";}
+                elseif($bln=='Sep'){$bln = "Sep ";}
+                elseif($bln=='Oct'){$bln = "Okt ";}
+                elseif($bln=='Nov'){$bln = "Nov";}
+                elseif($bln=='Dec'){$bln = "Dec ";}
                 else{$bln=$bln;}
                 $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 ?>
