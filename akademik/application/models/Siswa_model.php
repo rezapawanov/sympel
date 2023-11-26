@@ -31,7 +31,7 @@ class Siswa_model extends CI_Model {
 	public function siswa_all($id_kelas) {
 		$q = $this->db->query("SELECT * FROM mst_siswa 
 		INNER JOIN mst_kelas ON mst_siswa.id_kelas = mst_kelas.id_kelas 
-		WHERE id_kelas = '$id_kelas'");
+		WHERE mst_kelas.id_kelas = '$id_kelas'");
 		return $q;
 	}
 	
