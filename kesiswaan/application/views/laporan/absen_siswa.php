@@ -145,7 +145,7 @@
                           ?>
                             <tr>
                               <td class="text-sm"><?php echo $no; ?></td>
-                              <td class="text-sm"><?php echo date("d-m-Y", strtotime($data['tanggal_absen'])); ?></td>
+                              <td class="text-sm"><?php echo date("d-m-Y H:i:s", strtotime($data['waktu_absen'])); ?></td>
                               <td class="text-sm"><?php echo $data['nama_siswa']; ?></td>
                               <td class="text-sm"><?php echo $data['nama_kelas']; ?></td>
                               <td class="text-sm"><?php echo $data['keterangan']; ?></td>
