@@ -346,7 +346,10 @@
       }, {
         name: 'Alpa',
         y: <?php echo $hitung_alpa; ?>
-      }]
+      }, {
+        name: 'Masuk',
+        y: <?php echo $hitung_masuk; ?>
+        }]
     }]
   });
 </script>
