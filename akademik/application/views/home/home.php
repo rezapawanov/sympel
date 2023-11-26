@@ -348,7 +348,8 @@
         y: <?php echo $hitung_alpa; ?>
       }, {
         name: 'Masuk',
-        y: <?php echo $hitung_masuk; ?>
+        y: <?php echo $hitung_masuk; ?>,
+        color: 'blue' // Specify the color for 'Masuk'
         }]
     }]
   });
