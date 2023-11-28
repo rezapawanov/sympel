@@ -32,3 +32,7 @@ img.logo_finance {
 .text-middle{
     vertical-align: middle !important;
 }
+
+div.dataTables_wrapper div.dataTables_filter{
+    display: none;
+}
