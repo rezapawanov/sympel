@@ -30,49 +30,44 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-2">
+                <form name="form-search">
+                  <div class="row mb-2">
+                    <div class="col-6">
+                      <label for="start_dt">Tanggal Awal</label>
+                      <input type="date" name="start_dt" class="form-control" value="<?=date('Y-m-d', time())?>">
+                    </div>
+                    <div class="col-6">
+                      <label for="end_dt">Tanggal Akhir</label>
+                      <input type="date" name="end_dt" class="form-control"  value="<?=date('Y-m-d', time())?>">
+                    </div>
+                    <div class="col-6">
+                      <label for="id_kelas">Kelas</label>
+                      <select class="form-control" name="id_kelas" id="id_kelas">
+                        <option value="">All</option>
+                        <?php foreach($kelas as $val): ?>
+                          <option value="<?=$val['id_kelas']?>"><?=$val['nama_kelas']?></option>
+                        <?php endforeach ?>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="submit" name="search" class="btn btn-primary">Cari</button>
+                </form>
+
                 <table id="datatb" class="table table-bordered table-hover table-striped">
                   <thead>
                     <tr class="text-info">
                       <th>No</th>
                       <th>Tanggal</th>
+                      <th>Jam</th>
                       <th>Nama Siswa</th>
                       <th>Kelas</th>
                       <th>Keterangan</th>
                       <th>Alasan</th>
-                      <th>Di Input Oleh</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    $no = 1;
-                    foreach ($absen->result_array() as $data) {
-                      if (!empty($data['id_guru'])) {
-                        $get = $this->db->query("SELECT nama_guru FROM mst_guru WHERE id_guru = '$data[id_guru]'")->row();
-                        $diinput = $get->nama_guru;
-                      } else {
-                        $diinput = 'Administrator';
-                      }
-                    ?>
-                      <tr>
-                        <td><?php echo $no; ?></td>
-                        <td><?php echo date("d-m-Y H:i:s", strtotime($data['waktu_absen'])); ?></td>
-                        <td><?php echo $data['nama_siswa']; ?></td>
-                        <td><?php echo $data['nama_kelas']; ?></td>
-                        <td><?php echo $data['keterangan']; ?></td>
-                        <td><?php echo $data['alasan']; ?></td>
-                        <td><?php echo $diinput; ?></td>
-                        <td style="text-align:center;width:100px;">
-                          <?php if ($this->session->userdata("hak_akses") == 'admin') { ?>
-                            <a class="btn btn-danger btn-xs" href="<?php echo base_url() . 'absen/absen_hapus/' . $data['id_absen']; ?>" onclick="return confirm('Yakin ingin hapus data ?');"><i class="fa fa-trash"> </i> </a>
-
-                          <?php } else if ($this->session->userdata("id") == $data['id_guru']) { ?>
-                            <a class="btn btn-danger btn-xs" href="<?php echo base_url() . 'absen/absen_hapus/' . $data['id_absen']; ?>" onclick="return confirm('Yakin ingin hapus data ?');"><i class="fa fa-trash"> </i> </a>
-                          <?php } ?>
-                        </td>
-                      </tr>
-                    <?php $no++;
-                    } ?>
+                  
                   </tbody>
                 </table>
               </div>
@@ -86,3 +81,5 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  <script src="<?=base_url('assets/js/_absen.js')?>"></script>
