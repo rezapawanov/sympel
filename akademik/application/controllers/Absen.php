@@ -18,6 +18,7 @@ class absen extends CI_Controller {
 		$d['judul'] = "Data Absen Siswa";
 		$get_tahunajaran = $this->db->query("SELECT tahun_ajaran,tahun_ajaran FROM mst_tahun_ajaran WHERE aktif_tahun_ajaran = 1")->row();
 		$d['absen'] = $this->Absen_model->absen($get_tahunajaran->tahun_ajaran);
+		$d['kelas'] = $this->db->get('mst_kelas')->result_array();
 		$this->load->view('top', $d);
 		$this->load->view('menu');
 		$this->load->view('absen/absen');
@@ -196,5 +197,32 @@ class absen extends CI_Controller {
 		}
 	}
 
+	public function get_all(): void {
+        $data = $this->Absen_model->absen_siswa();
+
+        if(!empty($this->input->get('is_borrowing')))
+            $data = $this->member_model->get_borrowing_member();
+
+		header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data, JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG);
+    }
+
+	public function get_all_paginated(){
+		$get = $this->input->get();
+
+		$limit  = $get['length'];
+		$offset = $get['start'];
+        $filter['start'] = !empty($get['columns'][1]['search']['value']) ? $get['columns'][1]['search']['value'] : date('Y-m-d');
+        $filter['end'] = !empty($get['columns'][2]['search']['value']) ? $get['columns'][2]['search']['value'] : date('Y-m-d');
+
+        $dataTable = [
+            'draw'            => $get['draw'] ?? NULL,
+            'data'            => $this->Absen_model->absen_siswa($offset, $limit, $filter),
+            'recordsTotal'    => $this->db->count_all_results('absen'),
+            'recordsFiltered' => $this->Absen_model->total_absen_siswa($filter)
+        ];
+
+        echo json_encode($dataTable, JSON_HEX_AMP | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT);
+	}
 	
 }

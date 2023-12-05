@@ -34,11 +34,14 @@ class Absen_model extends CI_Model {
 		return $q;
 	}
 
-	public function absen_siswa($start, $limit, $filter){
-		$this->db->select('a.*, k.nama_kelas');
+	public function absen_siswa($start = null, $limit = null, $filter = []){
+		$this->db->select('a.*, k.nama_kelas, s.nama_siswa');
 		$this->db->from('absen a');
 		$this->db->join('mst_kelas k', 'k.id_kelas = a.id_kelas');
-		$this->db->limit($limit, $start);
+		$this->db->join('mst_siswa s', 's.id_siswa = a.id_siswa');
+
+		if(isset($limit) && !empty($limit))
+			$this->db->limit($limit, $start);
 
 		if(isset($filter['id_siswa']) && !empty($filter['id_siswa']))
 			$this->db->where('a.id_siswa', $filter['id_siswa']);
@@ -53,6 +56,27 @@ class Absen_model extends CI_Model {
 			$this->db->where('DATE(waktu_absen) <=', $filter['end']);
 
 		return $this->db->get()->result_array();
+	}
+
+	public function total_absen_siswa($filter = []){
+		$this->db->select('a.*, k.nama_kelas, s.nama_siswa');
+		$this->db->from('absen a');
+		$this->db->join('mst_kelas k', 'k.id_kelas = a.id_kelas');
+		$this->db->join('mst_siswa s', 's.id_siswa = a.id_siswa');
+
+		if(isset($filter['id_siswa']) && !empty($filter['id_siswa']))
+			$this->db->where('a.id_siswa', $filter['id_siswa']);
+
+		if(isset($filter['keterangan']) && !empty($filter['keterangan']))
+			$this->db->where('a.keterangan', $filter['keterangan']);
+		
+		if(isset($filter['start']) && !empty($filter['start']))
+			$this->db->where('DATE(waktu_absen) >=', $filter['start']);
+
+		if(isset($filter['end']) && !empty($filter['end']))
+			$this->db->where('DATE(waktu_absen) <=', $filter['end']);
+
+		return $this->db->get()->num_rows();
 	}
 
 	public function cek_absen_guru($data){

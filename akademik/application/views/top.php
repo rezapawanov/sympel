@@ -21,6 +21,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/login/custom.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Animate -->
@@ -61,6 +62,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="<?php echo base_url(); ?>assets/dist/js/fullcalendar.js"></script>
   <script src="<?php echo base_url(); ?>assets/dist/js/jquery.tabledit.js"></script>
+  <script>const BASE_URL = '<?=base_url()?>';</script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed ">
