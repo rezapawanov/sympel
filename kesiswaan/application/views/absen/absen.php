@@ -56,7 +56,7 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
-                                        <td><?php echo date("d-m-Y H:i:s",strtotime($data['tanggal_absen'])); ?></td>
+                                        <td><?php echo date("d-m-Y H:i:s",strtotime($data['waktu_absen'])); ?></td>
                                         <td><?php echo $data['nama_siswa']; ?></td>
                                         <td><?php echo $data['nama_kelas']; ?></td>
                                         <td><?php echo $data['keterangan']; ?></td>
