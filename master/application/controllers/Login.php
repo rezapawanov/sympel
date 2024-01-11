@@ -12,6 +12,7 @@ class Login extends CI_Controller {
 		if($this->input->method(TRUE) == 'POST' && !empty($_POST)) {
 			$in['username'] = $this->input->post('username');
 			$in['password'] = md5($this->input->post('password'));
+			echo var_dump($in['password']);
 			$in['jenis'] = $this->input->post('jenis');
 			$this->Login_model->cek($in);
 			
