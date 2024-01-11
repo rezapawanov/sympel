@@ -147,7 +147,7 @@ video {
                                 </video>
                                 <?php
                                 // Replace "YOUR_YOUTUBE_VIDEO_ID" with the actual ID of the YouTube video you want to embed
-                                $youtubeVideoID = "YOUR_YOUTUBE_VIDEO_ID";
+                                $youtubeVideoID = "bDFuqgvW1pQ&list=RDbDFuqgvW1pQ";
                                 ?>
                                 
                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $youtubeVideoID; ?>" frameborder="0"
