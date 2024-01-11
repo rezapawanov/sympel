@@ -16,6 +16,8 @@ class Login_model extends CI_Model
 
 		$q_siswa = $this->db->query("SELECT * FROM mst_siswa WHERE nisn = '$username' AND password = '$password'");
 
+		echo $q_siswa;
+
 		$q_keuangan = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND (hak_akses = 'kasir' OR hak_akses = 'bendahara')");
 
 		$q_kepsek = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_jabatan.id_jabatan = 12");
