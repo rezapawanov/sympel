@@ -145,6 +145,14 @@ video {
                                 <video id="vid" controls autoplay loop >
                                   <source src="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/bukutamu/video/video.mp4' ?>" type="video/mp4">
                                 </video>
+                                <?php
+                                // Replace "YOUR_YOUTUBE_VIDEO_ID" with the actual ID of the YouTube video you want to embed
+                                $youtubeVideoID = "YOUR_YOUTUBE_VIDEO_ID";
+                                ?>
+                                
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $youtubeVideoID; ?>" frameborder="0"
+                                  allowfullscreen></iframe>
+
                               </div>
                             </div>
                           </div>
