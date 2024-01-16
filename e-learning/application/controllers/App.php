@@ -14,7 +14,7 @@ class App extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('hak_akses') != "") {
-			if ($this->session->userdata('tipe') != "root" || $this->session->userdata('tipe') != "gurupiket") {
+			if ($this->session->userdata('tipe') != "root" && $this->session->userdata('tipe') != "gurupiket") {
 				redirect("../" . $this->session->userdata('tipe'));
 			} else {
 				redirect(base_url() . 'home');
