@@ -176,8 +176,11 @@
                               <td class="text-sm"><?php echo $data['nama_guru']; ?></td>
                               <td class="text-sm"><?php echo $data['nama_kelas']; ?></td>
                               <td class="text-sm"><?php echo $data['nama_jurusan']; ?></td>
-                              <td class="text-sm"><?php echo $data['url_jurnal']; ?></td>
-                              <!-- <td class="text-sm"><a class="btn bg-navy btn-xs detail-jurnal" href="#" data-toggle="modal" data-target="#modalView" data-id_jurnal="<?php echo $data['id_jurnal']; ?>"><i class="fa fa-eye"> </i></a></td> -->
+                             <td class="text-sm"><a href="<?php echo $data['url_jurnal']; ?>" target="_blank">
+                                    <?php echo $data['url_jurnal']; ?>
+                                  </a></td>
+
+                                  <!-- <td class="text-sm"><a class="btn bg-navy btn-xs detail-jurnal" href="#" data-toggle="modal" data-target="#modalView" data-id_jurnal="<?php echo $data['id_jurnal']; ?>"><i class="fa fa-eye"> </i></a></td> -->
 
                             </tr>
                           <?php $no++;
