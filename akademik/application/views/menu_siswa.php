@@ -125,7 +125,7 @@ $bln= date ("M");
               </li>
 
                <li class="nav-item">
-                 <a href="../e-learning" target="_blank" style="color:black;">
+                 <a href="https://ashabul-yamin.pijarsolusi.id/e-learning" target="_blank" class="nav-link">
                   <i class="fa fa-id-card"></i>
                   <p>E-Learning</p>
                 </a>
