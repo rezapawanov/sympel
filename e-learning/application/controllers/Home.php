@@ -23,7 +23,7 @@ class Home extends CI_Controller {
 
 			$this->load->view('top');
 
-			if ($this->session->userdata('hak_akses') == "guru") {
+			if ($this->session->userdata('hak_akses') == "gurupiket") {
 				$d['judul'] = "Dashboard";
 				$hitung_buku = $this->db->query("SELECT COUNT(*) as hitung FROM mst_buku")->row();
 				$hitung_jurnal = $this->db->query("SELECT COUNT(*) as hitung FROM mst_jurnal")->row();
