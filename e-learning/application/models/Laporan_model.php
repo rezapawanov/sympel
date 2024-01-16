@@ -116,13 +116,13 @@ ORDER BY nama_siswa ASC");
 		}
 
 		if($id_kelas != "" && $id_kelas != "all") {
-			$param3 = "AND id_kelas = '$id_kelas'";
+			$param3 = "AND mst_kelas.id_kelas = '$id_kelas'";
 		} else {
 			$param3 =  '';
 		}
 
         if($id_jurusan != "" && $id_jurusan != "all") {
-			$param4 = "AND id_jurusan = '$id_jurusan'";
+			$param4 = "AND mst_jurusan.id_jurusan = '$id_jurusan'";
 		} else {
 			$param4 =  '';
 		}
@@ -134,7 +134,7 @@ ORDER BY nama_siswa ASC");
 		}
 
 		if($id_materi != "" && $id_materi != "all") {
-			$param6 = "AND id_materi = '$id_materi'";
+			$param6 = "AND mst_materi.id_materi = '$id_materi'";
 		} else {
 			$param6 =  '';
 		}
