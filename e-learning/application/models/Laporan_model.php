@@ -75,7 +75,7 @@ ORDER BY nama_siswa ASC");
 		}
 
 		if($id_guru != "" && $id_guru != "all") {
-			$param5 = "AND id_penginput = '$id_guru'";
+			$param5 = "AND mst_guru.id_guru  = '$id_guru'";
 		} else {
 			$param5 =  '';
 		}
@@ -128,7 +128,7 @@ ORDER BY nama_siswa ASC");
 		}
 
 		if($id_guru != "" && $id_guru != "all") {
-			$param5 = "AND id_penginput = '$id_guru'";
+			$param5 = "AND mst_guru.id_guru  = '$id_guru'";
 		} else {
 			$param5 =  '';
 		}
