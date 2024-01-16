@@ -6,7 +6,7 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "gurubk" && $this->session->userdata('hak_akses') != "guru"&& $this->session->userdata('hak_akses') != "siswa") {
+		if ($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "gurubk" && $this->session->userdata('hak_akses') != "guru" && $this->session->userdata('hak_akses') != "siswa" && $this->session->userdata('hak_akses') != "gurupiket") {
 			redirect(base_url());
 		} else {
 			$this->load->Model('Transaksi_model');
