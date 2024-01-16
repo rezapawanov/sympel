@@ -41,7 +41,7 @@
                           <div class="input-group-prepend date" data-date="" data-date-format="yyyy-mm-dd">
                             <button type="button" class="btn btn-danger"><i class="fal fa-calendar-alt"></i></button>
                           </div>
-                          <input class="form-control tglcalendar" type="text" name="tgl_awal" readonly="readonly" placeholder="Dari Tanggal" value="<?php echo $tgl_awal; ?>" required>
+                          <input class="form-control tglcalendar" type="text" name="tgl_awal" placeholder="Dari Tanggal" value="<?php echo $tgl_awal; ?>" required>
                         </div>
                       </div>
                     </div>
@@ -51,7 +51,7 @@
                         <div class="input-group-prepend date" data-date="" data-date-format="yyyy-mm-dd">
                           <button type="button" class="btn btn-danger"><i class="fal fa-calendar-alt"></i></button>
                         </div>
-                        <input class="form-control tglcalendar" type="text" name="tgl_akhir" readonly="readonly" placeholder="Dari Tanggal" value="<?php echo $tgl_akhir; ?>" required>
+                        <input class="form-control tglcalendar" type="text" name="tgl_akhir" placeholder="Dari Tanggal" value="<?php echo $tgl_akhir; ?>" required>
                       </div>
                     </div>
 
