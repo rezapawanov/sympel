@@ -457,7 +457,7 @@ class Master extends CI_Controller
 		log_message('debug', 'start import');
 		if ($this->session->userdata('hak_akses') != "") {
 			$unggah['upload_path'] = './upload/';
-			$unggah['allowed_types'] = 'xlsx,xls';
+			$unggah['allowed_types'] = '*';
 			$unggah['file_name'] = 'buku_import';
 			$unggah['overwrite'] = true;
 			$unggah['max_size'] = 5120;
