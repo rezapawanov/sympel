@@ -460,7 +460,7 @@ class Master extends CI_Controller
 			$unggah['overwrite']     = true;
 			$unggah['max_size']      = 5120;
 
-			$this->load->library('upload')
+			$this->load->library('upload');
 
 			$this->upload->initialize($unggah);
 			if ($this->upload->do_upload('file_import')) {
