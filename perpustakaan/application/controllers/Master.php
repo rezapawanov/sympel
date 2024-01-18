@@ -454,6 +454,7 @@ class Master extends CI_Controller
 
 	public function buku_import()
 	{
+		log_message('debug', 'start import');
 		if ($this->session->userdata('hak_akses') != "") {
 			$unggah['upload_path'] = './upload/';
 			$unggah['allowed_types'] = 'xlsx';
