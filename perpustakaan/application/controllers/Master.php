@@ -10,6 +10,7 @@ class Master extends CI_Controller
 		parent::__construct();
 		$this->load->Model('Master_model');
 			$this->load->Model('Combo_model');
+		$this->load->library('upload');
 	}
 
 
@@ -459,8 +460,6 @@ class Master extends CI_Controller
 			$unggah['file_name'] = 'buku_import';
 			$unggah['overwrite'] = true;
 			$unggah['max_size'] = 5120;
-
-			$this->load->library('upload');
 
 			$this->upload->initialize($unggah);
 
