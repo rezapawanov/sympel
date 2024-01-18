@@ -462,6 +462,10 @@ class Master extends CI_Controller
 			$unggah['overwrite'] = true;
 			$unggah['max_size'] = 5120;
 
+			$uploaded_file_info = new finfo(FILEINFO_MIME_TYPE);
+			$mime_type = $uploaded_file_info->file($_FILES['file_import']['tmp_name']);
+			log_message('debug', 'Jeni File MIME Type ' . $mime_type);
+
 			$this->upload->initialize($unggah);
 
 			if ($this->upload->do_upload('file_import')) {
