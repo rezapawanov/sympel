@@ -479,6 +479,11 @@ class Master extends CI_Controller
 								$in['pengarang'] = $kolom[2];
 								$in['penerbit'] = $kolom[3];
 								$in['jumlah_buku'] = $kolom[4];
+
+								// Log the insert statement
+								$insert_statement = $this->db->insert_string('mst_buku', $in);
+								log_message('debug', 'Insert Statement: ' . $insert_statement);
+
 								$this->db->insert("mst_buku", $in);
 							}
 							$baris++;
