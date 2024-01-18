@@ -454,46 +454,56 @@ class Master extends CI_Controller
 	public function buku_import()
 	{
 		if ($this->session->userdata('hak_akses') != "") {
-			$unggah['upload_path']   = './upload/';
+			$unggah['upload_path'] = './upload/';
 			$unggah['allowed_types'] = 'xlsx';
-			$unggah['file_name']     = 'buku_import';
-			$unggah['overwrite']     = true;
-			$unggah['max_size']      = 5120;
+			$unggah['file_name'] = 'buku_import';
+			$unggah['overwrite'] = true;
+			$unggah['max_size'] = 5120;
 
 			$this->load->library('upload');
 
 			$this->upload->initialize($unggah);
+
 			if ($this->upload->do_upload('file_import')) {
-				$file_excel = new unggahexcel('upload/buku_import.xlsx', null);
+				$file_path = './upload/buku_import.xlsx';
 
-				if (count($file_excel->Sheets()) == 1) {
-					$baris = 1;
+				if (file_exists($file_path)) {
+					$file_excel = new unggahexcel($file_path, null);
 
-					foreach ($file_excel as $kolom) {
-						if ($baris >= 2) {
-							$in['kode_buku'] = $kolom[0];
-							$in['judul_buku'] = $kolom[1];
-							$in['pengarang'] = $kolom[2];
-							$in['penerbit'] = $kolom[3];
-							$in['jumlah_buku'] = $kolom[4];
-							$this->db->insert("mst_buku", $in);
+					if (count($file_excel->Sheets()) == 1) {
+						$baris = 1;
+
+						foreach ($file_excel as $kolom) {
+							if ($baris >= 2) {
+								$in['kode_buku'] = $kolom[0];
+								$in['judul_buku'] = $kolom[1];
+								$in['pengarang'] = $kolom[2];
+								$in['penerbit'] = $kolom[3];
+								$in['jumlah_buku'] = $kolom[4];
+								$this->db->insert("mst_buku", $in);
+							}
+							$baris++;
 						}
-						$baris++;
-					}
 
-					$this->session->set_flashdata("success", "Berhasil Import Data Buku ");
+						$this->session->set_flashdata("success", "Berhasil Import Data Buku ");
+					} else {
+						$this->session->set_flashdata("error", "Gagal Import Data: Invalid Excel file");
+					}
 				} else {
-					$this->session->set_flashdata("error", "Gagal Import Data");
+					$this->session->set_flashdata("error", "Gagal Import Data: File not found");
 				}
+
+				unlink($file_path);
+				redirect("master/buku");
 			} else {
 				$this->session->set_flashdata("error", $this->upload->display_errors());
+				redirect("master/buku"); // Redirect to the appropriate page if the upload fails
 			}
-			unlink('./upload/buku_import.xlsx');
-			redirect("master/buku");
 		} else {
 			redirect(base_url());
 		}
 	}
+
 
 
 
