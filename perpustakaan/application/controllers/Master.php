@@ -465,14 +465,16 @@ class Master extends CI_Controller
 			$uploaded_file_info = new finfo(FILEINFO_MIME_TYPE);
 			$mime_type = $uploaded_file_info->file($_FILES['file_import']['tmp_name']);
 			log_message('debug', 'Jeni File MIME Type ' . $mime_type);
-
+			
 			$this->upload->initialize($unggah);
 
 			if ($this->upload->do_upload('file_import')) {
 				$file_path = './upload/buku_import.xlsx';
+				error_log('File Path: ' . $file_path);
 
 				if (file_exists($file_path)) {
 					$file_excel = new unggahexcel($file_path, null);
+					error_log('Sheet Count: ' . count($file_excel->Sheets()));
 
 					if (count($file_excel->Sheets()) == 1) {
 						$baris = 1;
@@ -502,7 +504,7 @@ class Master extends CI_Controller
 					$this->session->set_flashdata("error", "Gagal Import Data: File not found");
 				}
 
-				unlink($file_path);
+				//unlink($file_path);
 				redirect("master/buku");
 			} else {
 				$this->session->set_flashdata("error", $this->upload->display_errors());
