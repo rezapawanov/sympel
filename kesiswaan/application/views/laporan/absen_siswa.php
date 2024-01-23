@@ -82,9 +82,12 @@
                         <label>Cari Berdasarkan Keterangan</label>
                         <select class="form-control" type="text" name="keterangan">
                           <option value="all">[ SEMUA KETERANGAN ]</option>
+                          <option value="MASUK">MASUK</option>
+                          <option value="KELUAR">KELUAR</option>
                           <option value="SAKIT">SAKIT</option>
                           <option value="IZIN">IZIN</option>
                           <option value="ALPA">ALPA</option>
+                          <option value="PERPUSTAKAAN">PERPUSTAKAAN</option>
                         </select>
                       </div>
                     </div>
