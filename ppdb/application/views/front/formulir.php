@@ -62,10 +62,34 @@
                         </select>
                     </div>
                 </div>
+                 <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">KK <text class="text-danger">*</text></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Nomor Kartu Keluarga" name="no_kk" required>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">NIK <text class="text-danger">*</text></label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" placeholder="Nomor Induk Penduduk" name="nik" required>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">NISN <text class="text-danger">*</text></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Nomor Induk Siswa Nasional" name="no_nisn" required>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">KIP <text class="text-danger">*</text></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Kartu Indonesia Pintar" name="no_kip" required>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">PKH <text class="text-danger">*</text></label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" placeholder="Program Keluarga Harapan" name="no_pkh" required>
                     </div>
                 </div>
                 <div class="form-group row">
