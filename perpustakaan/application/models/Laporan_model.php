@@ -5,6 +5,7 @@ class Laporan_model extends CI_Model {
 	public function siswa($id_kelas) {
 		$q = $this->db->query("SELECT * FROM mst_siswa  
 		INNER JOIN mst_kelas ON mst_siswa.id_kelas = mst_kelas.id_kelas
+		where mst_kelas.id_kelas = '$id_kelas'  
 ORDER BY nama_siswa ASC");
 		return $q;
 	}
