@@ -451,6 +451,7 @@ class pembayaran extends CI_Controller {
 			$this->db->where('pembayaran_bulanan.id_jenis_pembayaran', $get['id']);
 			$this->db->join('mst_jenis_pembayaran', 'mst_jenis_pembayaran.id_jenis_pembayaran=pembayaran_bulanan.id_jenis_pembayaran');
 			$this->db->join('mst_pos_keuangan', 'mst_pos_keuangan.id_pos_keuangan=mst_jenis_pembayaran.id_pos_keuangan');
+			$this->db->select('pembayaran_bulanan.id_siswa, pembayaran_bulanan.id_jenis_pembayaran, pembayaran_bulanan.tagihan AS tagihan, mst_pos_keuangan.tagihan AS tagihan2');
 			$q['pembayaran_bulanan'] = $this->db->get('pembayaran_bulanan')->result_array();			
 
 			header('Content-Type: application/json; charset=utf-8');
