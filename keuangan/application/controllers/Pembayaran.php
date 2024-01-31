@@ -452,7 +452,8 @@ class pembayaran extends CI_Controller {
 			$this->db->join('mst_jenis_pembayaran', 'mst_jenis_pembayaran.id_jenis_pembayaran=pembayaran_bulanan.id_jenis_pembayaran');
 			$this->db->join('mst_pos_keuangan', 'mst_pos_keuangan.id_pos_keuangan=mst_jenis_pembayaran.id_pos_keuangan');
 			$q['pembayaran_bulanan'] = $this->db->get('pembayaran_bulanan')->result_array();
-			var_dump($q);
+			echo "<script>console.log('Debug: " . json_encode($q) . "');</script>";
+
 			header('Content-Type: application/json; charset=utf-8');
 			echo json_encode($q); die;
 		}
@@ -460,7 +461,8 @@ class pembayaran extends CI_Controller {
 		$q = $this->db->where('aktif_jenis_pembayaran', '1');
 		$q = $this->db->join('mst_pos_keuangan', 'mst_pos_keuangan.id_pos_keuangan=mst_jenis_pembayaran.id_pos_keuangan');
 		$q = $this->db->get('mst_jenis_pembayaran')->result_array();
-		var_dump($q);
+		echo "<script>console.log('Debug: " . json_encode($q) . "');</script>";
+
 		$data['jenis_pembayaran'] = $q;
 		header('Content-Type: application/json; charset=utf-8');
 		echo json_encode($data);
