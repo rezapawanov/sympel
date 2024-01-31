@@ -72,7 +72,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="tagihan">Tagihan</label>
-                                <input class="form-control" id="tagihan" name="tagihan" type="number" readonly>
+                                <input class="form-control" id="tagihan" name="tagihan" type="number">
                             </div>
                         </div>
                         <div class="col-4">
