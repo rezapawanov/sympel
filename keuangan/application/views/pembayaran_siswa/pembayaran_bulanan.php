@@ -141,7 +141,7 @@
         $('select[name="bulan"]').select2();
         $('select[name="jenis_pembayaran"]').select2();
 
-        let month = ['januari','februari','maret', 'april', 'mei', 'juni', 'juli', 'agustus', 'september', 'oktober', 'nopember', 'desember'];
+        let month = ['Januari','Februari','Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'Nopember', 'Desember'];
         $('#bulan').append(`<option value="">Pilih Bulan</option>`);
         $.each(month, function (i, val) { 
              $('#bulan').append(`<option value="${val}">${val}</option>`);
@@ -207,7 +207,7 @@
             data: {
                 type: 'simpan',
                 jumlah_bayar: $('#jumlah_bayar').val(),
-                tagihan: $('#tagihan').html(),
+                tagihan: $('#tagihan').val(),
                 id_siswa: $('#id_siswa').val(),
                 id_kelas: $('#id_kelas').val(),
                 id_jenis_pembayaran: $('#jenis_pembayaran').val(),
