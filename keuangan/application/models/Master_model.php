@@ -14,7 +14,7 @@ class Master_model extends CI_Model {
 	}
 
 	public function jenis_pembayaran() {
-		$q = $this->db->query("SELECT * FROM vw_jenis_bayar ORDER BY id_jenis_pembayaran DESC");
+		$q = $this->db->query("SELECT * FROM mst_jenis_pembayaran ORDER BY id_jenis_pembayaran DESC");
 		return $q;
 	}
 
