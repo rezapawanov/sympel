@@ -163,7 +163,7 @@ class Master extends CI_Controller {
 			$in['tipe_pembayaran'] = $this->input->post("tipe_pembayaran");
 
 			if($tipe == "add") {
-				$cek = $this->db->query("SELECT tahun_ajaran FROM mst_jenis_pembayaran WHERE tahun_ajaran = '$in[tahun_ajaran]' AND id_pos_keuangan = '$in[id_pos_keuangan]'");
+				$cek = $this->db->query("SELECT tahun_ajaran FROM mst_jenis_pembayaran WHERE tahun_ajaran = '$in[tahun_ajaran]' AND id_pos_keuangan = '$in[id_pos_keuangan]' and tipe_pembayaran = '$in[tipe_pembayaran]' ");
 				if($cek->num_rows() > 0) { 
 					$this->session->set_flashdata("error","Gagal Input.  Jenis Pembayaran Sudah Digunakan");
 					redirect("master/jenis_pembayaran_tambah");	
