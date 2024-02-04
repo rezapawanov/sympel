@@ -78,7 +78,7 @@
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label">Tagihan</label>
                   <div class="col-sm-12">
-                    <input class="form-control rupiah tarif-all" name="tagihan" type="text" value = "<?php echo $combo_tahun_ajaran; ?>" required placeholder="Tetapkan Tarif Flat">
+                    <input class="form-control rupiah tarif-all" name="tagihan" type="text" value = "<?php echo $tagihan; ?>" required placeholder="Tetapkan Tarif Flat">
                   </div>
                 </div>
                 <div class="form-group row">
