@@ -8,7 +8,7 @@ class Peminjaman extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "gurubk" && $this->session->userdata('hak_akses') != "guru") {
+		if ($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "gurubk" && $this->session->userdata('hak_akses') != "guru" && $this->session->userdata('hak_akses') != "kepsek") {
 			redirect(base_url());
 		} else {
 			$this->load->Model('Peminjaman_siswa_model');
@@ -29,7 +29,7 @@ class Peminjaman extends CI_Controller
 		$this->load->view('bottom');
 	}
 
-	
+
 
 	public function peminjaman_siswa_tambah()
 	{
@@ -57,9 +57,9 @@ class Peminjaman extends CI_Controller
 										INNER JOIN mst_siswa ON peminjaman_siswa.id_siswa = mst_siswa.id_siswa 
 										INNER JOIN mst_kelas ON peminjaman_siswa.id_kelas = mst_kelas.id_kelas WHERE id_peminjaman_siswa = '$id_peminjaman_siswa'");
 			$data = $get->row();
-			$d['siswa'] = $data->id_siswa.'-'.$data->nama_siswa.'-'.$data->nama_kelas;
+			$d['siswa'] = $data->id_siswa . '-' . $data->nama_siswa . '-' . $data->nama_kelas;
 			$d['id_peminjaman_siswa'] = $data->id_peminjaman_siswa;
-			$d['tanggal_pinjam'] = date("d-m-Y",strtotime($data->tanggal_pinjam));
+			$d['tanggal_pinjam'] = date("d-m-Y", strtotime($data->tanggal_pinjam));
 			$d['keterangan_pinjam'] = $data->keterangan_pinjam;
 			$this->load->view('top', $d);
 			$this->load->view('menu');
@@ -80,7 +80,7 @@ class Peminjaman extends CI_Controller
 
 		$get_tahun = $this->db->query("SELECT tahun_ajaran FROM mst_tahun_ajaran WHERE aktif_tahun_ajaran = 1")->row();
 
-		$ex = explode("-",$this->input->post("id_siswa"));
+		$ex = explode("-", $this->input->post("id_siswa"));
 		$in['id_siswa'] = $ex[0];
 		$in['id_penginput'] = $this->session->userdata("id");
 		$in['tahun_ajaran'] = $get_tahun->tahun_ajaran;
@@ -93,7 +93,7 @@ class Peminjaman extends CI_Controller
 			$this->session->set_flashdata("success", "Tambah Peminjaman Siswa Berhasil");
 			redirect("peminjaman");
 		} elseif ($tipe = 'edit') {
-			$where['id_peminjaman_siswa'] 	= $this->input->post('id_peminjaman_siswa');
+			$where['id_peminjaman_siswa'] = $this->input->post('id_peminjaman_siswa');
 			$this->db->update("peminjaman_siswa", $in, $where);
 			$this->session->set_flashdata("success", "Ubah peminjaman Siswa Berhasil");
 			redirect("peminjaman");

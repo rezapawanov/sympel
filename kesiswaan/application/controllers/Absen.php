@@ -6,7 +6,7 @@ class absen extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		if($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "gurubk" && $this->session->userdata('hak_akses') != "guru") { 
+		if($this->session->userdata('hak_akses') != "admin" && $this->session->userdata('hak_akses') != "gurubk" && $this->session->userdata('hak_akses') != "guru" && $this->session->userdata('hak_akses') != "kepsek") { 
 			redirect(base_url());
 		} else {
 			$this->load->Model('Absen_model');
