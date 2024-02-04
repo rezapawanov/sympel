@@ -12,6 +12,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $queryGuruCount = "SELECT COUNT(0) as count FROM mst_guru WHERE rfid = '$tag'";
     $resultGuruCount = mysqli_query($koneksi, $queryGuruCount);
 
+    $currentDay = date("N"); // Returns 1 (Monday) through 7 (Sunday)
+    $currentHour = date("H:i");
+
+    if ($_SERVER['SERVER_NAME'] == "ashabul-yamin.pijarsolusi.id") {
+        //Senin(1)
+        //Selasa(2), 
+        //Rabu(3) 
+        //Kamis(4) 
+        //Jumat(5) 
+        //Sabtu(6) 
+        //Minggu(7) 
+        //time is between 09:40 and 10:20
+        if (($currentDay == 2 || $currentDay == 3 || $currentDay == 4) && (strtotime($currentHour) >= strtotime("09:40") && strtotime($currentHour) <= strtotime("10:20"))) {
+            // Additional variable, e.g., $isTimeToInsert
+            $ket = "Dhuha";
+        } 
+    }
+
     if ($resultSiswaCount) {
         $rowSiswaCount = mysqli_fetch_assoc($resultSiswaCount);
         $siswaCount = $rowSiswaCount['count'];
