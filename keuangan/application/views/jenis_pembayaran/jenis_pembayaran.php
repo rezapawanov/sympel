@@ -52,6 +52,7 @@
                         <td><?php echo $data['nama_pos_keuangan']; ?></td>
                         <td><?php echo $data['tipe_pembayaran']; ?></td>
                         <td><?php echo $data['tahun_ajaran']; ?></td>
+                        <td><?php echo $data['tagihan']; ?></td>
                         <td style="text-align:center;"><?php
                                                         if ($data['aktif_jenis_pembayaran'] == '1') {
                                                           echo '<div class="btn-group btn-group-sm"><a href="#" class="btn btn-success btn-icon-split" style="text-shadow: 2px 2px 4px black;">AKTIF</a>';
