@@ -161,6 +161,7 @@ class Master extends CI_Controller {
 			$in['tahun_ajaran'] = $this->input->post("tahun_ajaran");
 			$in['id_pos_keuangan'] = $this->input->post("id_pos_keuangan");
 			$in['tipe_pembayaran'] = $this->input->post("tipe_pembayaran");
+			$in['tagihan'] = $this->input->post("tagihan");
 
 			if($tipe == "add") {
 				$cek = $this->db->query("SELECT tahun_ajaran FROM mst_jenis_pembayaran WHERE tahun_ajaran = '$in[tahun_ajaran]' AND id_pos_keuangan = '$in[id_pos_keuangan]' and tipe_pembayaran = '$in[tipe_pembayaran]' ");
