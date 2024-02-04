@@ -141,6 +141,7 @@ class Master extends CI_Controller {
 			$d['id_jenis_pembayaran'] = $data->id_jenis_pembayaran;
 			$d['tahun_ajaran'] = $data->tahun_ajaran;
 			$d['tipe_pembayaran'] = $data->tipe_pembayaran;
+			$d['tagihan'] = $data->tagihan;
 			$d['aktif_jenis_pembayaran'] = $data->aktif_jenis_pembayaran;
 			$d['combo_pos_keuangan'] = $this->Combo_model->combo_pos_keuangan($data->id_pos_keuangan);
 			$d['combo_tahun_ajaran'] = $this->Combo_model->combo_tahun_ajaran_only($data->tahun_ajaran);
