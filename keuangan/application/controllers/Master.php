@@ -199,7 +199,7 @@ class Master extends CI_Controller {
 	}
 
 	public function tarif_pembayaran($id,$kelas="") {
-		$cek = $this->db->query("SELECT * FROM vw_jenis_bayar WHERE id_jenis_pembayaran = $id");
+		$cek = $this->db->query("SELECT * FROM mst_jenis_pembayaran WHERE id_jenis_pembayaran = $id");
 		if($cek->num_rows() > 0) {
 			$d['judul'] = "Tarif Pembayaran";
 			$d['combo_kelas'] = $this->Combo_model->combo_kelas($kelas);
