@@ -90,7 +90,7 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="jumlah_bayar">Jumlah Bayar</label>
-                                <input class="form-control" id="jumlah_bayar" name="jumlah_bayar" type="number" readonly>
+                                <input class="form-control" id="jumlah_bayar" name="jumlah_bayar" type="number">
                             </div>
                         </div>
 
