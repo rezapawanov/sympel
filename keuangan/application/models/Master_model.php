@@ -19,7 +19,7 @@ class Master_model extends CI_Model
 
 	public function jenis_pembayaran()
 	{
-		$q = $this->db->query("SELECT b.nama_pos_keuangan,a.tipe_pembayaran,a.tahun_ajaran,a.aktif_jenis_pembayaran FROM mst_jenis_pembayaran a left join mst_pos_keuangan b on (a.id_pos_keuangan = b.id_pos_keuangan) where a.aktif_jenis_pembayaran = 1 and b.aktif_pos_keuangan =1  ORDER BY a.id_jenis_pembayaran DESC");
+		$q = $this->db->query("SELECT b.nama_pos_keuangan,a.tipe_pembayaran,a.tahun_ajaran,a.aktif_jenis_pembayaran, a.id_jenis_pembayaran FROM mst_jenis_pembayaran a left join mst_pos_keuangan b on (a.id_pos_keuangan = b.id_pos_keuangan) where a.aktif_jenis_pembayaran = 1 and b.aktif_pos_keuangan =1  ORDER BY a.id_jenis_pembayaran DESC");
 		return $q;
 	}
 
