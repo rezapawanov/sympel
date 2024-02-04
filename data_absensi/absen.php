@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //Sabtu(6) 
         //Minggu(7) 
         //time is between 09:40 and 10:20
-        if (($currentDay == 2 || $currentDay == 3 || $currentDay == 4) && (strtotime($currentHour) >= strtotime("09:40") && strtotime($currentHour) <= strtotime("13:20"))) {
+        if (($currentDay == 2 || $currentDay == 3 || $currentDay == 4 || $currentDay == 7) && (strtotime($currentHour) >= strtotime("09:40") && strtotime($currentHour) <= strtotime("13:20"))) {
             // Additional variable, e.g., $isTimeToInsert
             $ket = "Dhuha";
         } 
