@@ -51,7 +51,7 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 <script src="<?php echo base_url(); ?>assets/plugins/datatables/jquery.dataTables.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- PAGE SCRIPTS -->
-
+<script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard2.js"></script>
 
 <?php if($this->uri->segment(2) == 'tarif_pembayaran_kelas' || $this->uri->segment(2) == 'tarif_pembayaran_siswa' || $this->uri->segment(2) == 'pembayaran_siswa' || $this->uri->segment(2) == 'penerimaan_tambah' || $this->uri->segment(2) == 'penerimaan_edit' || $this->uri->segment(2) == 'pengeluaran_edit' || $this->uri->segment(2) == 'pengeluaran_tambah' ) { ?>
 <script src="<?php echo base_url(); ?>asset/jquery.inputmask.bundle.js"></script>
