@@ -8,10 +8,11 @@ class Tamu extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if ($this->session->userdata('hak_akses') != "admin") {
-            redirect(base_url());
-        } else {
+        if ($this->session->userdata('hak_akses') == "admin" || $this->session->userdata('hak_akses') == "sarpras") {
+           
             $this->load->Model('Tamu_model');
+        } else {
+            redirect(base_url());
         }
     }
 
