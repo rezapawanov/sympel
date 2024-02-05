@@ -34,7 +34,7 @@ class Transaksi extends CI_Controller
 			$d['jumlah_buku'] = $data['jumlah_buku'] - $stok->hitung;
 			$d['id_buku'] = $data['id_buku'];
 			$arr[] = $d;
-		}
+		} 
 		echo json_encode(array($d));
 	}
 

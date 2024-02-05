@@ -133,14 +133,6 @@ $bln= date ("M");
                 </a>
               </li>
             </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url(); ?>transaksi/sumber" class="nav-link">
-                  <i class="fad fa-person-sign nav-icon text-navy"></i>
-                  <p>Daftar Denda</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
           <li class="nav-header text-navy">LAPORAN</li>
