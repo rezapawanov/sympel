@@ -24,6 +24,8 @@ class Login_model extends CI_Model
 
 		$q_alumni = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_user.id_jabatan = '21'");
 
+		$q_sarpras = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_user.id_jabatan = '15'");
+
 		$q_bukutamu = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_user.id_jabatan = '22'");
 
 		$q_ppdb = $this->db->query("SELECT * FROM mst_user INNER JOIN mst_jabatan ON mst_user.id_jabatan = mst_jabatan.id_jabatan WHERE username = '$username' AND password = '$password' AND mst_user.id_jabatan = '23'");
@@ -132,6 +134,17 @@ class Login_model extends CI_Model
 				$this->session->set_userdata($session);
 			}
 			redirect("../alumni");
+		} else if ($q_sarpras->num_rows() > 0) {
+			foreach ($q_sarpras->result() as $data) {
+				$session['username'] = $data->username;
+				$session['id'] = $data->id_user;
+				$session['nama'] = $data->nama;
+				$session['hak_akses'] = $data->hak_akses;
+				$session['nama_jabatan'] = $data->nama_jabatan;
+				$session['tipe'] = 'sarpras';
+				$this->session->set_userdata($session);
+			}
+			redirect("../sarpras");
 		} else if ($q_bukutamu->num_rows() > 0) {
 			foreach ($q_bukutamu->result() as $data) {
 				$session['username'] = $data->username;
