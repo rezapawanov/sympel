@@ -4,11 +4,13 @@ $tahun_ajaran = $this->db->query("SELECT tahun_ajaran, semester FROM mst_tahun_a
 $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 
 ?>
- <footer class="main-footer">
-     <?php echo "Copyright © " ."2021 -". (int)date('Y');?> <a href="#" target="_blank"><b><?php echo $sekolah->nama_sekolah; ?> </b></a>.All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-    </div>
-  </footer>
+<footer class="main-footer">
+  <?php echo "Copyright © " . "2021 -" . (int) date('Y'); ?> <a href="#" target="_blank"><b>
+      <?php echo $sekolah->nama_sekolah; ?>
+    </b></a>.All rights reserved.
+  <div class="float-right d-none d-sm-inline-block">
+  </div>
+</footer>
 </div>
 <!-- ./wrapper -->
 
@@ -19,7 +21,8 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 <!-- overlayScrollbars -->
 <script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- Bootstrap4 Duallistbox -->
-<script src="<?php echo base_url(); ?>assets/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<script
+  src="<?php echo base_url(); ?>assets/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
 <!-- date-range-picker -->
@@ -53,55 +56,61 @@ $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
 <!-- PAGE SCRIPTS -->
 <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard2.js"></script>
 
-
-<?php if($this->uri->segment(2) == 'tarif_pembayaran_kelas' || $this->uri->segment(2) == 'tarif_pembayaran_siswa' || $this->uri->segment(2) == 'pembayaran_siswa' || $this->uri->segment(2) == 'penerimaan_tambah' || $this->uri->segment(2) == 'penerimaan_edit' || $this->uri->segment(2) == 'pengeluaran_edit' || $this->uri->segment(2) == 'pengeluaran_tambah' ) { ?>
-<script src="<?php echo base_url(); ?>asset/jquery.inputmask.bundle.js"></script>
+<?php if ($this->uri->segment(2) == 'tarif_pembayaran_kelas' || $this->uri->segment(2) == 'tarif_pembayaran_siswa' || $this->uri->segment(2) == 'pembayaran_siswa' || $this->uri->segment(2) == 'penerimaan_tambah' || $this->uri->segment(2) == 'penerimaan_edit' || $this->uri->segment(2) == 'pengeluaran_edit' || $this->uri->segment(2) == 'pengeluaran_tambah') { ?>
+  <script src="<?php echo base_url(); ?>asset/jquery.inputmask.bundle.js"></script>
 <?php } else { ?>
-<script src="<?php echo base_url(); ?>asset/plugins/input-mask/jquery.inputmask.js"></script>
+
+  <script type='text/javascript'
+    src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+
 <?php } ?>
 <script>
   $(function () {
     $('#datatb').DataTable({
-      'paging'      : true,
+      'paging': true,
       'lengthChange': false,
-      'searching'   : true,
-      'ordering'    : true,
-      'info'        : false,
-      'autoWidth'   : true
+      'searching': true,
+      'ordering': true,
+      'info': false,
+      'autoWidth': true
     })
   })
 </script>
 <script>
-$(document).ready(function(){
-  $(".tgl").inputmask("99-99-9999");  
-  $(".tahun_ajaran").inputmask("9999/9999");  
-  $(".jam").inputmask("99:99");  
-  $('.select2').select2();
-  $('.rupiah').inputmask('decimal', {allowMinus:false, autoGroup: true, groupSeparator: '.', rightAlign: false, autoUnmask: true, removeMaskOnSubmit: true});
-  $(".tglcalendar").datepicker({
-    todayHighlight: true,
-    autoclose: true,
-    format: "dd-mm-yyyy"
-  });  
-});
+  $(document).ready(function () {
+    $(".tgl").inputmask("99-99-9999");
+    $(".tahun_ajaran").inputmask("9999/9999");
+    $(".jam").inputmask("99:99");
+    $('.select2').select2();
+    $('.rupiah').inputmask('decimal', { allowMinus: false, autoGroup: true, groupSeparator: '.', rightAlign: false, autoUnmask: true, removeMaskOnSubmit: true });
+    $(".tglcalendar").datepicker({
+      todayHighlight: true,
+      autoclose: true,
+      format: "dd-mm-yyyy"
+    });
+  });
 </script>
 
 <script>
-        function printDiv(divName) {
-             var printContents = document.getElementById(divName).innerHTML;
-             var originalContents = document.body.innerHTML;
+  function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
 
-             document.body.innerHTML = printContents;
+    document.body.innerHTML = printContents;
 
-             window.print();
+    window.print();
 
-             document.body.innerHTML = originalContents;
-        }
+    document.body.innerHTML = originalContents;
+  }
 </script>
 
 <script type="text/javascript">
-    $("input").attr("autocomplete", "off");
+  $("input").attr("autocomplete", "off");
 </script>
+<script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard2.js"></script>
+
+<script src="<?php echo base_url(); ?>assets/dist/js/bootstrap-datepicker.min.js"></script>
 
 </body>
+
 </html>
