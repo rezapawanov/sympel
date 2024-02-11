@@ -77,7 +77,7 @@ echo "<b>G. Tanggapan Orang tua / Wali</b>
   <tr>
     <td width="260" align="left">Orang Tua / Wali</td>
     <td width="520"align="center">Mengetahui <br> Kepala <?php echo $nama_sekolah; ?></td>
-    <td width="260" align="left">Bandar Lampung, <?php echo date("Y-m-d"); ?> <br> Wali Kelas</td>
+    <td width="260" align="left"><?php echo $kecamatan; ?>, <?php echo date("Y-m-d"); ?> <br> Wali Kelas</td>
   </tr>
   <tr>
     <td align="left"><br /><br /><br /><br /><br />

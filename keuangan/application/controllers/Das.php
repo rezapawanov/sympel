@@ -201,6 +201,13 @@ class Das extends CI_Controller
         $d['jenis_dana'] = $get->jenis_dana;
         $d['tahun_ajaran'] = $get->tahun_ajaran;
         $d['status_das_user'] = $get->status_das_user;
+        $get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+        $d['nama_sekolah'] = $get->nama_sekolah;
+        $d['alamat_sekolah'] = $get->alamat;
+        $d['website'] = $get->website;
+        $d['kelurahan'] = $get->kelurahan;
+        $d['kecamatan'] = $get->kecamatan;
+        $d['kabupaten'] = $get->kabupaten;
         $this->load->view('das/das_saya_kelola_cetak', $d);
     }
 

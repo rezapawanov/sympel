@@ -348,7 +348,7 @@ p {
         </div>
 <br><br>
 <div class="ttd" style="float:right;text-align:left !important;">
-<p style="margin:0;">Bandar Lampung, <?php echo tgl_indo(date("Y-m-d")); ?> </p>
+<p style="margin:0;"><?php echo $kecamatan; ?>, <?php echo tgl_indo(date("Y-m-d")); ?> </p>
 <br><br><br><br><br>
 <p style="margin:0;">(<?php echo $nama_siswa; ?>)</p>
 </div>

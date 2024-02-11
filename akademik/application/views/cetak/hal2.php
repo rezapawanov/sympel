@@ -22,7 +22,7 @@
     </table>
     <br><br><br>
     <table width='40%' style='float:right'>
-        <tr><td>Bandar Lampung, <?php echo date('Y-m-d'); ?> <br>
+        <tr><td><?php echo $kecamatan; ?>, <?php echo date('Y-m-d'); ?> <br>
                 Kepala Sekolah,<br><br><br><br>
 
 

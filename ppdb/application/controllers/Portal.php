@@ -298,6 +298,13 @@ class Portal extends CI_Controller
             $d['penghasilan_wali'] = $get->penghasilan_wali;
             $d['status'] = $get->status;
             $d['foto'] = $get->foto;
+            $get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+            $d['nama_sekolah'] = $get->nama_sekolah;
+            $d['alamat_sekolah'] = $get->alamat;
+            $d['website'] = $get->website;
+            $d['kelurahan'] = $get->kelurahan;
+            $d['kecamatan'] = $get->kecamatan;
+            $d['kabupaten'] = $get->kabupaten;
             $this->load->library('pdf');
 
             $this->pdf->setPaper('legal', 'potrait');

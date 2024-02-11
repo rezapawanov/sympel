@@ -112,6 +112,14 @@ class Laporan extends CI_Controller
 			$d['id_user'] = $id_user;
 		}
 		$d['tahun_ajaran'] = $tahun_ajaran;
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
+
 		$this->load->view('top', $d);
 		$this->load->view('menu');
 		$this->load->view('laporan/das_harian');
@@ -133,6 +141,13 @@ class Laporan extends CI_Controller
 		$d['laporan_das_sisa'] = $this->Laporan_model->das_sisa($tahun_ajaran);
 
 		$d['tahun_ajaran'] = $tahun_ajaran;
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 		$this->load->view('top', $d);
 		$this->load->view('menu');
 		$this->load->view('laporan/das_sisa');
@@ -211,6 +226,13 @@ class Laporan extends CI_Controller
 			$d['id_user'] = $id_user;
 		}
 		$d['tahun_ajaran'] = $tahun_ajaran;
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 		$this->load->view('top', $d);
 		$this->load->view('menu');
 		$this->load->view('laporan/das_bendahara');
@@ -273,6 +295,13 @@ class Laporan extends CI_Controller
 			$d['id_user'] = $id_user;
 		}
 		$d['tahun_ajaran'] = $tahun_ajaran;
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 		$this->load->view('top', $d);
 		$this->load->view('menu');
 		$this->load->view('laporan/das');
@@ -374,7 +403,13 @@ class Laporan extends CI_Controller
 		} else {
 			$d['rekapitulasi'] = "";
 		}
-
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 		$this->load->view('top', $d);
 		$this->load->view('menu');
 		$this->load->view('laporan/rekapitulasi');
@@ -450,6 +485,13 @@ class Laporan extends CI_Controller
 			$d['tgl_awal'] = date("d-m-Y");
 			$d['tgl_akhir'] = date("d-m-Y");
 		}
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 		$this->load->view('top', $d);
 		$this->load->view('menu');
 		$this->load->view('laporan/jurnal');

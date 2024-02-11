@@ -260,6 +260,13 @@ class pembayaran extends CI_Controller {
 		$d['tahun_ajaran'] = str_replace("-","/",$tahun_ajaran);
 		$d['nis'] = $siswa->nis;
 		$d['nama_kelas'] = $siswa->nama_kelas;
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 		$this->load->view("cetak/bukti_semua_tagihan",$d);
 	}
 
@@ -278,6 +285,13 @@ class pembayaran extends CI_Controller {
 		$d['nis'] = $_GET['nis'];
 		$d['nama_kelas'] = $_GET['kelas'];
 		$d['tanggal'] = date("Y-m-d",strtotime($_GET['tanggal']));
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 		$this->load->view("cetak/bukti_bayar",$d);
 	}
 
@@ -296,6 +310,13 @@ class pembayaran extends CI_Controller {
 		$d['no_telepon'] = $sekolah->no_telepon;
 		$d['email'] = $sekolah->email;
 		$d['logo'] = $sekolah->logo;
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
 
 		$this->load->view("cetak/bukti_bayar_bulanan",$d);
 	}
@@ -325,6 +346,13 @@ class pembayaran extends CI_Controller {
 			$d['email'] = $sekolah->email;
 			$d['logo'] = $sekolah->logo;
 			$d['id_jenis_pembayaran'] = $id_jenis_pembayaran;
+			$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+			$d['nama_sekolah'] = $get->nama_sekolah;
+			$d['alamat_sekolah'] = $get->alamat;
+			$d['website'] = $get->website;
+			$d['kelurahan'] = $get->kelurahan;
+			$d['kecamatan'] = $get->kecamatan;
+			$d['kabupaten'] = $get->kabupaten;
 			$this->load->view("cetak/bukti_bayar_bulanan_all",$d);
 		}
 	}
@@ -343,6 +371,14 @@ class pembayaran extends CI_Controller {
 		$d['no_telepon'] = $sekolah->no_telepon;
 		$d['email'] = $sekolah->email;
 		$d['logo'] = $sekolah->logo;
+		$get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+		$d['nama_sekolah'] = $get->nama_sekolah;
+		$d['alamat_sekolah'] = $get->alamat;
+		$d['website'] = $get->website;
+		$d['kelurahan'] = $get->kelurahan;
+		$d['kecamatan'] = $get->kecamatan;
+		$d['kabupaten'] = $get->kabupaten;
+
 
 		$this->load->view("cetak/bukti_bayar_bebas",$d);
 	}
