@@ -6,7 +6,7 @@
         <div class="row mb-2">
           <div class="col-sm-12 mt-2">
             <div class="card card-blue card-outline">
-              <center><h1 class="m-0 text-dark" style="text-shadow: 2px 2px 4px #17a2b8;"><i class="fal fa-school mt-1"></i> <br>DAFTAR LAYOUT INFORMASI PERPUSTAKAAN</h1> </center>
+              <center><h1 class="m-0 text-dark" style="text-shadow: 2px 2px 4px #17a2b8;"><i class="fal fa-school mt-1"></i> <br>DAFTAR LAYOUT INFORMASI E-LEARNING</h1> </center>
               <hr>
               <div class="container-fluid">
                 <div class="row">
