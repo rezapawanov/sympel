@@ -15,6 +15,10 @@ class jadwal_pelajaran_model extends CI_Model {
 			$q = $this->db->where('jadwal_pelajaran.id_kelas', $id_kelas);
 		}
 
+		if ($tahun_ajaran != null) {
+			$q = $this->db->where('mst_tahun_ajaran.id_tahun_ajaran', $tahun_ajaran);
+		}
+
 		$q = $this->db->order_by('id_jadwal_pelajaran', 'DESC');
 		return $q->get();
 	}
