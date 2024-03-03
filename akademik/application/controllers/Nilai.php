@@ -335,8 +335,8 @@ class Nilai extends CI_Controller {
 		if($this->session->userdata('hak_akses') == "guru" || $this->session->userdata('hak_akses') == "admin") { 
 			$d['judul'] = "Nilai UTS";
 			if($this->session->userdata('hak_akses') == "guru") {
-				$id_guru = $this->session->userdata("id_guru");
-				die($id_guru);
+				$id_guru = $this->session->userdata("id");
+				//die($id_guru);
 				$d['jadwal'] = $this->Nilai_model->jadwal($id_guru);
 			} else {
 				$d['jadwal'] = $this->Nilai_model->jadwal_all();
