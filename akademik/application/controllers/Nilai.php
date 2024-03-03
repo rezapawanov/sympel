@@ -258,7 +258,7 @@ class Nilai extends CI_Controller {
 		if($this->session->userdata('hak_akses') == "guru" || $this->session->userdata('hak_akses') == "admin") { 
 			$d['judul'] = "Nilai Raport";
 			if($this->session->userdata('hak_akses') == "guru") {
-				$id_guru = $this->session->userdata("id_guru");
+				$id_guru = $this->session->userdata("id");
 				$d['jadwal'] = $this->Nilai_model->jadwal($id_guru);
 			} else {
 				$d['jadwal'] = $this->Nilai_model->jadwal_all();
@@ -412,7 +412,7 @@ class Nilai extends CI_Controller {
 		if($this->session->userdata('hak_akses') == "guru" || $this->session->userdata('hak_akses') == "admin") { 
 			$d['judul'] = "Nilai Harian";
 			if($this->session->userdata('hak_akses') == "guru") {
-				$id_guru = $this->session->userdata("id_guru");
+				$id_guru = $this->session->userdata("id");
 				$d['jadwal'] = $this->Nilai_model->jadwal($id_guru);
 			} else {
 				$id_guru = $this->session->userdata("id_guru");
