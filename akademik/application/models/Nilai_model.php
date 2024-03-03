@@ -9,10 +9,8 @@ class Nilai_model extends CI_Model {
 	}
 
 	public function walikelas_all() {
-		$q = $this->db->query("SELECT * FROM mst_walikelas
-		
+		$q = $this->db->query("SELECT * FROM mst_walikelas		
 		INNER JOIN mst_kelas ON mst_walikelas.id_kelas = mst_kelas.id_kelas
-
 		  ORDER BY id_walikelas DESC");
 		return $q;
 	}
@@ -22,8 +20,6 @@ class Nilai_model extends CI_Model {
 						INNER JOIN mst_kelas ON jadwal_pelajaran.id_kelas = mst_kelas.id_kelas
 								INNER JOIN mst_tahun_ajaran ON jadwal_pelajaran.id_tahun_ajaran = mst_tahun_ajaran.id_tahun_ajaran
 								INNER JOIN mst_mapel ON jadwal_pelajaran.id_mapel = mst_mapel.id_mapel
-		
-		
 		 WHERE id_guru = '$id_guru'  ORDER BY id_jadwal_pelajaran DESC");
 		return $q;
 	}
@@ -33,14 +29,12 @@ class Nilai_model extends CI_Model {
 								INNER JOIN mst_kelas ON jadwal_pelajaran.id_kelas = mst_kelas.id_kelas
 								INNER JOIN mst_tahun_ajaran ON jadwal_pelajaran.id_tahun_ajaran = mst_tahun_ajaran.id_tahun_ajaran
 								INNER JOIN mst_mapel ON jadwal_pelajaran.id_mapel = mst_mapel.id_mapel
-
 		ORDER BY id_jadwal_pelajaran DESC");
 		return $q;
     }
     
     public function nilai_harian_kategori($id_jadwal_pelajaran) {
-		$q = $this->db->query("SELECT * FROM nilai_harian 
-		
+		$q = $this->db->query("SELECT * FROM nilai_harian 	
 		WHERE id_jadwal_pelajaran = $id_jadwal_pelajaran  ORDER BY id_jadwal_pelajaran DESC");
 		return $q;
     }
@@ -50,8 +44,6 @@ class Nilai_model extends CI_Model {
 		
 		
 		 FROM nilai_harian_detail 
-        
-
 		                        INNER JOIN mst_siswa ON nilai_harian_detail.id_siswa = mst_siswa.id_siswa WHERE id_nilai_harian = $id_nilai_harian ORDER BY nama_siswa ASC");
 		
 		
@@ -65,8 +57,7 @@ class Nilai_model extends CI_Model {
 		}
 
 		public function nilai_raport_siswa($id_jadwal_pelajaran) {
-			$q = $this->db->query("SELECT nis,nama_siswa,nilai_pengetahuan,nilai_keterampilan,id_nilai_raport,kkm FROM nilai_raport
-	
+			$q = $this->db->query("SELECT nis,nama_siswa,nilai_pengetahuan,nilai_keterampilan,id_nilai_raport,kkm FROM nilai_raport	
 																	INNER JOIN mst_siswa ON nilai_raport.id_siswa = mst_siswa.id_siswa WHERE id_jadwal_pelajaran = $id_jadwal_pelajaran ORDER BY nama_siswa ASC");
 			return $q;
 		}
