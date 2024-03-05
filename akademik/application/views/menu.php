@@ -216,6 +216,16 @@ $bln= date ("M");
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="<?php echo base_url(); ?>absen/siswa_harian" class="nav-link">
+              <i class="nav-icon fas fa-box text-info"></i>
+              <p>
+                Absen Siswa Harian
+              </p>
+            </a>
+          </li>
+
           <li class="nav-item has-treeview">
             <a href="<?php echo base_url(); ?>absen/guru" class="nav-link">
                 <i class="nav-icon fas fa-box text-info"></i>
