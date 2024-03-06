@@ -224,5 +224,48 @@ class absen extends CI_Controller {
 
         echo json_encode($dataTable, JSON_HEX_AMP | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT);
 	}
+
+	public function absen_harian(){
+		$d['judul'] = "Data Absen Siswa Harian";
+		$d['kelas'] = $this->db->get('mst_kelas')->result_array();
+		$this->load->view('top', $d);
+		$this->load->view('menu');
+		$this->load->view('absen/absen_harian');
+		$this->load->view('bottom');
+	}
+
+	public function get_all_absen_harian(): void {
+		$get = $this->input->get();
+
+		$limit  = !empty($get['length']) ? $get['length'] : 10;
+		$offset = !empty($get['start']) ? $get['start'] : 0;
+        $filter['start'] = !empty($get['columns'][1]['search']['value']) ? $get['columns'][1]['search']['value'] : date('Y-m-1');
+        $filter['end'] = !empty($get['columns'][2]['search']['value']) ? $get['columns'][2]['search']['value'] : date('Y-m-d');
+
+		// var_dump('ok');die;
+
+        $data = $this->Absen_model->absen_harian($offset, $limit, $filter);
+
+		header('Content-Type: application/json; charset=utf-8');
+        echo json_encode($data->result(), JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG);
+    }
+
+	public function get_all_paginated_absen_harian(){
+		$get = $this->input->get();
+
+		$limit  = $get['length'];
+		$offset = $get['start'];
+        $filter['start'] = !empty($get['columns'][1]['search']['value']) ? $get['columns'][1]['search']['value'] : date('Y-m-d');
+        $filter['end'] = !empty($get['columns'][2]['search']['value']) ? $get['columns'][2]['search']['value'] : date('Y-m-d');
+
+        $dataTable = [
+            'draw'            => $get['draw'] ?? NULL,
+            'data'            => $this->Absen_model->absen_harian($offset, $limit, $filter)->result(),
+            'recordsTotal'    => $this->db->count_all_results('absen'),
+            'recordsFiltered' => $this->Absen_model->total_absen_siswa($filter)
+        ];
+
+        echo json_encode($dataTable, JSON_HEX_AMP | JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT);
+	}
 	
 }

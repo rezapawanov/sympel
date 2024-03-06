@@ -12,6 +12,26 @@ class Absen_model extends CI_Model {
 		return $q;
     }
 
+	public function absen_harian($start = null, $limit = null, $filter = []){
+		$q = $this->db->query("SELECT masuk.id_siswa, masuk.tanggal_absen, masuk.masuk, keluar.keluar, ms.nama_siswa, mk.nama_kelas from (
+			select id_siswa, tanggal_absen, tahun_ajaran, waktu_absen as masuk from absen a
+			where keterangan='masuk'
+			group by id_siswa, tanggal_absen, waktu_absen, tahun_ajaran
+		) masuk	
+		left join 
+			(
+				select id_siswa, tanggal_absen, waktu_absen as keluar from absen b
+				where keterangan='keluar'
+				group by id_siswa, tanggal_absen, waktu_absen 
+			) keluar on keluar.id_siswa = masuk.id_siswa and keluar.tanggal_absen = masuk.tanggal_absen
+		left join mst_siswa ms on ms.id_siswa = masuk.id_siswa
+		left join mst_kelas mk on mk.id_kelas = ms.id_kelas
+		where masuk.tanggal_absen >= '".$filter['start']."' 
+		and masuk.tanggal_absen <= '".$filter['end']."' 
+		limit $limit offset $start");
+		return $q;
+	}
+
 	public function absen_guru($tahun_ajaran) {
 		$this->db->where('absen_guru.tahun_ajaran', $tahun_ajaran);
 	//	$this->db->where('absen_guru.id_guru', $this->session->userdata('id'));
