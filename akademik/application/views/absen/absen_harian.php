@@ -81,4 +81,4 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <script src="<?=base_url('assets/js/_absen_harian.js')?>"></script>
+  <script src="<?=base_url('assets/js/_absen_harian.js')?>" defer></script>

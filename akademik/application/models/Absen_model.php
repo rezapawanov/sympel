@@ -27,8 +27,9 @@ class Absen_model extends CI_Model {
 		left join mst_siswa ms on ms.id_siswa = masuk.id_siswa
 		left join mst_kelas mk on mk.id_kelas = ms.id_kelas
 		where masuk.tanggal_absen >= '".$filter['start']."' 
-		and masuk.tanggal_absen <= '".$filter['end']."' 
-		limit $limit offset $start");
+		and masuk.tanggal_absen <= '".$filter['end']."'".
+		((!is_null($filter['id_kelas'])) ? " and mk.id_kelas=".$filter['id_kelas']."" : "").
+		" limit $limit offset $start");
 		return $q;
 	}
 

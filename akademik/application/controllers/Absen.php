@@ -257,6 +257,7 @@ class absen extends CI_Controller {
 		$offset = $get['start'];
         $filter['start'] = !empty($get['columns'][1]['search']['value']) ? $get['columns'][1]['search']['value'] : date('Y-m-d');
         $filter['end'] = !empty($get['columns'][2]['search']['value']) ? $get['columns'][2]['search']['value'] : date('Y-m-d');
+        $filter['id_kelas'] = !empty($get['columns'][3]['search']['value']) ? $get['columns'][3]['search']['value'] : null;
 
         $dataTable = [
             'draw'            => $get['draw'] ?? NULL,

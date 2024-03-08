@@ -33,7 +33,7 @@ const getAll = async () => {
         pageLength: 10,
         columns: [
             {
-                data: 'id_absen',
+                data: 'id_siswa',
                 visible: false
             },
             {
@@ -97,6 +97,7 @@ const getAll = async () => {
         // if(formSearch['s_member_name'].value)
 		tableMain.columns(1).search(formSearch['start_dt'].value).draw();
 		tableMain.columns(2).search(formSearch['end_dt'].value).draw();
+		tableMain.columns(3).search(formSearch['id_kelas'].value).draw();
     });
 
 	// search reset
