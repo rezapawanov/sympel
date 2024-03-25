@@ -242,6 +242,15 @@ $bln= date ("M");
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="<?=base_url().'kewirausahaan'?>" class="nav-link">
+              <i class="nav-icon fas fa-calculator text-info"></i>
+              <p>
+                Kewirausahaan
+              </p>
+            </a>
+          </li>
           
           <li class="nav-item has-treeview <?php if ($this->uri->segment(1) == 'nilai') echo 'active'; ?> treeview <?php if ($this->uri->segment(1) == 'nilai') echo 'menu-open'; ?>">
             <a href="#" class="nav-link">
