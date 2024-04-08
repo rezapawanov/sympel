@@ -107,6 +107,13 @@ $bln= date ("M");
                 </a>
               </li>
 
+        <li class="nav-item">
+                <a href="<?php echo base_url(); ?>Kewirausahaan" class="nav-link">
+                  <i class="fas fa-money-check-alt"></i>
+                  <p>Kewirausahaan</p>
+                </a>
+              </li>
+
 
               
         <li class="nav-item">

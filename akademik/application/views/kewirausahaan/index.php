@@ -26,13 +26,19 @@
           <div class=" col-12">
             <div class="card card-info card-outline">
               <div class="card-header">
-                <a class="btn btn-info btn-sm" href="<?php echo base_url(); ?>absen/absen_tambah"><i class="fa fa-plus"> </i> Tambah Data</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  Tambah
+                </button>
+
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-2">
                 <form name="form-search">
                   <div class="row mb-2">
                     <div class="col-6">
+                      <input type="hidden" name="id_siswa" value="<?=isset($id_siswa) ? $id_siswa : ''?>">
+
                       <label for="start_dt">Tanggal Awal</label>
                       <input type="date" name="start_dt" class="form-control" value="<?=date('Y-m-d', time())?>">
                     </div>
@@ -47,12 +53,14 @@
                 <table id="datatb" class="table table-bordered table-hover table-striped">
                   <thead>
                     <tr class="text-info">
-                      <th>No</th>
+                      <th>ID</th>
+                      <th>ID siswa</th>
                       <th>Tanggal</th>
                       <th>Nama Siswa</th>
-                      <th>Kelas</th>
-                      <th>Masuk</th>
-                      <th>Keluar</th>
+                      <th>Program Keahlian</th>
+                      <th>Nama Usaha</th>
+                      <th>Jenis Usaha</th>
+                      <th>Omset</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -72,4 +80,52 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <script src="<?=base_url('assets/js/_absen_harian.js')?>" defer></script>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="program_keahlian">Program Keahlian</label>
+              <input type="text" class="form-control" name="program_keahlian" placeholder="Program keahlian">
+            </div>
+
+            <div class="form-group">
+              <label for="nama_usaha">Nama Usaha</label>
+              <input type="text" class="form-control" name="nama_usaha" placeholder="Nama Usaha">
+            </div>
+
+            <div class="form-group">
+              <label for="jenis_usaha">Jenis Usaha</label>
+              <input type="text" class="form-control" name="jenis_usaha" placeholder="Jenis Usaha">
+            </div>
+
+            <div class="form-group">
+              <label for="nib">NIB</label>
+              <input type="text" class="form-control" name="nib" placeholder="Nib">
+            </div>
+
+            <div class="form-group">
+              <label for="omset">Omset</label>
+              <input type="number" class="form-control" name="omset" placeholder="Omset">
+            </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="save" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="<?=base_url('assets/js/_kewirausahaan.js')?>" defer></script>

@@ -4,27 +4,36 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Kewirausahaan_model extends CI_Model {
     
-    function getAll($limit=0, $offset=0, $filter=[]):array{
-        $query = "select masuk.id_siswa, masuk.tanggal_absen, masuk.masuk, keluar.keluar, ms.nama_siswa, mk.nama_kelas from (
-            select id_siswa, tanggal_absen, tahun_ajaran, min(waktu_absen) as masuk
-            from absen a
-            where a.keterangan = 'masuk'
-            group by id_siswa, tanggal_absen, tahun_ajaran
-            ) masuk
-            left join
-            (
-            select id_siswa, tanggal_absen, tahun_ajaran, max(waktu_absen) as keluar
-            from absen a
-            where a.keterangan = 'keluar'
-            group by id_siswa, tanggal_absen, tahun_ajaran
-            ) keluar on (keluar.id_siswa = masuk.id_siswa and keluar.tanggal_absen = masuk.tanggal_absen)
-            left join mst_siswa ms on ms.id_siswa = masuk.id_siswa
-            left join mst_kelas mk on mk.id_kelas = ms.id_kelas ";
-        $query .= "where masuk.tanggal_absen >= '2024-01-01' ";
-        $query .= "and masuk.tanggal_absen <= '2024-03-01' order by tanggal_absen, nama_siswa asc limit 10 offset 10;";
+    function getAll($limit=0, $offset=0, $filter=[]){
 
-        return [];
+        if(!empty($filter['start']))
+            $this->db->where('date(k.created_at) >=', $filter['start']);
+
+        if(!empty($filter['end']))
+            $this->db->where('date(k.created_at) <=', $filter['end']);
+
+        if(!empty($filter['id_siswa']))
+            $this->db->where('k.id_siswa', $filter['id_siswa']);
+        
+        $this->db->limit($limit)->offset($offset);
+        
+        $this->db->join('mst_siswa ms', 'ms.id_siswa = k.id_siswa');
+        return $this->db->get('trx_kewirausahaan k');
     }
 
+    function total_data($filter=[]){
+ 
+         if(!empty($filter['start']))
+             $this->db->where('date(k.created_at) >=', $filter['start']);
+ 
+         if(!empty($filter['end']))
+             $this->db->where('date(k.created_at) <=', $filter['end']);
+ 
+         if(!empty($filter['id_siswa']))
+             $this->db->where('k.id_siswa', $filter['id_siswa']);
+         
+         $this->db->join('mst_siswa ms', 'ms.id_siswa = k.id_siswa');
+         return $this->db->get('trx_kewirausahaan k')->num_rows();
+     }
 
 }
