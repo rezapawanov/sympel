@@ -533,7 +533,8 @@
             <div class="btn-group btn-group-sm float-right">
                 <a class="btn btn-danger float-right" href="<?php echo base_url() . 'siswa'; ?>"><i class="fa fa-undo">
                     </i> Kembali</a>
-                <button class="btn bg-navy float-right" onclick="printDiv('cetak')"><i class="fa fa-print"
+                <!-- <button class="btn bg-navy float-right cetak-pembayaran" onclick="printDiv('cetak')"><i class="fa fa-print" -->
+                <button class="btn bg-navy float-right cetak-pembayaran"><i class="fa fa-print"
                         target="_blank"> </i> Cetak</button>
 
             </div>
@@ -565,4 +566,10 @@
             }
         });
     } 
+
+    $('.cetak-pembayaran').on('click', e => {
+        console.log('tessss');
+        let id_ppdb = <?= $id_ppdb ?>;
+        window.location.href = `<?=base_url()?>`+`siswa/cetak_pembayaran/`+id_ppdb
+    });
 </script>

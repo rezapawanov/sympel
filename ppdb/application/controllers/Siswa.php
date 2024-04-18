@@ -212,4 +212,13 @@ class siswa extends CI_Controller
         $this->session->set_flashdata("success", "Hapus Data Kelulusan Berhasil");
         redirect("siswa");  
     }
+
+    public function cetak_pembayaran($id = ''){
+        $get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+        $d['nama_sekolah'] = $get->nama_sekolah;
+        $d['alamat_sekolah'] = $get->alamat;
+        $d['website'] = $get->website;
+
+        $this->load->view('siswa/cetak_pembayaran', $d);
+    }
 }
