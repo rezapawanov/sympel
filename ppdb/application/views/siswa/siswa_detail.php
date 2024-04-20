@@ -553,6 +553,14 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+    <?php if($this->session->flashdata('failed_print')){ ?>
+            Swal.fire({
+                title: "Gagal!",
+                text: `<?=$this->session->flashdata('failed_print')?>`,
+                icon: "error"
+            });
+    <?php } ?>
+
     function simpanPembayaran() {
         let id_ppdb = <?= $id_ppdb ?>
 
