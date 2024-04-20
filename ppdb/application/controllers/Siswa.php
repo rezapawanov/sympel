@@ -106,6 +106,18 @@ class siswa extends CI_Controller
         $d['total_bayar'] = $total_bayar;
         $d['sisa'] = $d['nominal_harus_bayar'] - $total_bayar;
 
+        $d['uang_dana_bulanan'] = (!empty($pembayaran)) ? $pembayaran[0]['uang_dana_bulanan'] : 0;
+        $d['uang_dana_tahunan'] = (!empty($pembayaran)) ? $pembayaran[0]['uang_dana_tahunan'] : 0;
+        $d['atribut_topi_dasi_dll'] = (!empty($pembayaran)) ? $pembayaran[0]['atribut_topi_dasi_dll'] : 0;
+        $d['pakaian_olahraga'] = (!empty($pembayaran)) ? $pembayaran[0]['pakaian_olahraga'] : 0;
+        $d['pakaian_batik'] = (!empty($pembayaran)) ? $pembayaran[0]['pakaian_batik'] : 0;
+        $d['pakaian_koko'] = (!empty($pembayaran)) ? $pembayaran[0]['pakaian_koko'] : 0;
+        $d['program_keagamaan'] = (!empty($pembayaran)) ? $pembayaran[0]['program_keagamaan'] : 0;
+        $d['jaket_almamater_sekolah'] = (!empty($pembayaran)) ? $pembayaran[0]['jaket_almamater_sekolah'] : 0;
+        $d['buku_sampul_rapor_sttb'] = (!empty($pembayaran)) ? $pembayaran[0]['buku_sampul_rapor_sttb'] : 0;
+        $d['kegiatan_perkemahan_terpadu'] = (!empty($pembayaran)) ? $pembayaran[0]['kegiatan_perkemahan_terpadu'] : 0;
+        $d['notes'] = (!empty($pembayaran)) ? $pembayaran[0]['notes'] : 0;
+
         $this->load->view('top', $d);
         $this->load->view('menu');
         $this->load->view('siswa/siswa_detail');
@@ -147,6 +159,17 @@ class siswa extends CI_Controller
                 'nominal_harus_bayar' => $post['nominal_harus_dibayar'],
                 'bayar' => $post['bayar'],
                 'created_at' => date('Y-m-d H:i:s', time()),
+                'uang_dana_bulanan' => $post['uang_dana_bulanan'],
+                'uang_dana_tahunan' => $post['uang_dana_tahunan'],
+                'atribut_topi_dasi_dll' => $post['atribut_topi_dasi_dll'],
+                'pakaian_olahraga' => $post['pakaian_olahraga'],
+                'pakaian_batik' => $post['pakaian_batik'],
+                'pakaian_koko' => $post['pakaian_koko'],
+                'program_keagamaan' => $post['program_keagamaan'],
+                'jaket_almamater_sekolah' => $post['jaket_almamater_sekolah'],
+                'buku_sampul_rapor_sttb' => $post['buku_sampul_rapor_sttb'],
+                'kegiatan_perkemahan_terpadu' => $post['kegiatan_perkemahan_terpadu'],
+                'sisa_pembayaran' => $post['sisa_pembayaran'],
             ];
 
             $insert = $this->db->insert('ppdb_pembayaran', $data);
@@ -215,9 +238,31 @@ class siswa extends CI_Controller
 
     public function cetak_pembayaran($id = ''){
         $get = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
+
         $d['nama_sekolah'] = $get->nama_sekolah;
         $d['alamat_sekolah'] = $get->alamat;
         $d['website'] = $get->website;
+
+        $ppdb = $this->db->where('id_ppdb', $id)->get('ppdb_siswa')->row();
+        $siswa = $this->db->where('nisn', $ppdb->nik)->get('mst_siswa')->row();
+        $pembayaran = $this->db->where('id_ppdb', $ppdb->id_ppdb)->order_by('created_at', 'DESC')->get('ppdb_pembayaran')->result();
+
+        $d['nama_siswa'] = $siswa->nama_siswa;
+
+        $d['nominal_harus_bayar'] = $pembayaran[0]->nominal_harus_bayar;
+        $d['bayar'] = $pembayaran[0]->bayar;
+        $d['kembalian'] = $d['nominal_harus_bayar'] - $d['bayar'];
+        $d['uang_dana_bulanan'] = (!empty($pembayaran)) ? $pembayaran[0]->uang_dana_bulanan : 0;
+        $d['uang_dana_tahunan'] = (!empty($pembayaran)) ? $pembayaran[0]->uang_dana_tahunan : 0;
+        $d['atribut_topi_dasi_dll'] = (!empty($pembayaran)) ? $pembayaran[0]->atribut_topi_dasi_dll : 0;
+        $d['pakaian_olahraga'] = (!empty($pembayaran)) ? $pembayaran[0]->pakaian_olahraga : 0;
+        $d['pakaian_batik'] = (!empty($pembayaran)) ? $pembayaran[0]->pakaian_batik : 0;
+        $d['pakaian_koko'] = (!empty($pembayaran)) ? $pembayaran[0]->pakaian_koko : 0;
+        $d['program_keagamaan'] = (!empty($pembayaran)) ? $pembayaran[0]->program_keagamaan : 0;
+        $d['jaket_almamater_sekolah'] = (!empty($pembayaran)) ? $pembayaran[0]->jaket_almamater_sekolah : 0;
+        $d['buku_sampul_rapor_sttb'] = (!empty($pembayaran)) ? $pembayaran[0]->buku_sampul_rapor_sttb : 0;
+        $d['kegiatan_perkemahan_terpadu'] = (!empty($pembayaran)) ? $pembayaran[0]->kegiatan_perkemahan_terpadu : 0;
+        $d['notes'] = $pembayaran[0]->notes;
 
         $this->load->view('siswa/cetak_pembayaran', $d);
     }

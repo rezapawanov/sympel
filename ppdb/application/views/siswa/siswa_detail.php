@@ -418,42 +418,42 @@
                                                     <td style="font-weight: bold;">Uang Dana Bulanan (UDB Bulanan)</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="uang_dana_bulanan" value="<?= (isset($uang_dana_bulanan)) ? str_replace(',', '.', number_format($uang_dana_bulanan)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: bold;">Uang Dana Tahunan (UDT Pertahun)</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="uang_dana_tahunan" value="<?= (isset($uang_dana_tahunan)) ? str_replace(',', '.', number_format($uang_dana_tahunan)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: bold;">Atribut, Topi, Dasi, Sabuk, Dll</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="atribut_topi_dasi_dll" value="<?= (isset($atribut_topi_dasi_dll)) ? str_replace(',', '.', number_format($atribut_topi_dasi_dll)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: bold;">Pakaian Olahraga</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="pakaian_olahraga" value="<?= (isset($pakaian_olahraga)) ? str_replace(',', '.', number_format($pakaian_olahraga)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: bold;">Pakaian Batik</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="pakaian_batik" value="<?= (isset($pakaian_batik)) ? str_replace(',', '.', number_format($pakaian_batik)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: bold;">Pakaian Koko/Muslim-Muslimah</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="pakaian_koko" value="<?= (isset($pakaian_koko)) ? str_replace(',', '.', number_format($pakaian_koko)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -461,14 +461,14 @@
                                                         & lainnya)</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="program_keagamaan" value="<?= (isset($program_keagamaan)) ? str_replace(',', '.', number_format($program_keagamaan)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: bold;">Jaket Almamater Sekolah</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="jaket_almamater_sekolah" value="<?= (isset($jaket_almamater_sekolah)) ? str_replace(',', '.', number_format($jaket_almamater_sekolah)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -476,14 +476,14 @@
                                                     </td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="buku_sampul_rapor_sttb" value="<?= (isset($buku_sampul_rapor_sttb)) ? str_replace(',', '.', number_format($buku_sampul_rapor_sttb)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="font-weight: bold;">Kegiatan Perkemahan Terpadu (Kepramukaan & Keagamaan)</td>
                                                     <td>:</td>
                                                     <td><input type="text" class="form-control"
-                                                            name="nominal_harus_dibayar" value="0">
+                                                            name="kegiatan_perkemahan_terpadu" value="<?= (isset($kegiatan_perkemahan_terpadu)) ? str_replace(',', '.', number_format($kegiatan_perkemahan_terpadu)) : 0 ?>">
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -500,6 +500,11 @@
                                                             readonly
                                                             value="<?= (isset($sisa)) ? str_replace(',', '.', number_format($sisa)) : 0 ?>">
                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight: bold;">Notes</td>
+                                                    <td>:</td>
+                                                    <td><input type="text" class="form-control" name="notes" value="<?= (isset($notes)) ? $notes  : '' ?>"></td>
                                                 </tr>
                                                 <?php if ($status == '0') { ?>
                                                 <tfoot>
@@ -545,6 +550,7 @@
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     function simpanPembayaran() {
@@ -557,11 +563,30 @@
                 id_ppdb: id_ppdb,
                 nominal_harus_dibayar: $('input[name="nominal_harus_dibayar"]').val(),
                 bayar: $('input[name="bayar"]').val(),
+                uang_dana_bulanan: $('input[name="uang_dana_bulanan"]').val(),
+                uang_dana_tahunan: $('input[name="uang_dana_tahunan"]').val(),
+                atribut_topi_dasi_dll: $('input[name="atribut_topi_dasi_dll"]').val(),
+                pakaian_olahraga: $('input[name="pakaian_olahraga"]').val(),
+                pakaian_batik: $('input[name="pakaian_batik"]').val(),
+                pakaian_koko: $('input[name="pakaian_koko"]').val(),
+                program_keagamaan: $('input[name="program_keagamaan"]').val(),
+                jaket_almamater_sekolah: $('input[name="jaket_almamater_sekolah"]').val(),
+                buku_sampul_rapor_sttb: $('input[name="buku_sampul_rapor_sttb"]').val(),
+                kegiatan_perkemahan_terpadu: $('input[name="kegiatan_perkemahan_terpadu"]').val(),
+                sisa_pembayaran: $('input[name="sisa_pembayaran"]').val(),
             },
             dataType: "JSON",
             success: function (response) {
                 if (response.success == true) {
-                    window.location.href = '<?= base_url('siswa/siswa_detail/') ?>' + id_ppdb;
+                    Swal.fire({
+                        title: "Sukses!",
+                        text: "Data Berhasil disimpan!",
+                        icon: "success"
+                    });
+
+                    setInterval(() => {
+                        window.location.href = '<?= base_url('siswa/siswa_detail/') ?>' + id_ppdb;
+                    }, 1500);
                 }
             }
         });
