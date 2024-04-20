@@ -247,7 +247,7 @@ class siswa extends CI_Controller
         $siswa = $this->db->where('nisn', $ppdb->nik)->get('mst_siswa')->row();
         $pembayaran = $this->db->where('id_ppdb', $ppdb->id_ppdb)->order_by('created_at', 'DESC')->get('ppdb_pembayaran')->result();
 
-        $d['nama_siswa'] = $siswa->nama_siswa;
+        $d['nama_siswa'] = $ppdb->nama_siswa;
 
         $d['nominal_harus_bayar'] = $pembayaran[0]->nominal_harus_bayar;
         $d['bayar'] = $pembayaran[0]->bayar;
