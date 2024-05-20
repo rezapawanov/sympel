@@ -36,6 +36,7 @@ class siswa extends CI_Controller
             $d['nama_sekolah'] = $get->nama_sekolah;
             $d['alamat_sekolah'] = $get->alamat;
             $d['website'] = $get->website;
+            $d['akreditasi'] = $get->akreditasi;
         $get = $this->db->query("SELECT * FROM ppdb_siswa WHERE id_ppdb = '$id_ppdb'")->row();
         $d['id_ppdb'] = $get->id_ppdb;
         $d['no_pendaftaran'] = $get->no_pendaftaran;
@@ -102,7 +103,7 @@ class siswa extends CI_Controller
         }else{
             $d['nominal_harus_bayar'] = 0;
         }
-        
+
         $d['total_bayar'] = $total_bayar;
         $d['sisa'] = $d['nominal_harus_bayar'] - $total_bayar;
 
@@ -241,7 +242,15 @@ class siswa extends CI_Controller
 
         $d['nama_sekolah'] = $get->nama_sekolah;
         $d['alamat_sekolah'] = $get->alamat;
+        $d['kelurahan'] = $get->kelurahan;
+        $d['kecamatan'] = $get->kecamatan;
+        $d['kabupaten'] = $get->kabupaten;
+        $d['kodepos'] = $get->kodepos;
         $d['website'] = $get->website;
+        $d['akreditasi'] = $get->akreditasi;
+        $d['alamat'] = $get->alamat;
+        $d['email'] = $get->email;
+        $d['logo'] = $get->logo;
 
         $ppdb = $this->db->where('id_ppdb', $id)->get('ppdb_siswa')->row();
         $siswa = $this->db->where('nisn', $ppdb->nik)->get('mst_siswa')->row();
