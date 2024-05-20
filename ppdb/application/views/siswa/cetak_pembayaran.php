@@ -42,13 +42,14 @@
         <div class="col-8 ps-5">
             <div class="d-flex flex-row">
                 <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3 d-inline-flex px-5">
-                    <img src="<?=base_url('upload/logo-ashabulyamin.jpg')?>" alt="" width="125" height="125">
+                    
+                    <img src="<?=str_replace('/ppdb', '', base_url()).'upload/'.$logo?>" alt="" width="100" height="100">
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-9 col-sm-9 text-center kop-kwitansi">
                     <p class="fw-bold" style="font-size: 20px;"><?=$nama_sekolah?></p>
-                    <p class="fw-bold">Terakreditasi A</p>
-                    <p class="lh-1">Jl. KH. Saleh No. 57 A Pabuaran Telp/Fax. 0263 - 267740 Cianjur 43213</p>
-                    <p class="lh-1">E-mail: smk_hass@yahoo.co.id Website: www.smkhassashabulyamin.sch.id</p>
+                    <p class="fw-bold">Terakreditasi <?=$akreditasi?></p>
+                    <p class="lh-1"><?=$alamat?> <?=$kelurahan?>, <?=$kecamatan?>, <?=$kabupaten?>, Kode Pos: <?=$kodepos?></p>
+                    <p class="lh-1">E-mail: <?=$email?></p>
                 </div>
             </div>
             <div class="line-header"></div>
@@ -105,7 +106,7 @@
                 </div>
 
                 <div class="col-6 text-center">
-                    <p>Cianjur, <?=date('d-m-Y H:i')?></p>
+                    <p><?=$kabupaten?>, <?=date('d-m-Y H:i')?></p>
                     <p>Penerima</p>
                     <br><br>
                     <div class="text-center">
