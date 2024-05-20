@@ -180,6 +180,16 @@
                 <div class="col">- Al-quran, Sampul Rapor</div>
                 <div class="col text-right">Rp <?=number_format($buku_sampul_rapor_sttb)?></div>
             </div>
+            
+            <div class="row">
+                <div class="col">- Program keagamaan</div>
+                <div class="col text-right">Rp <?=number_format($program_keagamaan)?></div>
+            </div>
+
+            <div class="row">
+                <div class="col">- Kegiatan Perkemahan Terpadu</div>
+                <div class="col text-right">Rp <?=number_format($kegiatan_perkemahan_terpadu)?></div>
+            </div>
 
             <div class="row">
                 <div class="col">- PTS / UTS</div>
@@ -221,7 +231,7 @@
     </div>
 
     <script>
-        document.querySelector('.terbilang').innerHTML = terbilang(150000) + ` Rupiah`;
+        document.querySelector('.terbilang').innerHTML = terbilang(<?=$bayar?>) + ` Rupiah`;
     </script>
 
 </body>
