@@ -377,6 +377,7 @@ class siswa extends CI_Controller
 		$d['status_sekolah'] = "";
 		$d['alamat_sekolah'] = "";
 		$d['tahun_lulus'] = "";
+		$d['rfid'] = "";
 
 		$this->load->view('top', $d);
 		$this->load->view('menu');
