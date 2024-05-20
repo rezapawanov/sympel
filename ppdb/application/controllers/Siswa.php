@@ -91,7 +91,7 @@ class siswa extends CI_Controller
         $d['penghasilan_wali'] = $get->penghasilan_wali;
         $d['status'] = $get->status;
 
-        $pembayaran = $this->db->where('id_ppdb', $id_ppdb)->get('ppdb_pembayaran')->result_array();
+        $pembayaran = $this->db->where('id_ppdb', $id_ppdb)->order_by('id', 'DESC')->get('ppdb_pembayaran')->result_array();
 
         $total_bayar = 0;
         if($pembayaran){
