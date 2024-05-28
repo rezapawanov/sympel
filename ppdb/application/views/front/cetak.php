@@ -7,15 +7,6 @@
         <div class="card-body">
         <ul>
             <li><code class="highlighter-rouge text-navy">Silakan Download Formulir Terlebih dahulu.<a class="btn bg-maroon btn-xs" href="<?php echo base_url().'portal/download/'.$no_pendaftaran; ?>" target="_blank"><i class="fas fa-file-pdf"></i> Download Formulir Pendaftaran</a></code></li>
-            <li><code class="highlighter-rouge text-navy">Silakan Melakukan Pembayaran Pendaftaran Sebesar <b class="text-danger">Rp. 150.000,-</b> ke <b class="text-info">Nomor Rekening :</b>
-                <ul><li class="text-info"><b>BANK ABC</b></li>
-                    <li class="text-info"><b>13456789</b></li>
-                    <li class="text-info"><b>An. ASIS</b></li>
-                </ul>
-        
-                <li>Silakan Lampirkan Bukti Pembayaran </li>
-                <li>Informasi Lebih Lanjut bisa hubungi Admin.</li>
-                </code></li>
 
         </ul>
         </div>
