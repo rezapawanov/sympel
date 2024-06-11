@@ -43,7 +43,7 @@
             <div class="d-flex flex-row">
                 <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3 d-inline-flex px-5">
                     
-                    <img src="<?=str_replace('/ppdb', '', base_url()).'upload/'.$logo?>" alt="" width="100" height="100">
+                    <img src="<?=str_replace('/ppdb', '', base_url()).'master/upload/'.$logo?>" alt="" width="100" height="100">
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-9 col-sm-9 text-center kop-kwitansi">
                     <p class="fw-bold" style="font-size: 20px;"><?=$nama_sekolah?></p>
