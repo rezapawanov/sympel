@@ -148,17 +148,20 @@ class Portal extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if (!empty($_FILES['foto']['name'])) {
-            if ($this->upload->do_upload("foto")) {
-                $data         = $this->upload->data();
-                $in['foto'] = $data['file_name'];
-                $this->db->insert("ppdb_siswa", $in);
-                $this->session->set_flashdata("success", "Berhasil melakukan pendaftaran");
-                redirect("portal/cetak/". $in['no_pendaftaran']);
-            } else {
-                $this->session->set_flashdata("error", "' . $this->upload->display_errors() . '");
-                redirect("portal/formulir'");
-            }
+        // if (!empty($_FILES['foto']['name'])) {
+        if ($this->upload->do_upload("foto")) {
+            $data           = $this->upload->data();
+            $in['foto']     = $data['file_name'];
+        } else {
+            // $this->session->set_flashdata("error", "' . $this->upload->display_errors() . '");
+            // redirect("portal/formulir'");
+        }
+                
+        $insert = $this->db->insert("ppdb_siswa", $in);
+
+        if($insert){
+            $this->session->set_flashdata("success", "Berhasil melakukan pendaftaran");
+            redirect("portal/cetak/". $in['no_pendaftaran']);
         } else {
             $this->session->set_flashdata("error", "' . $this->upload->display_errors() . '");
             redirect("portal/formulir'");

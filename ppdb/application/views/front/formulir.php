@@ -216,11 +216,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Foto <text class="text-danger">*</text></label>
+                    <label class="col-sm-3 col-form-label">Foto <text class="text-danger"></text></label>
                     <div class="col-sm-9">
                         <div class="input-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="exampleInputFile" name="foto" required>
+                                <input type="file" class="custom-file-input" id="exampleInputFile" name="foto">
                                 <label class="custom-file-label" for="exampleInputFile">Cari Foto</label>
                             </div>
                         </div>
