@@ -28,6 +28,9 @@
             <div class="card card-info card-outline">
               <!-- /.card-header -->
               <div class="card-body table-responsive p-2">
+                <div class="row justify-content-end my-3 mr-1">
+                  <a href="<?=base_url('siswa/create_csv')?>" target="_blank" class="btn btn-primary export">Export</a>
+                </div>
                 <table id="datatb" class="table table-bordered table-hover table-striped">
                   <thead>
                     <tr class="text-info bg-navy">
@@ -86,3 +89,7 @@
     </section>
     <!-- /.content -->
   </div>
+
+  <script>
+  
+  </script>

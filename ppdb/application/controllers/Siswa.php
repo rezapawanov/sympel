@@ -281,4 +281,83 @@ class siswa extends CI_Controller
 
         $this->load->view('siswa/cetak_pembayaran', $d);
     }
+
+    function create_csv(){
+        $ppdb = $this->db->select(' 
+        p.no_pendaftaran, 
+        p.nik, 
+        p.jenis_pendaftaran, 
+        p.jalur_pendaftaran, 
+        p.hobi, 
+        p.cita_cita, 
+        p.nama_siswa, 
+        p.jenis_kelamin, 
+        p.tempat_lahir, 
+        p.tanggal_lahir, 
+        p.agama, 
+        p.alamat, 
+        p.rt, 
+        p.rw, 
+        p.dusun, 
+        p.kelurahan, 
+        p.kabupaten, 
+        p.kode_pos, 
+        p.tempat_tinggal, 
+        p.transportasi, 
+        p.no_hp, 
+        p.email, 
+        p.kewarganegaraan, 
+        p.foto, 
+        p.tinggi_badan, 
+        p.berat_badan, 
+        p.jarak_ke_sekolah, 
+        p.waktu_tempuh_ke_sekolah, 
+        p.jumlah_saudara, 
+        p.asal_sekolah, 
+        p.alamat_sekolah_asal, 
+        p.nama_ayah, 
+        p.tahun_lahir_ayah, 
+        p.pendidikan_ayah, 
+        p.pekerjaan_ayah, 
+        p.penghasilan_ayah, 
+        p.nama_ibu, 
+        p.tahun_lahir_ibu, 
+        p.pendidikan_ibu, 
+        p.pekerjaan_ibu, 
+        p.penghasilan_ibu, 
+        p.nama_wali, 
+        p.tahun_lahir_wali, 
+        p.pendidikan_wali, 
+        p.pekerjaan_wali, 
+        p.penghasilan_wali, 
+        case 
+            when p.status = 0 then \'Menunggu Konfirmasi\'
+            when p.status = 1 then \'Dikonfirmasi\'
+        end as status, 
+        p.tanggal_daftar, 
+        p.status_pembayaran,
+        mc.condition_name as jurusan')
+                ->from('ppdb_siswa p')
+                ->join('mst_conditions mc', 'mc.id=p.jurusan', 'left')
+                ->get()->result_array();
+        
+        if (!file_exists('assets/files/ppdb/')) {
+            mkdir('assets/files/ppdb/', 0777, true);
+        }
+        
+        $fp = fopen('assets/files/ppdb/file.csv', 'w');
+
+        $bFirstRowHeader = true;
+        foreach ($ppdb as $key => $fields) {
+            if ($bFirstRowHeader){
+                fputcsv($fp, array_keys($fields));
+                $bFirstRowHeader = false;
+            }
+            fputcsv($fp, $fields);
+        }
+
+        fclose($fp);
+        echo "<script>document.location.href = '".base_url('assets/files/ppdb/file.csv')."'</script>";
+    }
+    
 }
