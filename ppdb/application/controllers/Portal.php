@@ -8,6 +8,7 @@ class Portal extends CI_Controller
     {
         $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
         $d['nama_sekolah'] = $sekolah->nama_sekolah;
+        $d['jurusans'] = $this->db->where('sekolah_id', $sekolah->id)->where('type', 'jurusan')->get('mst_conditions')->result_array();
         $this->load->view('front/top',$d);
         $this->load->view('front/formulir');
         $this->load->view('front/sidebar');
@@ -90,6 +91,7 @@ class Portal extends CI_Controller
         $in['jalur_pendaftaran'] = $this->input->post("jalur_pendaftaran");
         $in['hobi'] = $this->input->post("hobi");
         $in['cita_cita'] = $this->input->post("cita_cita");
+        $in['jurusan'] = $this->input->post("jurusan");
 
         $in['nama_siswa'] = $this->input->post("nama_siswa");
         $in['jenis_kelamin'] = $this->input->post("jenis_kelamin");
@@ -170,7 +172,7 @@ class Portal extends CI_Controller
 
     public function cetak($no_pendaftaran)
     {
-        $cek = $this->db->query("SELECT * FROM ppdb_siswa WHERE no_pendaftaran = '$no_pendaftaran'");
+        $cek = $this->db->query("SELECT p.*, mc.condition_name FROM ppdb_siswa p left join mst_conditions mc on (p.jurusan=mc.id) WHERE no_pendaftaran = '$no_pendaftaran'");
         if ($cek->num_rows() > 0) {
             $get = $cek->row();
 
@@ -180,6 +182,7 @@ class Portal extends CI_Controller
             $d['jalur_pendaftaran'] = $get->jalur_pendaftaran;
             $d['hobi'] = $get->hobi;
             $d['cita_cita'] = $get->cita_cita;
+            $d['jurusan'] = $get->condition_name;
 
             $d['nama_siswa'] = $get->nama_siswa;
             $d['jenis_kelamin'] = $get->jenis_kelamin;
@@ -240,7 +243,7 @@ class Portal extends CI_Controller
     public function download($no_pendaftaran = "")
     {
         $sekolah = $this->db->query("SELECT * FROM mst_sekolah WHERE id = 1")->row();
-        $cek = $this->db->query("SELECT * FROM ppdb_siswa WHERE no_pendaftaran = '$no_pendaftaran'");
+        $cek = $this->db->query("SELECT p.*, mc.condition_name FROM ppdb_siswa p left join mst_conditions mc on (p.jurusan=mc.id) WHERE no_pendaftaran = '$no_pendaftaran'");
         if ($cek->num_rows() > 0) {
             $get = $cek->row();
             $d['nama_sekolah'] = $sekolah->nama_sekolah;
@@ -253,6 +256,7 @@ class Portal extends CI_Controller
             $d['jalur_pendaftaran'] = $get->jalur_pendaftaran;
             $d['hobi'] = $get->hobi;
             $d['cita_cita'] = $get->cita_cita;
+            $d['jurusan'] = $get->condition_name;
 
             $d['nama_siswa'] = $get->nama_siswa;
             $d['jenis_kelamin'] = $get->jenis_kelamin;

@@ -43,6 +43,17 @@
                         <input type="text" class="form-control"  name="cita_cita" placeholder="Cita-cita">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Minat Jurusan <text class="text-danger">*</text></label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="jurusan" id="jurusan" required>
+                            <option value="">-- Pilih Jurusan --</option>
+                            <?php foreach($jurusans as $val): ?>
+                                <option value="<?=$val['id']?>"><?=$val['condition_name']?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                </div>
                 <!-- DATA PRIBADI -->
                 <b>DATA PRIBADI</b>
                 <div class="card-orange card-outline mb-2"></div>

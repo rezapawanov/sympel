@@ -78,6 +78,11 @@
                                             <td><?php echo $jalur_pendaftaran; ?></td>
                                         </tr>
                                         <tr>
+                                            <td style="font-weight:bold;">Minat Jurusan</td>
+                                            <td>:</td>
+                                            <td><?php echo $jurusan; ?></td>
+                                        </tr>
+                                        <tr>
                                             <td style="font-weight:bold;">Nama Siswa</td>
                                             <td>:</td>
                                             <td><?php echo $nama_siswa; ?></td>
