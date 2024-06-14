@@ -211,9 +211,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">E-mail Pribadi <text class="text-danger">*</text></label>
+                    <label class="col-sm-3 col-form-label">E-mail Pribadi</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control"  placeholder="E-mail Pribadi" name="email" required>
+                        <input type="email" class="form-control"  placeholder="E-mail Pribadi" name="email">
                     </div>
                 </div>
                 <div class="form-group row">
